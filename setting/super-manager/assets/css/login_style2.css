@@ -1,0 +1,18 @@
+html, body { font: 14px 'Microsoft YaHei', Arial, Lucida Grande, Tahoma, sans-serif; background: #fff;overflow-x:hidden }
+#login { width: auto; padding: 0; }
+#login h1 { background: #f1f1f1; padding: 8% 0 2% 0; margin-bottom: 3%; }
+#login label{width:100%}
+#login .fullwidth { margin-top: -3%; background: #00a0d2; color: #fff; padding: 20px 0; text-align: center }
+#login p, #login form, #login #login_error, .login .copyright { width: 480px; box-shadow: none; margin: auto!important }
+#login .message { width: 100%; padding-left: 15px; margin-top: -3%!important; text-align: center; background: #00C2FF; color: #fff }
+#login #login_error { width: 100%; padding: 15px; text-align: center; background: #F7837E; color: #fff }
+.login #nav { padding: 24px 0 10px 0; }
+.login .copyright { color: #ccc; margin-top: 50px!important; }
+/** 登录DIV **/
+#login form {padding: 0; }
+.login #backtoblog, .login #nav { padding-left: 0; }
+@media (max-width: 767px) {
+#login form {padding: 26px 24px 46px;}	
+#login p, #login form, #login #login_error, .login .copyright { width: auto }
+.login #nav,.login .copyright {padding: 0 24px;}   
+}
