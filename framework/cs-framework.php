@@ -52,8 +52,9 @@ if( ! function_exists( 'cs_framework_init' ) && ! class_exists( 'CSFramework' ) 
     defined( 'CS_ACTIVE_SHORTCODE' )  or  define( 'CS_ACTIVE_SHORTCODE',  true );
     defined( 'CS_ACTIVE_CUSTOMIZE' )  or  define( 'CS_ACTIVE_CUSTOMIZE',  true );
     // 自定义
+    defined( 'CS_ACTIVE_ADMIN' )      or  define( 'CS_ACTIVE_ADMIN',      true );
     defined( 'CS_ACTIVE_MANAGER' )    or  define( 'CS_ACTIVE_MANAGER',    true );
-    defined( 'CS_ACTIVE_PLUG' )       or  define( 'CS_ACTIVE_PLUG',    true );
+    defined( 'CS_ACTIVE_PLUG' )       or  define( 'CS_ACTIVE_PLUG',       true );
 
     // helpers
     cs_locate_template( 'functions/deprecated.php'     );
@@ -73,6 +74,7 @@ if( ! function_exists( 'cs_framework_init' ) && ! class_exists( 'CSFramework' ) 
     cs_locate_template( 'classes/shortcode.class.php'  );
     cs_locate_template( 'classes/customize.class.php'  );
     //自定义
+    cs_locate_template ( 'classes/admin.class.php'   );
     cs_locate_template ( 'classes/manager.class.php'   );
     cs_locate_template ( 'classes/plug.class.php'      );
 
@@ -83,6 +85,7 @@ if( ! function_exists( 'cs_framework_init' ) && ! class_exists( 'CSFramework' ) 
     cs_locate_template( 'config/shortcode.config.php'  );
     cs_locate_template( 'config/customize.config.php'  );
     //自定义
+    cs_locate_template ( 'config/admin.config.php'    );
     cs_locate_template ( 'config/manager.config.php'    );
     cs_locate_template ( 'config/plug.config.php'    );
 
