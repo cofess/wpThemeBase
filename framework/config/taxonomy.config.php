@@ -11,13 +11,19 @@ $options     = array();
 // -----------------------------------------
 $options[]   = array(
   'id'       => '_custom_taxonomy_options',
-  'taxonomy' => 'cpt-category', // category, post_tag or your custom taxonomy name
+  'taxonomy' => 'category', // category, post_tag or your custom taxonomy name
   'fields'   => array(
 
     array(
-      'id'    => 'section_1_text',
-      'type'  => 'text',
-      'title' => 'Text Field',
+      'id'    => 'thumbnail',
+      'type'  => 'upload',
+      'title' => __('维护页面LOGO','CS_TEXTDOMAIN'),
+      'settings'      => array(
+        'upload_type'  => 'image',
+        'button_title' => __('上传','CS_TEXTDOMAIN'),
+        'frame_title'  => __('选择图像','CS_TEXTDOMAIN'),
+        'insert_title' => __('使用图像','CS_TEXTDOMAIN'),
+      ),
     ),
 
     array(

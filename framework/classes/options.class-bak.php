@@ -237,67 +237,6 @@ abstract class CSFramework_Options extends CSFramework_Abstract {
     $query_args = ( isset( $this->field['query_args'] ) ) ? $this->field['query_args'] : array();
 
     switch( $type ) {
-      //自定义 start
-      case 'roles':
-      case 'role':
-    
-      global $wp_roles;
-        $options = $wp_roles->get_names();
-
-      break;
-    
-      case 'sidebars':
-      case 'sidebar':
-    
-      global $wp_registered_sidebars;
-        $sidebars = $wp_registered_sidebars;
-
-        if ( ! is_wp_error( $sidebars ) && ! empty( $sidebars ) ) {
-          foreach ( $sidebars as $sidebar => $value ) {
-            $options[$sidebar] = $value['name'];
-          }
-        }
-
-      break;
-    
-      case 'menus':
-      case 'menu':
-
-        $menus = wp_get_nav_menus( $query_args );
-
-        if ( ! is_wp_error( $menus ) && ! empty( $menus ) ) {
-          foreach ( $menus as $menu ) {
-            $options[$menu->term_id] = $menu->name;
-          }
-        }
-
-      break;
-    
-      case 'post_types':
-      case 'post_type':   
-
-        global $wp_post_types;
-        $defaults   = array(
-            'public'              => true,
-            'exclude_from_search' => false,
-        );
-        $args       = wp_parse_args( $query_args, $defaults );
-        $output     = 'names';
-        $operator   = 'and';
-        $post_types = get_post_types( $args, $output, $operator );        
-
-        if ( ! is_wp_error( $post_types ) && ! empty( $post_types ) ) {
-          foreach ( $post_types as $post_type ) {     
-            if ( isset ( $wp_post_types[ $post_type ]->labels->menu_name ) ) {
-              $options[$post_type] = $wp_post_types[ $post_type ]->labels->menu_name;
-            } else {
-              $options[$post_type] = ucfirst( $post_type );
-            }
-          }
-        }   
-
-      break;
-      //自定义 end 
 
       case 'pages':
       case 'page':
