@@ -2,12 +2,13 @@
 /**
  * Main Function of Yiwell WordPress Theme
  *
- * @package   Yiwell
- * @version   1.0.0
- * @author    Lony <841995980@qq.com>
- * @copyright Copyright (c) 2014-2016, yiwell
- * @license   http://opensource.org/licenses/gpl-2.0.php GPL v2 or later
- * @link      http://www.yiwell.com
+ * Package:       Yiwell
+ * Version:       1.0.0
+ * Author:        Lony <841995980@qq.com>
+ * Author URI:    http://www.yiwell.com
+ * Text Domain:   CS_TEXTDOMAIN
+ * License:       http://opensource.org/licenses/gpl-2.0.php GPL v2 or later
+ * Copyright:     Copyright (c) 2014-2016, yiwell
 **/
  
 /* File Security Check */ 

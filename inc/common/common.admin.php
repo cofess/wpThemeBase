@@ -2,17 +2,30 @@
 /**
  * Main Function of Yiwell WordPress Theme
  *
- * @package   Yiwell
- * @version   1.0.0
- * @author    Lony <841995980@qq.com>
- * @copyright Copyright (c) 2014-2016, yiwell
- * @license   http://opensource.org/licenses/gpl-2.0.php GPL v2 or later
- * @link      http://www.yiwell.com
+ * Package:       Yiwell
+ * Version:       1.0.0
+ * Author:        Lony <841995980@qq.com>
+ * Author URI:    http://www.yiwell.com
+ * Text Domain:   CS_TEXTDOMAIN
+ * License:       http://opensource.org/licenses/gpl-2.0.php GPL v2 or later
+ * Copyright:     Copyright (c) 2014-2016, yiwell
 **/
 
 /* Cannot access pages directly  */ 
-if ( ! defined( 'ABSPATH' ) ) { die; }  
+if ( ! defined( 'ABSPATH' ) ) { die; }
 
+/**
+ * 创建文件目录
+ * http://stackoverflow.com/questions/2303372/create-a-folder-if-it-doesnt-already-exist
+ * @param dirpath 文件目录
+ * @param $mode   目录权限
+ * @example createdir(WP_CONTENT_DIR.'/cache/timthumb/',0777)
+ */
+function createdir($dirpath,$mode=0777){
+    if (!file_exists($dirpath)) {
+        mkdir($dirpath, $mode, true);
+    }
+}
 /**
  * 引入文件
  * function includes files in $dir, if $no_more set to true there no includes in subdirectories 
