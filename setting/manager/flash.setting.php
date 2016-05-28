@@ -75,7 +75,7 @@ if (cs_get_manager_option('enable_compress_html')==true) {
     add_action('shutdown', 'replace_google_buffer_end');
 }*/
 if (cs_get_manager_option('enable_replace_google_cdn')==true) {
-	require_once dirname(dirname( __FILE__ )) . '/super-manager/includes/useso-take-over-google.inc.php';
+	require_once SETTING_DIR . '/manager/includes/useso-take-over-google.inc.php';
 }
 
 /*

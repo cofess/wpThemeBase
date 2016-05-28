@@ -18,6 +18,15 @@ if ( ! defined( 'ABSPATH' ) ) { die; }
 
 add_theme_support( 'post-thumbnails' );//开启特色图像功能
 
+/**
+ * WordPress 给“特色图像”模块添加说明文字
+ * http://www.wpdaxue.com/add-featured-image-instruction.html
+ */
+add_filter( 'admin_post_thumbnail_html', 'add_featured_image_instruction');
+function add_featured_image_instruction( $content ) {
+	return $content .= '<p>特色图像将用来作为这篇文章的缩略图，请务必为文章选择一个特色图像。</p>';
+}
+
 /*
  * 用户列表隐藏超级管理员账户（ID为1的管理员）
  * From https://wordpress.org/support/topic/hide-admin-from-user-list-1
@@ -127,19 +136,19 @@ function BADashboardPendingReview_Main() {
 			}
 
 			if($widget_options['showauthor']) {
-				$post_meta.= sprintf('%s %s', __('by', CS_TEXTDOMAIN), '<strong>'. $post->name .'</strong> ' );
+				$post_meta.= sprintf('%s %s', __('by', 'CS_TEXTDOMAIN'), '<strong>'. $post->name .'</strong> ' );
 			}
 
 			if($widget_options['showtime']) {
 				$time = get_post_time('G', true);
 
 				if ( ( abs(time() - $time) ) < 86400 ) {
-					$h_time = sprintf( __('%s 以前', CS_TEXTDOMAIN), human_time_diff( $time ) );
+					$h_time = sprintf( __('%s 以前', 'CS_TEXTDOMAIN'), human_time_diff( $time ) );
 				} else {
 					$h_time = mysql2date(__('Y/m/d'), $post->post_date);
 				}
 
-				$post_meta.= sprintf( __('&#8212; %s', CS_TEXTDOMAIN),'<abbr title="' . get_post_time(__('Y/m/d H:i:s')) . '">' . $h_time . '</abbr>' );
+				$post_meta.= sprintf( __('&#8212; %s', 'CS_TEXTDOMAIN'),'<abbr title="' . get_post_time(__('Y/m/d H:i:s')) . '">' . $h_time . '</abbr>' );
 			}
 
 			echo "<li class='post-meta'>" . $post_meta . "</li>";
@@ -147,7 +156,7 @@ function BADashboardPendingReview_Main() {
 
 		echo "</ul>\n";
 	} else {
-		echo '<p>' . _e( "目前没有待审文章", CS_TEXTDOMAIN ) . "</p>\n";
+		echo '<p>' . _e( "目前没有待审文章", 'CS_TEXTDOMAIN' ) . "</p>\n";
 	}
 
 }
@@ -169,7 +178,7 @@ function BADashboardPendingReview_Setup() {
 
 <p>
   <label for="items_view_count">
-    <?php _e('显示多少篇待审文章', CS_TEXTDOMAIN ); ?>
+    <?php _e('显示多少篇待审文章', 'CS_TEXTDOMAIN' ); ?>
     <select id="items_view_count" name="items_view_count">
       <?php
 for ( $i = 5; $i <= 20; $i = $i + 1 )
@@ -183,7 +192,7 @@ echo "<option value='$i'" . ( $options['items_view_count'] == $i ? " selected='s
     <input id="hidepages" name="hidepages"
 	type="checkbox" value="1"
 	<?php if ( $options['hidepages'] == 1 ) echo ' checked="checked"'; ?> />
-    <?php _e('隐藏页面类型', CS_TEXTDOMAIN ); ?>
+    <?php _e('隐藏页面类型', 'CS_TEXTDOMAIN' ); ?>
   </label>
 </p>
 <p>
@@ -191,7 +200,7 @@ echo "<option value='$i'" . ( $options['items_view_count'] == $i ? " selected='s
     <input id="showauthor" name="showauthor"
 	type="checkbox" value="1"
 	<?php if ( $options['showauthor'] == 1 ) echo ' checked="checked"'; ?> />
-    <?php _e('显示文章作者', CS_TEXTDOMAIN ); ?>
+    <?php _e('显示文章作者', 'CS_TEXTDOMAIN' ); ?>
   </label>
 </p>
 <p>
@@ -199,7 +208,7 @@ echo "<option value='$i'" . ( $options['items_view_count'] == $i ? " selected='s
     <input id="showtime" name="showtime"
 	type="checkbox" value="1"
 	<?php if ( $options['showtime'] == 1 ) echo ' checked="checked"'; ?> />
-    <?php _e('显示日期', CS_TEXTDOMAIN ); ?>
+    <?php _e('显示日期', 'CS_TEXTDOMAIN' ); ?>
   </label>
 </p>
 <?php
@@ -219,7 +228,7 @@ function BADashboardPendingReview_Options() {
 /** initial the widget */
 function BADashboardPendingReview_Init() {
 	if(current_user_can('manage_options')){ //只有管理员才能看到
-		wp_add_dashboard_widget( BADashboard_PendingReview_WidgetID, __('待审文章', CS_TEXTDOMAIN), 'BADashboardPendingReview_Main', 'BADashboardPendingReview_Setup');
+		wp_add_dashboard_widget( BADashboard_PendingReview_WidgetID, __('待审文章', 'CS_TEXTDOMAIN'), 'BADashboardPendingReview_Main', 'BADashboardPendingReview_Setup');
 	}
 }
 

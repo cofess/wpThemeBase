@@ -146,5 +146,5 @@ if (cs_get_manager_option('wp_dashboard_menu')=='1') {
 	add_action( '_user_admin_menu','hide_dashboard');
 	add_action( '_admin_menu','hide_dashboard' );
 } else{
-	require_once dirname(dirname( __FILE__ )) . '/super-manager/includes/wp-hide-dashboard.inc.php';
+	require_once SETTING_DIR . '/manager/includes/wp-hide-dashboard.inc.php';
 }

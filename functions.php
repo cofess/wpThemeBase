@@ -39,7 +39,20 @@ if ( !defined( 'PLUGIN_DIR' ) ) {
 add_action('after_setup_theme', 'load_theme_lang');
 function load_theme_lang(){
     load_theme_textdomain( 'CS_TEXTDOMAIN', THEME_DIR . '/languages' );// 加载语言包
-} 
+}
+
+/**
+ * 加载
+ */ 
+require_once dirname( __FILE__ ) . '/inc/common/common.admin.php';
+require_once dirname( __FILE__ ) . '/inc/common/common.theme.php';
+
+/**
+ * 加载类
+ */
+require_once dirname( __FILE__ ) . '/inc/classes/bootstrap-walker.class.php';//导航菜单
+require_once dirname( __FILE__ ) . '/inc/classes/breadcrumb.class.php';//面包屑导航
+require_once dirname( __FILE__ ) . '/inc/classes/tgm-plugin-activation.class.php';//安装插件
 
 /**
  * Codestar Framework v1.0.0初始化
@@ -53,3 +66,59 @@ define( 'CS_ACTIVE_TAXONOMY',   false ); // 分类
 define( 'CS_ACTIVE_SHORTCODE',  false ); // shortcode
 define( 'CS_ACTIVE_CUSTOMIZE',  false ); // 外观自定义
 define( 'CS_ACTIVE_MANAGER',    true  ); // 自定义
+
+/**
+ * 初始化
+ */
+require_once SETTING_DIR . '/init/admin.init.php';//后台初始化  
+require_once SETTING_DIR . '/init/theme.init.php';//主题初始化
+require_once SETTING_DIR . '/init/plugin.init.php';//插件初始化
+require_once SETTING_DIR . '/init/script.init.php';//加载Style和JS
+require_once SETTING_DIR . '/init/installplugin.init.php';//加载Style和JS
+
+/**
+ * 主题设置
+ */
+require_once SETTING_DIR . '/theme/search.config.php';//搜索设置
+require_once SETTING_DIR . '/theme/appearance.config.php';//外观设置
+
+/**
+ * 超级优化 super manager
+ */
+require_once SETTING_DIR . '/manager/general.setting.php';//常规设置  
+require_once SETTING_DIR . '/manager/senior.setting.php';//高级设置
+require_once SETTING_DIR . '/manager/extend.setting.php';//功能拓展
+require_once SETTING_DIR . '/manager/flash.setting.php';//网站加速
+require_once SETTING_DIR . '/manager/wp-custom.setting.php';//wp定制
+require_once SETTING_DIR . '/manager/login.setting.php';//后台登录
+require_once SETTING_DIR . '/manager/user.setting.php';//用户管理
+require_once SETTING_DIR . '/manager/smtp.setting.php';//邮件设置
+require_once SETTING_DIR . '/manager/maintenance.setting.php';//维护
+require_once SETTING_DIR . '/manager/rewrite.setting.php';//固定链接
+require_once SETTING_DIR . '/manager/browser.setting.php';//浏览器升级提示
+
+/**
+ * 小工具
+ */
+//require_once dirname( __FILE__ ) . '/inc/widgets/widget-icon/widget-icon.php';//小工具图标
+//require_once dirname( __FILE__ ) . '/inc/widgets/simple-widget-classes/simple-widget-classes.php';//小工具class类
+//require_once dirname( __FILE__ ) . '/inc/widgets/widgets-thisCategory.php';	
+ 
+/**
+ * 拓展模块
+ */
+require_once dirname( __FILE__ ) . '/inc/modules/wp_bootstrap_pagination.php';//分页 
+require_once dirname( __FILE__ ) . '/inc/modules/regenerate-thumbnails/regenerate-thumbnails.php';//重建缩略图 
+require_once dirname( __FILE__ ) . '/inc/modules/rewrite-rules-inspector.php';//查看网站所有伪静态Rewrite规则
+
+/*刷新固定链接缓存*/
+function flush_rules(){
+	flush_rewrite_rules();
+}
+add_action('init','flush_rules');
+
+function ludou_add_categories_tags_to_attachments() {
+   register_taxonomy_for_object_type( 'media-category', 'attachment' );
+
+}
+add_action( 'init' , 'ludou_add_categories_tags_to_attachments' );
