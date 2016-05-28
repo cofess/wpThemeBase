@@ -11,7 +11,8 @@ defined( 'CS_VERSION' )    or  define( 'CS_VERSION',    '1.0.1' );
 defined( 'CS_OPTION' )     or  define( 'CS_OPTION',     '_cs_options' );
 defined( 'CS_CUSTOMIZE' )  or  define( 'CS_CUSTOMIZE',  '_cs_customize_options' );
 //自定义
-defined( 'CS_MANAGER' )    or  define( 'CS_MANAGER',      '_cs_manager_options' );
+defined( 'CS_MANAGER' )    or  define( 'CS_MANAGER',     '_cs_manager_options' );
+defined( 'CS_PLUG' )       or  define( 'CS_PLUG',        '_cs_plug_options' );
 
 /**
  *
@@ -239,6 +240,64 @@ if ( ! function_exists( 'cs_get_all_manager_option' ) ) {
   }
 }
 /*---------------- end manager(自定义)---------------------*/
+/*---------------- start plug(自定义)---------------------*/
+/**
+ *
+ * Get plug
+ *
+ * @since 1.0.0
+ * @version 1.0.0
+ *
+ */
+if ( ! function_exists( 'cs_get_plug_option' ) ) {
+  function cs_get_plug_option( $option_name = '', $default = '' ) {
+
+    $options = apply_filters( 'cs_get_plug_option', get_option( CS_PLUG ), $option_name, $default );
+
+    if( ! empty( $option_name ) && ! empty( $options[$option_name] ) ) {
+      return $options[$option_name];
+    } else {
+      return ( ! empty( $default ) ) ? $default : null;
+    }
+
+  }
+}
+
+/**
+ *
+ * Set plug
+ *
+ * @since 1.0.0
+ * @version 1.0.0
+ *
+ */
+if ( ! function_exists( 'cs_set_plug_option' ) ) {
+  function cs_set_plug_option( $option_name = '', $new_value = '' ) {
+
+    $options = apply_filters( 'cs_set_plug_option', get_option( CS_PLUG ), $option_name, $new_value );
+
+    if( ! empty( $option_name ) ) {
+      $options[$option_name] = $new_value;
+      update_option( CS_PLUG, $options );
+    }
+
+  }
+}
+
+/**
+ *
+ * Get all plug
+ *
+ * @since 1.0.0
+ * @version 1.0.0
+ *
+ */
+if ( ! function_exists( 'cs_get_all_plug_option' ) ) {
+  function cs_get_all_plug_option() {
+    return get_option( CS_PLUG );
+  }
+}
+/*---------------- end plug(自定义)---------------------*/
 
 /**
  *

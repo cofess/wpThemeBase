@@ -1,13 +1,13 @@
 <?php if ( ! defined( 'ABSPATH' ) ) { die; } // Cannot access pages directly.
 /**
  *
- * Manager Class
+ * Plug Class
  *
  * @since 1.0.0
  * @version 1.0.0
  *
  */
-class CSManager extends CSFramework_Abstract {
+class CSPlug extends CSFramework_Abstract {
 
   /**
    *
@@ -16,7 +16,7 @@ class CSManager extends CSFramework_Abstract {
    * @var string
    *
    */
-  public $unique = CS_MANAGER;
+  public $unique = CS_PLUG;
 
   /**
    *
@@ -66,17 +66,17 @@ class CSManager extends CSFramework_Abstract {
   // run framework construct
   public function __construct( $settings, $options ) {
 
-    $this->settings = apply_filters( 'cs_manager_settings', $settings );
-    $this->options  = apply_filters( 'cs_manager_options', $options );
+    $this->settings = apply_filters( 'cs_plug_settings', $settings );
+    $this->options  = apply_filters( 'cs_plug_options', $options );
 
     if( ! empty( $this->options ) ) {
 
       $this->sections   = $this->get_sections();
-      $this->get_option = get_option( CS_MANAGER );
+      $this->get_option = get_option( CS_PLUG );
       $this->addAction( 'admin_init', 'settings_api' );
       $this->addAction( 'admin_menu', 'admin_menu' );
       //导出设置
-      $this->addAction( 'wp_ajax_export_cs_manager_options', 'export' );
+      $this->addAction( 'wp_ajax_export_cs_plug_options', 'export' );
 
     }
 
@@ -84,7 +84,7 @@ class CSManager extends CSFramework_Abstract {
 
   // instance
   public static function instance( $settings = array(), $options = array() ) {
-    if ( is_null( self::$instance ) && CS_ACTIVE_MANAGER ) {
+    if ( is_null( self::$instance ) && CS_ACTIVE_PLUG ) {
       self::$instance = new self( $settings, $options );
     }
     return self::$instance;
@@ -476,12 +476,12 @@ class CSManager extends CSFramework_Abstract {
   public function export() {
 
     header('Content-Type: plain/text');
-    header('Content-disposition: attachment; filename=backup-manager-options-'. gmdate( 'd-m-Y' ) .'.txt');
+    header('Content-disposition: attachment; filename=backup-plug-options-'. gmdate( 'd-m-Y' ) .'.txt');
     header('Content-Transfer-Encoding: binary');
     header('Pragma: no-cache');
     header('Expires: 0');
 
-    echo cs_encode_string( get_option( CS_MANAGER ) );
+    echo cs_encode_string( get_option( CS_PLUG ) );
 
     die();
 

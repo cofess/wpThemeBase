@@ -66,6 +66,7 @@ define( 'CS_ACTIVE_TAXONOMY',   false ); // 分类
 define( 'CS_ACTIVE_SHORTCODE',  false ); // shortcode
 define( 'CS_ACTIVE_CUSTOMIZE',  false ); // 外观自定义
 define( 'CS_ACTIVE_MANAGER',    true  ); // 自定义
+define( 'CS_ACTIVE_PLUG',       true  );
 
 /**
  * 初始化
