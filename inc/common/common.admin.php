@@ -27,6 +27,20 @@ function createdir($dirpath,$mode=0777){
     }
 }
 /**
+ * Returns array of features, also
+ * Scans the plugins subfolder "/classes"
+ * http://wordpress.stackexchange.com/questions/1403/organizing-code-in-your-wordpress-themes-functions-php-file
+ * @since   0.1
+ * @return  void
+ */
+public function load_classes() {
+
+    // load all files with the pattern class-*.php from the directory classes
+    foreach( glob( dirname( __FILE__ ) . '/classes/class-*.php' ) as $class )
+        require_once $class;
+
+}
+/**
  * 引入文件
  * function includes files in $dir, if $no_more set to true there no includes in subdirectories 
  * @param dir 文件目录
