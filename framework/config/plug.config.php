@@ -6,7 +6,7 @@
 // ===============================================================================================
 $settings           = array(
   'menu_title'      => __('插件设置', 'CS_TEXTDOMAIN'),
-  'menu_type'       => 'options', // menu, submenu, options, theme, etc.
+  'menu_type'       => 'submenu', // menu, submenu, options, theme, etc.
   'menu_parent'     => 'theme-setting',
   'menu_slug'       => 'plug-setting',
   //'menu_icon'  => 'dashicons-sos',

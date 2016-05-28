@@ -5,7 +5,7 @@
 // -----------------------------------------------------------------------------------------------
 // ===============================================================================================
 $settings           = array(
-  'menu_title'      => __('主题设置', 'CS_TEXTDOMAIN'),
+  'menu_title'      => __('高级设置', 'CS_TEXTDOMAIN'),
   'menu_type'       => 'menu', // menu, submenu, options, theme, etc.
   //'menu_parent'     => 'themes.php',
   'menu_slug'       => 'theme-setting',
