@@ -2506,7 +2506,7 @@ $options[]   = array(
 // 备份                       -
 // ------------------------------
 $options[]   = array(
-  'name'     => 'backup_section',
+  'name'     => 'backup_framework_section',
   'title'    => __('备份','CS_TEXTDOMAIN'),
   'icon'     => 'fa fa-database',
   'fields'   => array(
