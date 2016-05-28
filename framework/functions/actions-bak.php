@@ -52,7 +52,7 @@ if( ! function_exists( 'cs_get_icons' ) ) {
  * @version 1.0.0
  *
  */
-/*if( ! function_exists( 'cs_export_options' ) ) {
+if( ! function_exists( 'cs_export_options' ) ) {
   function cs_export_options() {
 
     header('Content-Type: plain/text');
@@ -66,7 +66,7 @@ if( ! function_exists( 'cs_get_icons' ) ) {
     die();
   }
   add_action( 'wp_ajax_cs-export-options', 'cs_export_options' );
-}*/
+}
 
 /**
  *

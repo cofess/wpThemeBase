@@ -75,6 +75,8 @@ class CSManager extends CSFramework_Abstract {
       $this->get_option = get_option( CS_MANAGER );
       $this->addAction( 'admin_init', 'settings_api' );
       $this->addAction( 'admin_menu', 'admin_menu' );
+      //导出设置
+      $this->addAction( 'wp_ajax_export_cs_manager_options', 'export' );
 
     }
 
@@ -468,6 +470,20 @@ class CSManager extends CSFramework_Abstract {
       echo '<div class="clear"></div>';
 
     echo '</div>'; // end .cs-framework
+
+  }
+  // export options
+  public function export() {
+
+    header('Content-Type: plain/text');
+    header('Content-disposition: attachment; filename=backup-manager-options-'. gmdate( 'd-m-Y' ) .'.txt');
+    header('Content-Transfer-Encoding: binary');
+    header('Pragma: no-cache');
+    header('Expires: 0');
+
+    echo cs_encode_string( get_option( CS_MANAGER ) );
+
+    die();
 
   }
 

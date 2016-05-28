@@ -12,7 +12,7 @@ $settings           = array(
   'menu_icon'  => 'dashicons-art',
   'ajax_save'       => true,
   'show_reset_all'  => true,
-  'framework_title' => 'ThemeBase <small>by <a href="http://www.yiwell.com" target="_blank">yiwell</a></small>',
+  'framework_title' => 'ThemeBase <small>by <a href="http://www.yiwell.com" target="_blank" style="outline:none;border:none;text-decoration:none" onfocus="this.blur()">Yiwell</a></small>',
 );
 
 // ===============================================================================================

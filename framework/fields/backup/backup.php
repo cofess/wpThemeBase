@@ -24,7 +24,7 @@ class CSFramework_Option_backup extends CSFramework_Options {
     echo '<hr />';
 
     echo '<textarea name="_nonce"'. $this->element_class() . $this->element_attributes() .' disabled="disabled">'. cs_encode_string( get_option( $this->unique ) ) .'</textarea>';
-    echo '<a href="'. admin_url( 'admin-ajax.php?action=cs-export-options' ) .'" class="button button-primary" target="_blank">'. __( 'Export and Download Backup', 'cs-framework' ) .'</a>';
+    echo '<a href="'. admin_url( 'admin-ajax.php?action=export'. $this->unique .'' ) .'" class="button button-primary" target="_blank">'. __( 'Export and Download Backup', 'cs-framework' ) .'</a>';
     echo '<small>-( '. __( 'or', 'cs-framework' ) .' )-</small>';
     submit_button( __( 'Reset All Options', 'cs-framework' ), 'cs-warning-primary cs-reset-confirm', $this->unique . '[resetall]', false );
     echo '<small class="cs-text-warning">'. __( 'Please be sure for reset all of framework options.', 'cs-framework' ) .'</small>';
