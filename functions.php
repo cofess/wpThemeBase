@@ -81,13 +81,17 @@ require_once SETTING_DIR . '/init/installplugin.init.php';//加载Style和JS
 /**
  * 主题设置
  */
-require_once SETTING_DIR . '/theme/search.config.php';//搜索设置
-require_once SETTING_DIR . '/theme/appearance.config.php';//外观设置
+require_once SETTING_DIR . '/framework/search.config.php';//搜索设置
+require_once SETTING_DIR . '/framework/appearance.config.php';//外观设置
+
+/**
+ * 后台设置
+ */
+require_once SETTING_DIR . '/admin/general.setting.php';//常规设置  
 
 /**
  * 超级优化 super manager
- */
-require_once SETTING_DIR . '/manager/general.setting.php';//常规设置  
+ */ 
 require_once SETTING_DIR . '/manager/senior.setting.php';//高级设置
 require_once SETTING_DIR . '/manager/extend.setting.php';//功能拓展
 require_once SETTING_DIR . '/manager/flash.setting.php';//网站加速
