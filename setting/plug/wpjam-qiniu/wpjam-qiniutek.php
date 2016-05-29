@@ -11,6 +11,10 @@ Version: 1.4.3
 define('WPJAM_QINIUTEK_PLUGIN_URL', SETTING_URI.'/plug/wpjam-qiniu');
 define('WPJAM_QINIUTEK_PLUGIN_DIR', SETTING_DIR.'/plug/wpjam-qiniu');
 
+if(is_admin()){
+	include(WPJAM_QINIUTEK_PLUGIN_DIR.'/admin/options.php');
+}
+
 if(cs_get_plug_option('enable_thumb_advanced')==true){
 	include(WPJAM_QINIUTEK_PLUGIN_DIR.'/term-thumbnail.php');
 }
@@ -33,7 +37,7 @@ if(cs_get_plug_option('local_host')){
 
 if(!is_admin()){
 
-	if(wpjam_qiniutek_get_setting('remote') && get_option('permalink_structure')){
+	if(cs_get_plug_option('enable_save_remote')==true && get_option('permalink_structure')){
 		add_filter('the_content', 		'wpjam_qiniutek_content',1);
 		add_filter('query_vars', 		'wpjam_qiniutek_query_vars');
 		add_action('template_redirect',	'wpjam_qiniutek_template_redirect', 5);
@@ -69,7 +73,7 @@ function wpjam_qiniutek_replace_remote_image($matches){
 		}
 	}
 
-	$width = (int)wpjam_qiniutek_get_setting('width');
+	$width = (int)cs_get_plug_option('thumb_max_width');
 
 	if($width){
 		if(preg_match('|<img.*?width=[\'"](.*?)[\'"].*?>|i',$matches[0],$width_matches)){
@@ -98,7 +102,7 @@ function wpjam_qiniutek_replace_remote_image($matches){
 
 add_filter('pre_qiniu_remote','wpjam_pre_qiniu_remote',10,2);
 function wpjam_pre_qiniu_remote($false, $image_url){
-	$exceptions	= explode("\n", wpjam_qiniutek_get_setting('exceptions'));
+	$exceptions	= explode("\n", cs_get_plug_option('remote_exceptions'));
 
 	if($exceptions){
 		foreach ($exceptions as $exception) {

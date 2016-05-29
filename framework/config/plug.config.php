@@ -134,7 +134,15 @@ $options[]   = array(
         'insert_title'=> __('使用图像','CS_TEXTDOMAIN'),
       ),
       'after'      => '<p>'.__('如果日志没有特色图片，没有第一张图片，也没用高级缩略图的情况下所用的缩略图。可以填本地或者七牛的地址！','CS_TEXTDOMAIN').'</p>',
-    ),  
+    ), 
+
+    array(
+      'id'      => 'thumb_max_width',
+      'type'    => 'number',
+      'title'   => __('图片最大宽度','CS_TEXTDOMAIN'),
+      'after'   => '<span class="cs-text-muted"> '.__('设置博客文章内容中图片的最大宽度，插件会使用将图片缩放到对应宽度，节约流量和加快网站速度加载。','CS_TEXTDOMAIN').'</span>',
+      //'default' => '100',
+    ), 
 
     array(
       'type'    => 'notice',
@@ -148,7 +156,7 @@ $options[]   = array(
     ), 
 
     array(
-      'id'      => 'enable_save_remote',
+      'id'      => 'enable_remote',
       'type'    => 'switcher',
       'title'   => __('保存远程图片','CS_TEXTDOMAIN'),
       'default' => false,

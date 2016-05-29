@@ -65,7 +65,7 @@ function wpjam_get_post_thumbnail_uri($post=null){
 		}elseif($first_img = get_post_first_image(do_shortcode($post->post_content))){
 			$pre = apply_filters('pre_qiniu_remote',false,$first_img);
 			$img_type = strtolower(pathinfo($first_img, PATHINFO_EXTENSION));
-			if($pre == false && wpjam_qiniutek_get_setting('remote') && get_option('permalink_structure') && strpos($first_img, LOCAL_HOST)===false && strpos($first_img, CDN_HOST) === false){
+			if($pre == false && cs_get_plug_option('enable_remote')==true && get_option('permalink_structure') && strpos($first_img, LOCAL_HOST)===false && strpos($first_img, CDN_HOST) === false){
 				$img_type = ($img_type == 'png')?$img_type:'jpg';
 				$first_img = CDN_HOST.'/qiniu/'.$post_id.'/image/'.md5($first_img).'.'.$img_type;
 			}
@@ -81,7 +81,7 @@ function wpjam_get_post_thumbnail_uri($post=null){
 }
 
 function wpjam_get_default_thumbnail_uri(){
-	return apply_filters('wpjam_default_thumbnail_uri',wpjam_qiniutek_get_setting('default'));
+	return apply_filters('wpjam_default_thumbnail_uri',cs_get_plug_option('thumb_default'));
 }
 
 function wpjam_get_default_thumbnail_src($size){
@@ -172,7 +172,7 @@ function wpjam_get_qiniu_thumbnail($img_url, $width=0, $height=0, $crop=1, $qual
 		$img_url = apply_filters('qiniu_thumb',$img_url,$width,$height,$crop,$quality,$format);
 
 
-	}elseif(wpjam_qiniutek_get_setting('timthumb')){
+	}else{
 		$timthumb_url = WPJAM_QINIUTEK_PLUGIN_URL.'/include/timthumb.php';
 
 		if($width || $height){
@@ -191,20 +191,20 @@ function wpjam_get_qiniu_thumbnail($img_url, $width=0, $height=0, $crop=1, $qual
 }
 
 function wpjam_get_qiniu_watermark($img_url, $watermark='', $dissolve='', $gravity='', $dx=0, $dy=0){
-	$watermark	= ($watermark)?$watermark:wpjam_qiniutek_get_setting('watermark');
+	$watermark	= ($watermark)?$watermark:cs_get_plug_option('watermark');
 	if($watermark){
 		$watermark	= str_replace(array('+','/'),array('-','_'),base64_encode($watermark));
 		
-		$dissolve	= ($dissolve)?$dissolve:wpjam_qiniutek_get_setting('dissolve');
+		$dissolve	= ($dissolve)?$dissolve:cs_get_plug_option('watermark_alpha');
 		$dissolve	= ($dissolve)?$dissolve:'100';
 
-		$gravity	= ($gravity)?$gravity:wpjam_qiniutek_get_setting('gravity');
+		$gravity	= ($gravity)?$gravity:cs_get_plug_option('watermark_position');
 		$gravity	= ($gravity)?$gravity:'SouthEast';
 
-		$dx			= ($dx)?$dx:wpjam_qiniutek_get_setting('dx');
+		$dx			= ($dx)?$dx:cs_get_plug_option('watermark_dx');
 		$dx			= ($dx)?$dx:'10';
 
-		$dy			= ($dy)?$dy:wpjam_qiniutek_get_setting('dy');
+		$dy			= ($dy)?$dy:cs_get_plug_option('watermark_dy');
 		$dy			= ($dy)?$dy:'10';
 
 		$watermark	= 'watermark/1/image/'.$watermark.'/dissolve/'.$dissolve.'/gravity/'.$gravity.'/dx/'.$dx.'/dy/'.$dy;
