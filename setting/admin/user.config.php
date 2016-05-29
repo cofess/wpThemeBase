@@ -20,7 +20,7 @@ if ( ! defined( 'ABSPATH' ) ) { die; }
  * 用户列表隐藏超级管理员账户
  * From https://wordpress.org/support/topic/hide-admin-from-user-list-1
  */
-/*if (is_admin() && cs_get_manager_option('enable_wp_admin_account_hide')==true) { 
+/*if (is_admin() && cs_get_admin_option('enable_wp_admin_account_hide')==true) { 
 	add_action('pre_user_query','hide_wp_admin_account');
 }
 function hide_wp_admin_account($user_search) {
@@ -30,6 +30,37 @@ function hide_wp_admin_account($user_search) {
 		$user_search->query_where = str_replace('WHERE 1=1',"WHERE 1=1 AND {$wpdb->users}.ID<>1",$user_search->query_where);
 	}
 }*/
+
+/*
+Plugin Name: 增强 WordPress 用户搜索
+Plugin URI: http://blog.wpjam.com/m/enhance-wordpress-user-query/
+Description: WordPress 技巧：增强 WordPress 用户搜索
+Version: 0.1
+Author: Denis
+Author URI: http://blog.wpjam.com/
+*/
+if (cs_get_admin_option('enable_enhance_user_query')==true) { 	
+	add_action( 'pre_user_query', 'wpjam_enhance_user_query', 9 );
+}
+function wpjam_enhance_user_query($query){
+	
+    if(!empty($query->query_vars['search'])){
+        global $wpdb;
+        $keyword = $query->query_vars['search'];
+        $keyword = str_replace('*','',$keyword);
+        $query->query_where = $wpdb->prepare(" WHERE 1=1 AND (user_login LIKE %s OR user_email LIKE %s OR user_nicename LIKE %s OR display_name LIKE %s OR UM.meta_value LIKE  %s) AND UM.meta_key='nickname'","%".$keyword."%","%".$keyword."%","%".$keyword."%","%".$keyword."%","%".$keyword."%");
+        $query->query_fields .= " ,$wpdb->users.display_name, UM.meta_value as nickname";
+        $query->query_from .= " left join $wpdb->usermeta UM on ($wpdb->users.ID=UM.user_id) ";
+    }
+} 
+
+/**
+ * 用户个人资料添加本地头像
+ * 参考：https://wordpress.org/plugins/simple-local-avatars/
+ */
+if (cs_get_admin_option('enable_custom_gravatar')==true) {
+	require_once SETTING_DIR . '/admin/includes/simple-local-avatars.inc.php';
+}
  
 /**
  * WordPress 后台用户列表显示注册时间
@@ -70,7 +101,7 @@ class RRHE {
 	}
  
 }
-if (cs_get_manager_option('enable_user_register_date')==true) {  
+if (cs_get_admin_option('enable_user_register_date')==true) {  
 	// Actions
 	add_filter( 'manage_users_columns', array('RRHE','registerdate'));
 	add_action( 'manage_users_custom_column',  array('RRHE','registerdate_columns'), 15, 3);
@@ -103,7 +134,7 @@ function add_last_login_column_value( $value, $column_name, $user_id ) {
 	else $value = '从未登录';
 	return $value;
 }
-if (cs_get_manager_option('enable_user_login_lastDate')==true) { 
+if (cs_get_admin_option('enable_user_login_lastDate')==true) { 
 	add_action( 'wp_login', 'insert_last_login' );
 	add_filter( 'manage_users_columns', 'add_last_login_column' );
 	add_action( 'manage_users_custom_column', 'add_last_login_column_value', 10, 3 );
@@ -124,7 +155,7 @@ function show_user_nickname_column_content($value, $column_name, $user_id) {
 		return $user_nickname;
 	return $value;
 }
-if (cs_get_manager_option('enable_user_nickname')==true) { 
+if (cs_get_admin_option('enable_user_nickname')==true) { 
 	add_filter('manage_users_columns', 'add_user_nickname_column');
 	add_action('manage_users_custom_column','show_user_nickname_column_content', 20, 3);
 }
@@ -136,7 +167,7 @@ if (cs_get_manager_option('enable_user_nickname')==true) {
  * http://www.wpdaxue.com/wordpress-sort-users-by-post-count.html
  * Author: Katherine Semel
 */
-if ( ! class_exists('Sort_Users_By_Post_Count') && cs_get_manager_option('enable_user_sort_by_post')==true) {
+if ( ! class_exists('Sort_Users_By_Post_Count') && cs_get_admin_option('enable_user_sort_by_post')==true) {
     class Sort_Users_By_Post_Count {
         function Sort_Users_By_Post_Count() {
             // Make user table sortable by post count

@@ -87,7 +87,7 @@ function maintenance_mode_header() {
 	
 	// Load styles and scripts
 	global $wp_styles;
-	wp_register_style('mm_style',  get_template_directory_uri() .'/inc/super-manager/maintenance_themes/assets/css/style.css');
+	wp_register_style('mm_style',  SETTING_URI .'/manager/maintenance_themes/assets/css/style.css');
 		
 	if ( !is_admin() ) { /** Load Scripts and Style on Website Only */  
 		// Output styles and scripts
@@ -129,7 +129,7 @@ function maintenance_mode_header() {
 function maintenance_mode_footer() {
 	# Not used right now
 	global $wp_scripts;
-	wp_register_script('mm_frontend', get_template_directory_uri() .'/inc/super-manager/maintenance_themes/assets/js/maintenance_mode.js', 'jquery');
+	wp_register_script('mm_frontend', SETTING_URI .'/manager/maintenance_themes/assets/js/maintenance_mode.js', 'jquery');
 	if ( !is_admin() ) { /** Load Scripts and Style on Website Only */ 
 		$wp_scripts->do_items('jquery');
 		$wp_scripts->do_items('mm_frontend');

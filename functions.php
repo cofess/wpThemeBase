@@ -24,9 +24,14 @@ if ( !defined( 'THEME_URI' ) ) {
 	define( 'THEME_URI', get_template_directory_uri() );
 }
 
-/* 设置主题设置目录 */
+/* 设置主题设置目录 （物理路径）*/
 if ( !defined( 'SETTING_DIR' ) ) {
 	define( 'SETTING_DIR', THEME_DIR.'/setting');
+}
+
+/* 设置主题设置目录 （物理路径）*/
+if ( !defined( 'SETTING_URI' ) ) {
+	define( 'SETTING_URI', THEME_URI.'/setting');
 }
 
 /* 设置主题自带插件目录 */
@@ -92,6 +97,9 @@ require_once SETTING_DIR . '/framework/appearance.config.php';//外观设置
 require_once SETTING_DIR . '/admin/general.config.php';//常规设置
 require_once SETTING_DIR . '/admin/switch.config.php';//功能开关
 require_once SETTING_DIR . '/admin/senior.config.php';//高级设置  
+require_once SETTING_DIR . '/admin/wp-custom.config.php';//wp定制
+require_once SETTING_DIR . '/admin/login.config.php';//后台登录
+require_once SETTING_DIR . '/admin/user.config.php';//用户管理
 
 /**
  * 超级优化 super manager
@@ -99,9 +107,6 @@ require_once SETTING_DIR . '/admin/senior.config.php';//高级设置
 require_once SETTING_DIR . '/manager/senior.config.php';//高级设置
 require_once SETTING_DIR . '/manager/extend.config.php';//功能拓展
 require_once SETTING_DIR . '/manager/flash.config.php';//网站加速
-require_once SETTING_DIR . '/manager/wp-custom.config.php';//wp定制
-require_once SETTING_DIR . '/manager/login.config.php';//后台登录
-require_once SETTING_DIR . '/manager/user.config.php';//用户管理
 require_once SETTING_DIR . '/manager/smtp.config.php';//邮件设置
 require_once SETTING_DIR . '/manager/maintenance.config.php';//维护
 require_once SETTING_DIR . '/manager/rewrite.config.php';//固定链接

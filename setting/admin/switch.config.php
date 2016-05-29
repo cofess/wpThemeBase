@@ -17,6 +17,37 @@
 if ( ! defined( 'ABSPATH' ) ) { die; } 
 
 /**
+ * 隐藏核心更新提示 WP 3.0+
+ * 来自 http://wordpress.org/plugins/disable-wordpress-core-update/
+ */
+if (cs_get_admin_option('enable_wp_coreUpdate')==false) {   
+  remove_action( 'load-update-core.php', 'wp_update_core' );// 移除核心更新的加载项
+  add_filter( 'pre_site_transient_update_core', create_function( '$a', "return null;" ) ); // 关闭核心程序更新提示
+  //remove_action('admin_init', '_maybe_update_core');    // 禁止 Wordpress 检查更新
+    //add_action( 'admin_init', create_function('$a', "remove_action('admin_init', '_maybe_update_core');"), 3);// 禁止 WordPress 检查更新  
+  //add_action( 'wp_version_check', create_function('$a', "remove_action('wp_version_check', 'wp_version_check');"), 3);
+  //add_action( 'init', create_function( '$a', "remove_action('init', 'wp_version_check_mod');"), 3); // For WPCNG
+}
+
+/**
+ * 隐藏主题更新提示 WP 3.0+
+ * 来自 http://wordpress.org/plugins/disable-wordpress-theme-updates/
+ */
+if (cs_get_admin_option('enable_wp_themeUpdate')==false) { 
+  remove_action( 'load-update-core.php', 'wp_update_themes' );// 移除主题更新的加载项
+  add_filter( 'pre_site_transient_update_themes', create_function( '$c', "return null;" ) );// 关闭主题更新提示
+}
+
+/**
+ * 隐藏插件更新提示 WP 3.0+
+ * 来自 http://wordpress.org/plugins/disable-wordpress-plugin-updates/
+ */
+if (cs_get_admin_option('enable_wp_pluginUpdate')==false) { 
+  remove_action( 'load-update-core.php', 'wp_update_plugins' );// 移除插件更新的加载项
+  add_filter( 'pre_site_transient_update_plugins', create_function( '$b', "return null;" ) );// 关闭插件更新提示
+}
+
+/**
  * 禁用所有文章类型的修订版本
  * http://my.oschina.net/9iphp/blog/378348
  * http://www.zhiyanblog.com/wordpress-4-x-continuous-posts-id.html
@@ -39,14 +70,6 @@ if (cs_get_admin_option('disable_wp_image_link')==true){
 	update_option('image_default_link_type', 'none');
 } else {
 	update_option('image_default_link_type', 'file');
-}
-
-/**
- * 添加友情链接功能
- * http://jingyan.baidu.com/article/1e5468f9239311484861b77e.html
-*/
-if (cs_get_admin_option('enable_friendlyLink_type')==true){
-	add_filter( 'pre_option_link_manager_enabled', '__return_true' );
 }
 
 /**
@@ -99,3 +122,76 @@ if (cs_get_admin_option('enable_wp_xmlrpc')==false){
 	remove_action('wp_head','wlwmanifest_link');
 	add_filter('xmlrpc_enabled', '__return_false'); 
 }
+
+/**
+ * 禁止WordPress向站内链接发送PingBack引用通告
+ * 参考：http://www.wpdaxue.com/disable-self-ping.html
+ */
+function no_self_ping( &$links ) {
+    $home = get_option( 'home' );
+    foreach ( $links as $l => $link )
+        if ( 0 === strpos( $link, $home ) ) unset($links[$l]);
+}
+if (cs_get_admin_option('enable_self_pingback')==false) {
+  add_action( 'pre_ping', 'no_self_ping' );
+}
+
+/**
+ * 关闭pingback和trackback
+ * 参考：http://www.wfuyu.com/wordpress/609.html
+ */
+// Remove pingback method
+function disable_trackbacks_step1($method) {
+  unset($method['pingback.ping']);
+  return $method;
+}
+
+// Remove header
+function disable_trackbacks_step2($headers) {
+  if(isset($headers['X-Pingback'])) {
+    unset($headers['X-Pingback']);
+  }
+  return $headers;
+}
+
+// Remove trackback rewrite
+function disable_trackbacks_step3($rules) {
+  foreach($rules as $rule => $rewrite) {
+    if(preg_match('/trackback\/\?\$$/i', $rule)) {
+      unset($rules[$rule]);
+    }
+  }
+  return $rules;
+}
+
+// Remove bloginfo(pingback_url)
+function disable_trackbacks_step4($output, $show) {
+  if($show == 'pingback_url') {
+    $output = '';
+  }
+  return $output;
+}
+
+// Disable XMLRPC
+function disable_trackbacks_step5($action) {
+  if($action == 'pingback.ping') {
+    wp_die('Pingbacks are not supported', 'Not Allowed!', array('response' => 403));
+  }
+} 
+if (cs_get_admin_option('enable_trackbacks')==false) {
+  add_filter('xmlrpc_methods', 'disable_trackbacks_step1', 10, 1);
+  add_filter('wp_headers', 'disable_trackbacks_step2', 10, 1);
+  add_filter('rewrite_rules_array', 'disable_trackbacks_step3');
+  add_filter('bloginfo_url', 'disable_trackbacks_step4', 10, 2);
+  add_action('xmlrpc_call', 'disable_trackbacks_step5');
+}
+
+
+/**
+ * 禁用 WordPress 的 JSON REST API 
+ * http://www.wpdaxue.com/disable-json-rest-api-in-wordpress.html
+ */
+if (cs_get_admin_option('enable_json_rest_api')==false) {
+  add_filter('json_enabled', '__return_false');
+  add_filter('json_jsonp_enabled', '__return_false');
+} 
