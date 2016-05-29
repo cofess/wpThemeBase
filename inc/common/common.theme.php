@@ -2,12 +2,13 @@
 /**
  * Main Function of Yiwell WordPress Theme
  *
- * @package   Yiwell
- * @version   1.0.0
- * @author    Lony <841995980@qq.com>
- * @copyright Copyright (c) 2014-2016, yiwell
- * @license   http://opensource.org/licenses/gpl-2.0.php GPL v2 or later
- * @link      http://www.yiwell.com
+ * Package:       Yiwell
+ * Version:       1.0.0
+ * Author:        Lony <841995980@qq.com>
+ * Author URI:    http://www.yiwell.com
+ * Text Domain:   CS_TEXTDOMAIN
+ * License:       http://opensource.org/licenses/gpl-2.0.php GPL v2 or later
+ * Copyright:     Copyright (c) 2014-2016, yiwell
 **/
 
 /* Cannot access pages directly  */ 
@@ -145,3 +146,43 @@ function clear_zal_cache() {
     update_option('zww_archives_list', ''); // 清空 zww_archives_list
 }
 add_action('save_post', 'clear_zal_cache'); // 新发表文章/修改文章时 
+
+/**
+ * WordPress 修改时间的显示格式为几天前
+ * http://www.wpdaxue.com/time-ago.html
+ */
+function Bing_filter_time(){
+    global $post ;
+    $to = time();
+    $from = get_the_time('U') ;
+    $diff = (int) abs($to - $from);
+    if ($diff <= 3600) {
+        $mins = round($diff / 60);
+        if ($mins <= 1) {
+            $mins = 1;
+        }
+        $time = sprintf(_n('%s 分钟', '%s 分钟', $mins), $mins) . __( '前' , 'Bing' );
+    }
+    else if (($diff <= 86400) && ($diff > 3600)) {
+        $hours = round($diff / 3600);
+        if ($hours <= 1) {
+            $hours = 1;
+        }
+        $time = sprintf(_n('%s 小时', '%s 小时', $hours), $hours) . __( '前' , 'Bing' );
+    }
+    elseif ($diff >= 86400) {
+        $days = round($diff / 86400);
+        if ($days <= 1) {
+            $days = 1;
+            $time = sprintf(_n('%s 天', '%s 天', $days), $days) . __( '前' , 'Bing' );
+        }
+        elseif( $days > 29){
+            $time = get_the_time(get_option('date_format'));
+        }
+        else{
+            $time = sprintf(_n('%s 天', '%s 天', $days), $days) . __( '前' , 'Bing' );
+        }
+    }
+    return $time;
+}
+add_filter('the_time','Bing_filter_time');

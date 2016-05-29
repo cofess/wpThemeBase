@@ -33,12 +33,10 @@ function createdir($dirpath,$mode=0777){
  * @since   0.1
  * @return  void
  */
-public function load_classes() {
-
+function load_classes($dir,$file) {
     // load all files with the pattern class-*.php from the directory classes
-    foreach( glob( dirname( __FILE__ ) . '/classes/class-*.php' ) as $class )
+    foreach( glob( $dir . $file ) as $class )
         require_once $class;
-
 }
 /**
  * 引入文件
