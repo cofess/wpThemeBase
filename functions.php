@@ -100,6 +100,7 @@ require_once SETTING_DIR . '/admin/senior.config.php';//高级设置
 require_once SETTING_DIR . '/admin/wp-custom.config.php';//wp定制
 require_once SETTING_DIR . '/admin/login.config.php';//后台登录
 require_once SETTING_DIR . '/admin/user.config.php';//用户管理
+require_once SETTING_DIR . '/admin/debug.config.php';//开发调试
 
 /**
  * 超级优化 manager

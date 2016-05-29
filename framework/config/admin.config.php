@@ -729,6 +729,13 @@ $options[]   = array(
         'title'   => __('显示页面查询次数、加载时间和内存占用','CS_TEXTDOMAIN'),
         'default' => false,
     ),
+    array(
+        'id'      => 'enable_user_switch',
+        'type'    => 'switcher',
+        'title'   => __('用户快速切换','CS_TEXTDOMAIN'),
+        'label'   => __('快速切换不同角色的用户，方便调试','CS_TEXTDOMAIN'),
+        'default' => false,
+    ),
 
   )
 );

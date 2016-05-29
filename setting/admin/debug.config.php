@@ -31,3 +31,11 @@ function performance( $visible = false ) {
 if (cs_get_admin_option('enable_show_performance')==true){
 	add_action( 'wp_footer', 'performance', 20 );
 }
+
+/**
+ * 用户切换
+ * https://wordpress.org/plugins/user-switching/
+*/
+if (cs_get_admin_option('enable_user_switch')==true){
+	require_once SETTING_DIR . '/admin/includes/user-switching.inc.php';
+}
