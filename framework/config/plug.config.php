@@ -95,7 +95,7 @@ $options[]   = array(
     ),
 
     array(
-      'id'         => 'local_domain',
+      'id'         => 'local_host',
       'type'       => 'text',
       'title'      => __('本地域名','CS_TEXTDOMAIN'),
       'after'      => '<p>'.__('如果图片等静态文件存储的域名和网站不同，可通过该字段设置。
@@ -109,7 +109,15 @@ $options[]   = array(
     array(
       'type'    => 'notice',
       'class'   => 'info',
-      'content' => __('缩略图设置','CS_TEXTDOMAIN'),
+      'content' => '<h3>'.__('缩略图设置','CS_TEXTDOMAIN').'</h3>
+                    <p>'.__('启动高级缩略图功能之后,文章获取缩略图的顺序为：特色图片 > 标签缩略图 > 第一张图片 > 分类缩略图 > 默认缩略图','CS_TEXTDOMAIN').'</p>',
+    ),
+
+    array(
+      'id'      => 'enable_thumb_advanced',
+      'type'    => 'switcher',
+      'title'   => __('高级缩略图','CS_TEXTDOMAIN'),
+      'default' => false,
     ),
 
     array(

@@ -113,6 +113,11 @@ require_once SETTING_DIR . '/manager/rewrite.set.php';//固定链接
 require_once SETTING_DIR . '/manager/browser.set.php';//浏览器升级提示
 
 /**
+ * 插件设置
+ */ 
+require_once SETTING_DIR . '/plug/wpjam-qiniu/wpjam-qiniutek.php';//七牛云存储
+
+/**
  * 小工具
  */
 //require_once dirname( __FILE__ ) . '/inc/widgets/widget-icon/widget-icon.php';//小工具图标
