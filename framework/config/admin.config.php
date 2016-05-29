@@ -715,6 +715,25 @@ $options[]   = array(
 );
 
 // ------------------------------
+// debug section               -
+// ------------------------------
+$options[]   = array(
+  'name'     => 'admin_debug_section',
+  'title'    => __('开发调试','CS_TEXTDOMAIN'),
+  'icon'     => 'fa fa-code-fork',
+  'fields'   => array(
+
+    array(
+        'id'      => 'enable_show_performance',
+        'type'    => 'switcher',
+        'title'   => __('显示页面查询次数、加载时间和内存占用','CS_TEXTDOMAIN'),
+        'default' => false,
+    ),
+
+  )
+);
+
+// ------------------------------
 // backup                       -
 // ------------------------------
 $options[]   = array(
