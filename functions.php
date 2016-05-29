@@ -94,18 +94,17 @@ require_once SETTING_DIR . '/framework/appearance.config.php';//外观设置
 /**
  * 后台设置
  */
-require_once SETTING_DIR . '/admin/general.config.php';//常规设置
 require_once SETTING_DIR . '/admin/switch.config.php';//功能开关
+require_once SETTING_DIR . '/admin/general.config.php';//常规设置
 require_once SETTING_DIR . '/admin/senior.config.php';//高级设置  
 require_once SETTING_DIR . '/admin/wp-custom.config.php';//wp定制
 require_once SETTING_DIR . '/admin/login.config.php';//后台登录
 require_once SETTING_DIR . '/admin/user.config.php';//用户管理
 
 /**
- * 超级优化 super manager
+ * 超级优化 manager
  */ 
 require_once SETTING_DIR . '/manager/senior.config.php';//高级设置
-require_once SETTING_DIR . '/manager/extend.config.php';//功能拓展
 require_once SETTING_DIR . '/manager/flash.config.php';//网站加速
 require_once SETTING_DIR . '/manager/smtp.config.php';//邮件设置
 require_once SETTING_DIR . '/manager/maintenance.config.php';//维护

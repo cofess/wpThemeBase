@@ -32,6 +32,12 @@ $options[]   = array(
   'fields'   => array(
 
     array(
+        'type'    => 'notice',
+        'class'   => 'info',
+        'content' => __('基本设置','CS_TEXTDOMAIN'),
+    ),
+
+    array(
         'id'      => 'enable_adminBar',
         'type'    => 'switcher',
         'title'   => __('前台顶部管理员工具条','CS_TEXTDOMAIN'),
@@ -55,30 +61,18 @@ $options[]   = array(
 		'label'   => __('菜单选择器包括ID和class选择器，如果没有相关选择器的css样式，建议移除。','CS_TEXTDOMAIN'),
     ),
 
-  )
-);
-
-// ------------------------------
-// 功能拓展               -
-// ------------------------------
-$options[]   = array(
-  'name'     => 'manager_extend_section',
-  'title'    => __('功能拓展','CS_TEXTDOMAIN'),
-  'icon'     => 'fa fa-plug',
-  'fields'   => array(
-
     array(
         'type'    => 'notice',
         'class'   => 'info',
-        'content' => __('基本设置','CS_TEXTDOMAIN'),
+        'content' => __('功能拓展','CS_TEXTDOMAIN'),
     ),
 
     array(
         'id'      => 'enable_iframe_break',
         'type'    => 'switcher',
         'title'   => __('禁止站点被其他网站通过iframe框架引用','CS_TEXTDOMAIN'),
-		'default' => true,
-		'label'   => __('防止WordPress站点被别人通过iframe框架引用','CS_TEXTDOMAIN'),
+    'default' => true,
+    'label'   => __('防止WordPress站点被别人通过iframe框架引用','CS_TEXTDOMAIN'),
     ),
 
     /*array(
@@ -86,26 +80,40 @@ $options[]   = array(
         'type'  => 'textarea',
         'title' => __('以下网站除外','CS_TEXTDOMAIN'),
         'desc'  => __('站点以英文逗号“,”隔开','CS_TEXTDOMAIN'),
-    ),	*/	
+    ),  */  
 
     array(
         'id'      => 'enable_mouseReturn',
         'type'    => 'switcher',
         'title'   => __('禁用鼠标右键','CS_TEXTDOMAIN'),
-		'default' => false,
-		'label'   => __('禁用鼠标右键访客将无法复制网站内容','CS_TEXTDOMAIN'),
+    'default' => false,
+    'label'   => __('禁用鼠标右键访客将无法复制网站内容','CS_TEXTDOMAIN'),
     ),
 
     array(
         'id'      => 'enable_email_transfer',
         'type'    => 'switcher',
         'title'   => __('转义文章和评论中的邮箱地址','CS_TEXTDOMAIN'),
-		'default' => true,
-		'label'   => __('能够有效屏蔽邮箱地址采集器以防被恶意采集','CS_TEXTDOMAIN'),
+    'default' => true,
+    'label'   => __('能够有效屏蔽邮箱地址采集器以防被恶意采集','CS_TEXTDOMAIN'),
     ),
 
   )
 );
+
+// ------------------------------
+// 功能拓展               -
+// ------------------------------
+/*$options[]   = array(
+  'name'     => 'manager_extend_section',
+  'title'    => __('功能拓展','CS_TEXTDOMAIN'),
+  'icon'     => 'fa fa-plug',
+  'fields'   => array(
+
+
+
+  )
+);*/
 
 // ------------------------------
 // 网站加速                      -
