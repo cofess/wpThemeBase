@@ -110,21 +110,114 @@ $options[]   = array(
       'type'    => 'notice',
       'class'   => 'info',
       'content' => __('缩略图设置','CS_TEXTDOMAIN'),
-    ), 
+    ),
+
+    array(
+      'id'            => 'thumb_default',
+      'type'          => 'upload',
+      'title'         => __('默认缩略图','CS_TEXTDOMAIN'),
+      'attributes'    => array(
+        'placeholder' => 'http://'
+      ),
+      'settings'      => array(
+        'upload_type' => 'image',
+        'button_title'=> __('上传','CS_TEXTDOMAIN'),
+        'frame_title' => __('选择图像','CS_TEXTDOMAIN'),
+        'insert_title'=> __('使用图像','CS_TEXTDOMAIN'),
+      ),
+      'after'      => '<p>'.__('如果日志没有特色图片，没有第一张图片，也没用高级缩略图的情况下所用的缩略图。可以填本地或者七牛的地址！','CS_TEXTDOMAIN').'</p>',
+    ),  
 
     array(
       'type'    => 'notice',
       'class'   => 'info',
-      'content' => __('远程图片设置','CS_TEXTDOMAIN'),
+      'content' => '<h3>'.__('远程图片设置','CS_TEXTDOMAIN').'</h3>
+                    <ul>
+                      <li>'.__('· 自动将远程图片镜像到七牛需要你的博客支持固定链接。','CS_TEXTDOMAIN').'</li>
+                      <li>'.__('· 如果前面设置的静态文件域名和博客域名不一致，该功能也可能出问题。','CS_TEXTDOMAIN').'</li>
+                      <li>'.__('· 远程 GIF 图片保存到七牛将失去动画效果，所以目前不支持 GIF 图片。','CS_TEXTDOMAIN').'</li>
+                    </ul>',
     ), 
+
+    array(
+      'id'      => 'enable_save_remote',
+      'type'    => 'switcher',
+      'title'   => __('保存远程图片','CS_TEXTDOMAIN'),
+      'default' => false,
+      'label'   => __('自动将远程图片镜像到七牛。','CS_TEXTDOMAIN'),
+    ),
+
+    array(
+      'id'      => 'remote_exceptions',
+      'type'    => 'textarea',
+      'title'   => __('例外','CS_TEXTDOMAIN'),
+      'after'   => __('如果远程图片的链接中包含以上字符串或者域名，就不会被保存并镜像到七牛。','CS_TEXTDOMAIN'),
+    ),  
 
     array(
       'type'    => 'notice',
       'class'   => 'info',
       'content' => __('水印设置','CS_TEXTDOMAIN'),
-    ),           
+    ), 
 
-  )
+    array(
+      'id'            => 'watermark',
+      'type'          => 'upload',
+      'title'         => __('水印图片','CS_TEXTDOMAIN'),
+      'attributes'    => array(
+        'placeholder' => 'http://'
+      ),
+      'settings'      => array(
+        'upload_type' => 'image',
+        'button_title'=> __('上传','CS_TEXTDOMAIN'),
+        'frame_title' => __('选择图像','CS_TEXTDOMAIN'),
+        'insert_title'=> __('使用图像','CS_TEXTDOMAIN'),
+      ),
+    ), 
+
+    array(
+      'id'      => 'watermark_alpha',
+      'type'    => 'number',
+      'title'   => __('透明度','CS_TEXTDOMAIN'),
+      'after'   => '<span class="cs-text-muted"> '.__('透明度，取值范围1-100，缺省值为100（完全不透明）','CS_TEXTDOMAIN').'</span>',
+      'default' => '100',
+    ), 
+
+    array(
+      'id'         => 'watermark_position',
+      'type'       => 'select',
+      'title'      => __('水印位置','CS_TEXTDOMAIN'),
+      'options'    => array(
+        'SouthEast'=> '右下角',
+        'SouthWest'=> '左下角',
+        'NorthEast'=> '右上角',
+        'NorthWest'=> '左上角',
+        'Center'   => '正中间',
+        'West'     => '左中间',
+        'East'     => '右中间',
+        'North'    => '上中间',
+        'South'    => '下中间',
+      ),
+      'default'    => 'SouthEast',
+    ),
+
+    array(
+      'id'      => 'watermark_dx',
+      'type'    => 'number',
+      'title'   => __('横轴边距','CS_TEXTDOMAIN'),
+      'after'   => '<span class="cs-text-muted"> '.__('横轴边距，单位:像素(px)，缺省值为10','CS_TEXTDOMAIN').'</span>',
+      'default' => '10',
+    ), 
+
+    array(
+      'id'      => 'watermark_dy',
+      'type'    => 'number',
+      'title'   => __('纵轴边距','CS_TEXTDOMAIN'),
+      'after'   => '<span class="cs-text-muted"> '.__('纵轴边距，单位:像素(px)，缺省值为10','CS_TEXTDOMAIN').'</span>',
+      'default' => '10',
+    ),  
+
+  ),
 );
 // ------------------------------
 // 多媒体设置               -
