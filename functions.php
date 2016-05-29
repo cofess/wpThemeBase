@@ -68,7 +68,7 @@ require_once dirname( __FILE__ ) . '/inc/classes/tgm-plugin-activation.class.php
 require_once dirname( __FILE__ ) . '/framework/cs-framework.php';
 define( 'CS_ACTIVE_FRAMEWORK',  true  ); // 主题设置
 define( 'CS_ACTIVE_METABOX',    false ); // metabox
-define( 'CS_ACTIVE_TAXONOMY',   false ); // 分类
+define( 'CS_ACTIVE_TAXONOMY',   true ); // 分类
 define( 'CS_ACTIVE_SHORTCODE',  false ); // shortcode
 define( 'CS_ACTIVE_CUSTOMIZE',  false ); // 外观自定义
 define( 'CS_ACTIVE_ADMIN',      true  ); // 自定义

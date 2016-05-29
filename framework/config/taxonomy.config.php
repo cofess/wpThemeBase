@@ -17,21 +17,25 @@ $options[]   = array(
     array(
       'id'    => 'thumbnail',
       'type'  => 'upload',
-      'title' => __('维护页面LOGO','CS_TEXTDOMAIN'),
+      'title' => __('缩略图','CS_TEXTDOMAIN'),
       'settings'      => array(
         'upload_type'  => 'image',
         'button_title' => __('上传','CS_TEXTDOMAIN'),
         'frame_title'  => __('选择图像','CS_TEXTDOMAIN'),
         'insert_title' => __('使用图像','CS_TEXTDOMAIN'),
       ),
+      'attributes' => array(
+        'style'    => 'width: 80%;',
+      ),
     ),
 
     array(
-      'id'    => 'section_1_textarea',
-      'type'  => 'textarea',
-      'title' => 'Textarea Field',
+      'id'      => 'sum',
+      'type'    => 'number',
+      'title'   => __('总产品数','CS_TEXTDOMAIN'),
+      //'after'   => __('<span class="cs-text-muted">(天)</span>','CS_TEXTDOMAIN'),
+      //'default' => '7',
     ),
-
   ),
 );
 
