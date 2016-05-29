@@ -31,12 +31,25 @@ class user_switching {
 	 * Class constructor. Set up some filters and actions.
 	 */
 	private function __construct() {
+		// User Switching's auth_cookie
+		if ( ! defined( 'USER_SWITCHING_COOKIE' ) ) {
+			define( 'USER_SWITCHING_COOKIE', 'wordpress_user_sw_' . COOKIEHASH );
+		}
+
+		// User Switching's secure_auth_cookie
+		if ( ! defined( 'USER_SWITCHING_SECURE_COOKIE' ) ) {
+			define( 'USER_SWITCHING_SECURE_COOKIE', 'wordpress_user_sw_secure_' . COOKIEHASH );
+		}
+
+		// User Switching's logged_in_cookie
+		if ( ! defined( 'USER_SWITCHING_OLDUSER_COOKIE' ) ) {
+			define( 'USER_SWITCHING_OLDUSER_COOKIE', 'wordpress_user_sw_olduser_' . COOKIEHASH );
+		}
 
 		# Required functionality:
 		add_filter( 'user_has_cap',                    array( $this, 'filter_user_has_cap' ), 10, 3 );
 		add_filter( 'map_meta_cap',                    array( $this, 'filter_map_meta_cap' ), 10, 4 );
 		add_filter( 'user_row_actions',                array( $this, 'filter_user_row_actions' ), 10, 2 );
-		add_action( 'plugins_loaded',                  array( $this, 'action_plugins_loaded' ) );
 		add_action( 'init',                            array( $this, 'action_init' ) );
 		add_action( 'all_admin_notices',               array( $this, 'action_admin_notices' ), 1 );
 		add_action( 'wp_logout',                       'user_switching_clear_olduser_cookie' );
@@ -53,28 +66,6 @@ class user_switching {
 		add_action( 'bp_member_header_actions',        array( $this, 'action_bp_button' ), 11 );
 		add_action( 'bp_directory_members_actions',    array( $this, 'action_bp_button' ), 11 );
 		add_action( 'bbp_template_after_user_details', array( $this, 'action_bbpress_button' ) );
-
-	}
-
-	/**
-	 * Define the names of our cookies.
-	 */
-	public function action_plugins_loaded() {
-
-		// User Switching's auth_cookie
-		if ( ! defined( 'USER_SWITCHING_COOKIE' ) ) {
-			define( 'USER_SWITCHING_COOKIE', 'wordpress_user_sw_' . COOKIEHASH );
-		}
-
-		// User Switching's secure_auth_cookie
-		if ( ! defined( 'USER_SWITCHING_SECURE_COOKIE' ) ) {
-			define( 'USER_SWITCHING_SECURE_COOKIE', 'wordpress_user_sw_secure_' . COOKIEHASH );
-		}
-
-		// User Switching's logged_in_cookie
-		if ( ! defined( 'USER_SWITCHING_OLDUSER_COOKIE' ) ) {
-			define( 'USER_SWITCHING_OLDUSER_COOKIE', 'wordpress_user_sw_olduser_' . COOKIEHASH );
-		}
 
 	}
 

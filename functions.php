@@ -88,29 +88,29 @@ require_once SETTING_DIR . '/init/installplugin.init.php';//加载Style和JS
 /**
  * 主题设置
  */
-require_once SETTING_DIR . '/framework/search.config.php';//搜索设置
-require_once SETTING_DIR . '/framework/appearance.config.php';//外观设置
+require_once SETTING_DIR . '/framework/search.set.php';//搜索设置
+require_once SETTING_DIR . '/framework/appearance.set.php';//外观设置
 
 /**
  * 后台设置
  */
-require_once SETTING_DIR . '/admin/switch.config.php';//功能开关
-require_once SETTING_DIR . '/admin/general.config.php';//常规设置
-require_once SETTING_DIR . '/admin/senior.config.php';//高级设置  
-require_once SETTING_DIR . '/admin/wp-custom.config.php';//wp定制
-require_once SETTING_DIR . '/admin/login.config.php';//后台登录
-require_once SETTING_DIR . '/admin/user.config.php';//用户管理
-require_once SETTING_DIR . '/admin/debug.config.php';//开发调试
+require_once SETTING_DIR . '/admin/switch.set.php';//功能开关
+require_once SETTING_DIR . '/admin/general.set.php';//常规设置
+require_once SETTING_DIR . '/admin/senior.set.php';//高级设置  
+require_once SETTING_DIR . '/admin/wp-custom.set.php';//wp定制
+require_once SETTING_DIR . '/admin/login.set.php';//后台登录
+require_once SETTING_DIR . '/admin/user.set.php';//用户管理
+require_once SETTING_DIR . '/admin/debug.set.php';//开发调试
 
 /**
  * 超级优化 manager
  */ 
-require_once SETTING_DIR . '/manager/senior.config.php';//高级设置
-require_once SETTING_DIR . '/manager/flash.config.php';//网站加速
-require_once SETTING_DIR . '/manager/smtp.config.php';//邮件设置
-require_once SETTING_DIR . '/manager/maintenance.config.php';//维护
-require_once SETTING_DIR . '/manager/rewrite.config.php';//固定链接
-require_once SETTING_DIR . '/manager/browser.config.php';//浏览器升级提示
+require_once SETTING_DIR . '/manager/senior.set.php';//高级设置
+require_once SETTING_DIR . '/manager/flash.set.php';//网站加速
+require_once SETTING_DIR . '/manager/smtp.set.php';//邮件设置
+require_once SETTING_DIR . '/manager/maintenance.set.php';//维护
+require_once SETTING_DIR . '/manager/rewrite.set.php';//固定链接
+require_once SETTING_DIR . '/manager/browser.set.php';//浏览器升级提示
 
 /**
  * 小工具
