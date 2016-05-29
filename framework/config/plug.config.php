@@ -22,6 +22,111 @@ $settings           = array(
 // ===============================================================================================
 $options        = array();
 // ------------------------------
+// 高级设置               -
+// ------------------------------
+$options[]   = array(
+  'name'     => 'plug_qiniu_section',
+  'title'    => __('七牛云','CS_TEXTDOMAIN'),
+  'icon'     => 'fa fa-cloud',
+  'fields'   => array(
+
+    array(
+        'type'    => 'notice',
+        'class'   => 'info',
+        'content' => __('七牛设置','CS_TEXTDOMAIN'),
+    ),
+
+    array(
+      'id'         => 'qiniu_host',
+      'type'       => 'text',
+      'title'      => __('七牛域名','CS_TEXTDOMAIN'),
+      'after'      => '<p>'.__('说明：设置为七牛提供的测试域名或者在七牛绑定的域名。<strong>注意要域名前面要加上 http://。</strong>
+如果博客安装的是在子目录下，比如 http://www.xxx.com/blog，这里也需要带上子目录 /blog','CS_TEXTDOMAIN').'</p>',    
+      'attributes' => array(
+        'style'    => 'width: 100%;'
+      ),
+    ),
+
+    array(
+      'id'         => 'qiniu_bucket',
+      'type'       => 'text',
+      'title'      => __('七牛空间名','CS_TEXTDOMAIN'),
+      'after'      => ' <span class="cs-text-warning">'.__('( 设置为你在七牛提供的空间名。 )','CS_TEXTDOMAIN').'</span>',
+    ),
+
+    array(
+      'id'         => 'qiniu_access_key',
+      'type'       => 'text',
+      'title'      => __('ACCESS KEY','CS_TEXTDOMAIN'),  
+    ),
+
+    array(
+      'id'         => 'qiniu_secret_key',
+      'type'       => 'text',
+      'title'      => __('SECRET KEY','CS_TEXTDOMAIN'),   
+    ),
+
+    array(
+      'type'    => 'notice',
+      'class'   => 'info',
+      'content' => __('本地设置','CS_TEXTDOMAIN'),
+    ),
+
+    array(
+      'id'         => 'file_exts',
+      'type'       => 'text',
+      'title'      => __('扩展名','CS_TEXTDOMAIN'),
+      'after'      => '<p>'.__('说明：设置要缓存静态文件的扩展名，请使用 | 分隔开，|前后都不要留空格。','CS_TEXTDOMAIN').'</p>',
+      'default'    => 'js|css|png|jpg|jpeg|gif|ico',    
+      'attributes' => array(
+        'style'    => 'width: 100%;'
+      ),
+    ),
+
+    array(
+      'id'         => 'cdn_dirs',
+      'type'       => 'text',
+      'title'      => __('目录','CS_TEXTDOMAIN'),
+      'after'      => '<p>'.__('说明：设置要缓存静态文件所在的目录，请使用 | 分隔开，|前后都不要留空格。','CS_TEXTDOMAIN').'</p>',
+      'default'    => 'wp-content|wp-includes',    
+      'attributes' => array(
+        'style'    => 'width: 100%;'
+      ),
+    ),
+
+    array(
+      'id'         => 'local_domain',
+      'type'       => 'text',
+      'title'      => __('本地域名','CS_TEXTDOMAIN'),
+      'after'      => '<p>'.__('如果图片等静态文件存储的域名和网站不同，可通过该字段设置。
+使用该字段设置静态文件所在的域名之后，请确保 JS 和 CSS 等文件也在该域名下，否则将不会加速。','CS_TEXTDOMAIN').'</p>',
+      'default'    => home_url(),    
+      'attributes' => array(
+        'style'    => 'width: 100%;'
+      ),
+    ),
+
+    array(
+      'type'    => 'notice',
+      'class'   => 'info',
+      'content' => __('缩略图设置','CS_TEXTDOMAIN'),
+    ), 
+
+    array(
+      'type'    => 'notice',
+      'class'   => 'info',
+      'content' => __('远程图片设置','CS_TEXTDOMAIN'),
+    ), 
+
+    array(
+      'type'    => 'notice',
+      'class'   => 'info',
+      'content' => __('水印设置','CS_TEXTDOMAIN'),
+    ),           
+
+  )
+);
+// ------------------------------
 // 多媒体设置               -
 // ------------------------------
 $options[]   = array(
