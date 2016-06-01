@@ -15,7 +15,15 @@
 
 /* Cannot access pages directly  */ 
 if ( ! defined( 'ABSPATH' ) ) { die; } 
- 
+/**
+ * WordPress 4.1 就添加了新的方法在主题中显示标题，取代之前的 wp_title() 函数用法
+ * http://blog.rpgsky.net/archives/6025
+ * wp_get_document_title()
+ */
+function theme_slug_setup() {
+   add_theme_support( 'title-tag' );
+}
+add_action( 'after_setup_theme', 'theme_slug_setup' ); 
 /**
  * 摘要长度
  * http://isharefree.com/wordpress/wordpress-modify-the-excerpt-lenth/  
