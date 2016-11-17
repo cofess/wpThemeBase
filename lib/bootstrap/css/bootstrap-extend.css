@@ -2,10 +2,14 @@
 .pagination-basic{border-radius: 0!important}
 .pagination-basic > li:first-child > a, .pagination-basic > li:first-child > span{border-radius: 0!important}
 .pagination-basic > li:last-child > a, .pagination-basic > li:last-child > span{border-radius: 0!important}
-.pagination-basic > li > a, .pagination-basic > li > span{color:#333;margin-right: 10px;border: 1px solid #eee;}
+.pagination-basic > li > a, .pagination-basic > li > span{color:#333;margin-left:5px;margin-right: 5px;border: 1px solid #eee;}
 .pagination-basic > .disabled > span, .pagination-basic > .disabled > span:hover, .pagination-basic > .disabled > span:focus, .pagination-basic > .disabled > a, .pagination-basic > .disabled > a:hover, .pagination-basic > .disabled > a:focus{border: 1px solid #eee;}
 .pagination-basic > li > a:hover, .pagination-basic > li > span:hover, .pagination-basic > li > a:focus, .pagination-basic > li > span:focus{color:#EA5503;border: 1px solid #eee;}
 .pagination-basic > li > .current,.pagination-basic > li > .current:hover{background-color:#EA5503!important;color:#fff;}
+@media (max-width:767px) {
+.pagination-basic>li>a, .pagination-basic>li>span {padding: 2px 10px!important;font-size: 16px!important;line-height: inherit!important;}
+.pagination-basic > li > a, .pagination-basic > li > span {margin-left:2px;margin-right: 2px;}
+}
 /*---------------------css callout-----------------*/
 .callout { padding: 20px; margin: 20px 0; border-left: 5px solid #eee }
 .callout h4 { margin-top: 0; margin-bottom: 5px }

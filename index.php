@@ -1,119 +1,171 @@
-<?php
-/**
- * The main template file.
- *
- * This is the most generic template file in a WordPress theme
- * and one of the two required files for a theme (the other being style.css).
- * It is used to display a page when nothing more specific matches a query.
- * E.g., it puts together the home page when no home.php file exists.
- * Learn more: http://codex.wordpress.org/Template_Hierarchy
- *
- * @author Matthias Thom | http://upplex.de
- * @package upBootWP 1.1
- */
-
-get_header(); ?>
-<div class="container">
-  <div class="row">
-    <div class="col-md-8">
-      <div id="primary" class="content-area">
-        <main id="main" class="site-main" role="main">
-          <article id="post-1" class="post-1 post type-post status-publish format-standard hentry category-uncategorized">
-            <header class="entry-header">
-              <h1 class="entry-title"><a href="" rel="bookmark">世界，您好！</a></h1>
-              <div class="entry-meta"> <span class="posted-on">Posted on <a href="" title="下午1:11" rel="bookmark">
-                <time class="entry-date published" datetime="2015-12-05T13:11:47+00:00">2015年12月5日</time>
-                </a></span><span class="byline"> by <span class="author vcard"><a class="url fn n" href="" title="View all posts by webmaster">webmaster</a></span></span> </div>
-              <!-- .entry-meta --> 
-            </header>
-            <!-- .entry-header -->
-            
-            <div class="entry-summary">
-              <p>欢迎使用WordPress。这是您的第一篇文章。编辑或删除它，然后开始写作吧！</p>
-            </div>
-            <!-- .entry-summary -->
-            
-            <footer class="entry-meta"> <span class="comments-link"><a href="">1 Comment</a></span> </footer>
-            <!-- .entry-meta --> 
-          </article>
-          <!-- #post-## --> 
-          <article id="post-1" class="post-1 post type-post status-publish format-standard hentry category-uncategorized">
-            <header class="entry-header">
-              <h1 class="entry-title"><a href="" rel="bookmark">世界，您好！</a></h1>
-              <div class="entry-meta"> <span class="posted-on">Posted on <a href="" title="下午1:11" rel="bookmark">
-                <time class="entry-date published" datetime="2015-12-05T13:11:47+00:00">2015年12月5日</time>
-                </a></span><span class="byline"> by <span class="author vcard"><a class="url fn n" href="" title="View all posts by webmaster">webmaster</a></span></span> </div>
-              <!-- .entry-meta --> 
-            </header>
-            <!-- .entry-header -->
-            
-            <div class="entry-summary">
-              <p>欢迎使用WordPress。这是您的第一篇文章。编辑或删除它，然后开始写作吧！</p>
-            </div>
-            <!-- .entry-summary -->
-            
-            <footer class="entry-meta"> <span class="comments-link"><a href="">1 Comment</a></span> </footer>
-            <!-- .entry-meta --> 
-          </article>
-          <!-- #post-## --> 		  
-          
-        </main>
-        <!-- #main --> 
+<?php get_header(); ?>
+<!-- main -->
+<main class="main" id="main" role="main">
+  <?php get_template_part( "content/banner/home-banner" ) ?>
+  <!-- products -->
+  <section id="products" class="pv-4x">
+    <!--<div class="container-fluid">-->
+      <h3 class="text-center text-uppercase">Featured Products</h3>
+      <p class="text-center">Released more than 16 brands 2000 models</p>
+      <div class="tabbable-line">
+        <div class="center-tabs mb-2x">
+        <ul class="nav nav-tabs">
+          <li class="active"> <a href="#tab_new_products" data-toggle="tab" aria-expanded="true">New Products</a> </li>
+          <li class=""> <a href="#tab_hot_products" data-toggle="tab" aria-expanded="false">HOT Products</a> </li>
+          <li class="hidden-xs"> <a href="<?php echo esc_url( get_permalink( get_page_by_title( 'Products' ) ) ); ?>" class="bg-no" aria-expanded="false">All Products</a> </li>
+        </ul>
+        </div>
+        <div class="tab-content">
+          <!-- tab-pane -->
+          <div class="tab-pane active" id="tab_new_products">
+            <div class="container-fluid">
+              <?php get_template_part( "content/public/new-products" ) ?>
+            </div>              
+          </div>
+          <!-- /tab-pane -->
+          <!-- tab-pane -->
+          <div class="tab-pane" id="tab_hot_products">
+            <div class="container-fluid">
+              <?php get_template_part( "content/public/hot-products" ) ?>
+            </div>         
+          </div>
+          <!-- /tab-pane -->
+        </div>
       </div>
-      <!-- #primary --> 
-    </div>
-    <!-- .col-md-8 -->
-    
-    <div class="col-md-4">
-      <div id="secondary" class="widget-area well well-sm" role="complementary">
-        <aside id="search-2" class="widget widget_search">
-          <form role="search" method="get" class="search-form form-inline" action="">
-            <div class="form-group">
-              <input type="search" class="search-field form-control" placeholder="Search &hellip;" value="" name="s" title="Search for:">
-            </div>
-            <input type="submit" class="search-submit btn btn-default" value="Search">
-          </form>
-        </aside>
-        <aside id="recent-posts-2" class="widget widget_recent_entries">
-          <h4 class="widget-title">近期文章</h4>
-          <ul>
-            <li> <a href="">世界，您好！</a> </li>
-          </ul>
-        </aside>
-        <aside id="recent-comments-2" class="widget widget_recent_comments">
-          <h4 class="widget-title">近期评论</h4>
-          <ul id="recentcomments">
-            <li class="recentcomments"><span class="comment-author-link"><a href='' rel='external nofollow' class='url'>WordPress先生</a></span>发表在《<a href="">世界，您好！</a>》</li>
-          </ul>
-        </aside>
-        <aside id="archives-2" class="widget widget_archive">
-          <h4 class="widget-title">文章归档</h4>
-          <ul>
-            <li><a href=''>2015年十二月</a></li>
-          </ul>
-        </aside>
-        <aside id="categories-2" class="widget widget_categories">
-          <h4 class="widget-title">分类目录</h4>
-          <ul>
-            <li class="cat-item cat-item-1"><a href="" >未分类</a> </li>
-          </ul>
-        </aside>
-        <aside id="meta-2" class="widget widget_meta">
-          <h4 class="widget-title">功能</h4>
-          <ul>
-            <li><a href="">管理站点</a></li>
-            <li><a href="">登出</a></li>
-            <li><a href="">文章<abbr title="Really Simple Syndication">RSS</abbr></a></li>
-            <li><a href="">评论<abbr title="Really Simple Syndication">RSS</abbr></a></li>
-            <li><a href="" title="基于WordPress，一个优美、先进的个人信息发布平台。">WordPress.org</a></li>
-          </ul>
-        </aside>
+    <!--</div>-->
+  </section>
+  <!-- /products -->
+  <!-- OUR ADVANTAGES -->
+  <?php if(!wp_is_mobile()){ ?>
+  <section id="section-advantages" class="hidden-xs">
+    <div class="pv-4x">
+      <div class="container-fluid">
+        <h3 class="text-center text-uppercase">Our Advantages</h3>
+        <p class="text-muted text-center mb-4x"><?php echo strip_tags(cs_get_option('company_adwords'));?></p>
+        <?php get_template_part( "content/public/advantages" ) ?>
       </div>
-      <!-- #secondary --> 
     </div>
-    <!-- .col-md-4 --> 
-  </div>
-  <!-- .row --> 
-</div>
-<!-- .container -->
+  </section>
+  <?php } ?>
+  <!-- /OUR ADVANTAGES -->
+  <!-- news -->
+  <section id="news">
+    <div class="pv-4x">
+      <div class="container-fluid">
+        <h3 class="text-center text-uppercase mb-4x">Latest News</h3>
+        <!--<p class="text-muted text-center mb-4x"><?php echo strip_tags(cs_get_option('company_adwords'));?></p>-->
+        <div class="row news-list">
+          <!-- col -->
+          <div class="col-sm-6 col-md-6 col-lg-3 mt-2x">
+            <div class="entity img-burn bg-white b b-light shadow-hover clearfix">
+            <a href="<?php echo get_category_link(30);?>" class="entity-header ds-block bg-black bg-inverse pattern news-bg2">
+              <h3 class="news-title color-white m-no ph-1x">Company News</h3>
+            </a>
+            <div class="entity-body ph-1x pv-2x">
+              <ul class="list-unstyled">
+              <?php $loop = new WP_Query( 'cat=30&showposts=4' );?>
+              <?php if ( $loop->have_posts() ) : while ( $loop->have_posts() ) : $loop->the_post(); ?>
+                <?php get_template_part( "content/item-post-simple" ) ?>
+              <?php endwhile; endif; wp_reset_query(); ?>
+              </ul>
+            </div>
+          </div>
+          </div>
+          <!-- /col -->
+          <!-- col -->
+          <div class="col-sm-6 col-md-6 col-lg-3 mt-2x">
+            <div class="entity img-burn bg-white b b-light shadow-hover clearfix">
+            <a href="<?php echo get_category_link(33);?>" class="entity-header ds-block bg-black bg-inverse pattern news-bg4">
+              <h3 class="news-title color-white m-no ph-1x">Product News</h3>
+            </a>
+            <div class="entity-body ph-1x pv-2x">
+              <ul class="list-unstyled">
+              <?php $loop = new WP_Query( 'cat=33&showposts=4' );?>
+              <?php if ( $loop->have_posts() ) : while ( $loop->have_posts() ) : $loop->the_post(); ?>
+                <?php get_template_part( "content/item-post-simple" ) ?>
+              <?php endwhile; endif; wp_reset_query(); ?>
+              </ul>
+            </div>
+          </div>
+          </div>
+          <!-- /col -->          
+          <!-- col -->
+          <div class="col-sm-6 col-md-6 col-lg-3 mt-2x">
+            <div class="entity img-burn bg-white b b-light shadow-hover clearfix">
+            <a href="<?php echo get_category_link(32);?>" class="entity-header ds-block bg-black bg-inverse pattern news-bg3">
+              <h3 class="news-title color-white m-no ph-1x">Exibition News</h3>
+            </a>
+            <div class="entity-body ph-1x pv-2x">
+              <ul class="list-unstyled">
+              <?php $loop = new WP_Query( 'cat=32&showposts=4' );?>
+              <?php if ( $loop->have_posts() ) : while ( $loop->have_posts() ) : $loop->the_post(); ?>
+                <?php get_template_part( "content/item-post-simple" ) ?>
+              <?php endwhile; endif; wp_reset_query(); ?>
+              </ul>
+            </div>
+          </div>
+          </div>
+          <!-- /col -->
+          <!-- col -->
+          <div class="col-sm-6 col-md-6 col-lg-3 mt-2x hidden-xs">
+            <div class="entity img-burn bg-white b b-light shadow-hover clearfix">
+            <a href="<?php echo get_category_link(31);?>" class="entity-header ds-block bg-black bg-inverse pattern news-bg1">
+              <h3 class="news-title color-white m-no ph-1x">Industry News</h3>
+            </a>
+            <div class="entity-body ph-1x pv-2x">
+              <ul class="list-unstyled">
+              <?php $loop = new WP_Query( 'cat=31&showposts=4' );?>
+              <?php if ( $loop->have_posts() ) : while ( $loop->have_posts() ) : $loop->the_post(); ?>
+                <?php get_template_part( "content/item-post-simple" ) ?>
+              <?php endwhile; endif; wp_reset_query(); ?>
+              </ul>
+            </div>
+          </div>
+          </div>
+          <!-- /col -->          
+        </div>
+        <!-- /row -->
+      </div>
+    </div>
+  </section>
+  <!-- /news -->
+  <!-- brand -->
+  <section id="brand" class="hidden-xs hidden-sm hidden-md">
+    <div class="pattern pattern1 mheight-md">
+      <div class="container-fluid relative text-center pt-4x">
+      </div>
+    </div>
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-md-4 mb-2x pt-4x">
+          <p class="text-nowrap-3x"><?php echo cs_get_option('company_profile');?></p>
+        </div>
+        <div class="col-md-4 text-center relative pv-4x">
+          <div class="ph-3x relative z1">
+            <h3 class="mt-no text-uppercase">ABOUT ASTA</h3>
+            <div class="colored-line bg-main mv-2x"></div>
+            <p class="text-nowrap-2x">10 Years OEM Service</p>
+          </div>
+          <div class="main-box hidden-xs"></div>
+        </div>
+        <div class="col-md-4 text-left mb-2x pt-4x">
+          <a class="btn btn-dark btn-outline r-no" href="<?php echo esc_url( get_permalink( get_page_by_title( 'About ASTA' ) ) ); ?>" role="button">About ASTA<i class="fa fa-arrow-circle-right ml-4x"></i></a>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- /brand -->
+  <!-- fun facts -->
+  <section id="facts" class="pv-4x">
+    <div class="container-fluid">
+      <h3 class="text-center text-uppercase">Some Fun Facts</h3>
+      <p class="text-center">Fun Facts that you always wanted to know!</p>
+      <?php get_template_part( "content/public/funfacts" ) ?>
+    </div>
+  </section>
+  <!-- /fun facts -->
+  <!-- join --> 
+  <?php get_template_part( "content/public/join" ) ?>
+  <!-- /join --> 
+</main>
 <?php get_footer(); ?>

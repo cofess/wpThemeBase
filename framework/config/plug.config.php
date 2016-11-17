@@ -10,7 +10,7 @@ $settings           = array(
   'menu_parent'     => 'theme-setting',
   'menu_slug'       => 'plug-setting',
   //'menu_icon'  => 'dashicons-sos',
-  'ajax_save'       => true,
+  //'ajax_save'       => true,
   'show_reset_all'  => true,
   'framework_title' => 'ThemeBase <small>by <a href="http://www.yiwell.com" target="_blank" style="outline:none;border:none;text-decoration:none" onfocus="this.blur()">Yiwell</a></small>',
 );
@@ -125,7 +125,7 @@ $options[]   = array(
       'type'          => 'upload',
       'title'         => __('默认缩略图','CS_TEXTDOMAIN'),
       'attributes'    => array(
-        'placeholder' => 'http://'
+        'placeholder' => get_template_directory_uri().'/lib/images/cover/placeholder.jpg'
       ),
       'settings'      => array(
         'upload_type' => 'image',
@@ -537,6 +537,42 @@ $options[]   = array(
     ), // end: fields 
 ); 
 // ------------------------------
+// Contact Form 7                       -
+// ------------------------------
+$options[]   = array(
+  'name'     => 'plug_cf7_section',
+  'title'    => __('联系表单','CS_TEXTDOMAIN'),
+  'icon'     => 'fa fa-wpforms',
+  'fields'   => array(
+
+    array(
+      'type'    => 'notice',
+      'class'   => 'info',
+      'content' => __('Contact Form 7','CS_TEXTDOMAIN'),
+    ),
+
+    array(
+      'id'      => 'enable_cf7_email',
+      'type'    => 'switcher',
+      'title'   => __('邮件通知','CS_TEXTDOMAIN'),
+      'label'   => __('禁用后前端表单提交数据将不再发送邮件通知，同时设置的自动回复功能将失效','CS_TEXTDOMAIN'),
+      'default' => false,
+    ), 
+
+  )
+);
+// ------------------------------
+// Woocommerce                       -
+// ------------------------------
+$options[]   = array(
+  'name'     => 'plug_woocommerce_section',
+  'title'    => __('Woocommerce','CS_TEXTDOMAIN'),
+  'icon'     => 'fa fa-opencart',
+  'fields'   => array(
+
+  )
+);
+// ------------------------------
 // backup                       -
 // ------------------------------
 $options[]   = array(
@@ -554,33 +590,6 @@ $options[]   = array(
     array(
       'type'    => 'backup',
     ),
-
-  )
-);
-
-// ------------------------------
-// license                      -
-// ------------------------------
-$options[]   = array(
-  'name'     => 'plug_license_section',
-  'title'    => __('关于插件','CS_TEXTDOMAIN'),
-  'icon'     => 'fa fa-info-circle',
-  'fields'   => array(
-
-    array(
-      'type'    => 'heading',
-      'content' => __('超级优化（super manager）','CS_TEXTDOMAIN'),
-    ),
-    array(
-      'type'    => 'content',
-      'content' => __('超级优化（super manager）旨在通过优化使网站加载速度更快、更安全！提升用户体验！','CS_TEXTDOMAIN'),
-    ),
-
-    /* array(
-        'type'    => 'notice',
-        'class'   => 'info',
-        'content' => '<iframe src="'.get_template_directory_uri().'/inc/super-manager/content/jquery.cdn.html" width="100%"></iframe>',
-    ),*/	
 
   )
 );

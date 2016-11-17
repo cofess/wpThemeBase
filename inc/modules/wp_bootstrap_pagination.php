@@ -10,16 +10,24 @@
 // posts per page based on CPT
 function custom_posts_per_page($query){
     switch ( $query->query_vars['post_type'] ){
-        case 'food':  // Post Type named 'food'
-            $query->query_vars['posts_per_page'] = 1;
+        case 'product':  // Post Type named 'product'
+            $query->query_vars['posts_per_page'] = 12;
             break;
 
-        case 'event':  // Post Type named 'event'
-            $query->query_vars['posts_per_page'] = 4;
+        case 'dlm_download':  // Post Type named 'dlm_download'
+            $query->query_vars['posts_per_page'] = 24;
+            break;
+
+        case 'faq':  // Post Type named 'faq'
+            $query->query_vars['posts_per_page'] = 24;
+            break;
+
+        case 'gallery':  // Post Type named 'gallery'
+            $query->query_vars['posts_per_page'] = 24;
             break;
 
         case 'post':  // Post Type named 'event'
-            $query->query_vars['posts_per_page'] = 1;
+            $query->query_vars['posts_per_page'] = 12;
             break;			
 
         default:

@@ -42,7 +42,7 @@ class Bootstrap_Walker extends Walker_Nav_Menu
         $classes = empty( $item->classes ) ? array() : (array) $item->classes;
         /* This is the stock Wordpress code that builds the <li> with all of its attributes */
         $class_names = join( ' ', apply_filters( 'nav_menu_css_class', array_filter( $classes ), $item ) );
-        $class_names = ' class="' . esc_attr( $class_names ) . ' text-uppercase"';
+        $class_names = ' class="' . esc_attr( $class_names ) . '"';
         $output .= $indent . '<li id="menu-item-'. $item->ID . '"' . $value . $class_names .'>'; 
 		
 		$description  = ! empty( $item->attr_title ) ? '<i class="' . esc_attr( $item->attr_title ) . '"></i>' : '';

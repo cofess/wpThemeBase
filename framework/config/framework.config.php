@@ -10,7 +10,7 @@ $settings           = array(
   //'menu_parent'     => 'themes.php',
   'menu_slug'       => 'theme-setting',
   'menu_icon'  => 'dashicons-art',
-  'ajax_save'       => true,
+  //'ajax_save'       => true,
   'show_reset_all'  => true,
   'framework_title' => 'ThemeBase <small>by <a href="http://www.yiwell.com" target="_blank" style="outline:none;border:none;text-decoration:none" onfocus="this.blur()">Yiwell</a></small>',
 );
@@ -27,208 +27,203 @@ $options        = array();
 // ------------------------------
 $options[]   = array(
   'name'     => 'brand_section',
-  'title'    => __('品牌','CS_TEXTDOMAIN'),
+  'title'    => '品牌',
   'icon'     => 'fa fa-globe',
-  'sections' => array(
+  'fields'   => array(
 
-    // -----------------------------
-    // 基本信息        -
-    // -----------------------------
-    array(
-      'name'      => 'brand_base_options',
-      'title'     => __('基本信息','CS_TEXTDOMAIN'),
-      'icon'      => 'fa fa-cog',
-
-      // begin: fields
-      'fields'    => array(		
-	    		  
         array(
           'id'            => 'company_logo',
           'type'          => 'upload',
-          'title'         => __('品牌LOGO','CS_TEXTDOMAIN'),
+          'title'         => '品牌LOGO',
           'attributes'    => array(
             'placeholder' => 'http://'
           ),
-		  'default' => get_template_directory_uri()."/lib/images/logo.png",
-		  'settings'      => array(
-			'upload_type'  => 'image',
-			'button_title' => __('上传','CS_TEXTDOMAIN'),
-			'frame_title'  => __('选择图像','CS_TEXTDOMAIN'),
-			'insert_title' => __('使用图像','CS_TEXTDOMAIN'),
-		  ),
+      'default' => get_template_directory_uri()."/assets/images/asta-logo.png",
+      'settings'      => array(
+      'upload_type'  => 'image',
+      'button_title' => '上传',
+      'frame_title'  => '选择图像',
+      'insert_title' => '使用图像',
+      ),
         ),
 
-		array(
+    array(
           'id'            => 'company_brandQrcode',
           'type'          => 'upload',
-          'title'         => __('品牌二维码','CS_TEXTDOMAIN'),
-		  'default'       => get_template_directory_uri()."/assets/images/brandQrcode.png",
-		  'after'         => ' <span class="cs-text-warning">'.__('( 微信公众号二维码或官方网站二维码等 )','CS_TEXTDOMAIN').'</span>',
+          'title'         => '品牌二维码',
+      'default'       => get_template_directory_uri()."/assets/images/brandQrcode.png",
+      'after'         => ' <span class="cs-text-warning">( 微信公众号二维码或官方网站二维码等 )</span>',
           'attributes'    => array(
             'placeholder' => 'http://'
           ),
-		  'settings'      => array(
-			'upload_type'  => 'image',
-			'button_title' => __('上传','CS_TEXTDOMAIN'),
-			'frame_title'  => __('选择图像','CS_TEXTDOMAIN'),
-			'insert_title' => __('使用图像','CS_TEXTDOMAIN'),
-		  ),
-		),
-		
+      'settings'      => array(
+      'upload_type'  => 'image',
+      'button_title' => '上传',
+      'frame_title'  => '选择图像',
+      'insert_title' => '使用图像',
+      ),
+    ),
+    
         array(
           'id'     => 'company_video',
           'type'   => 'text',
-          'title'  => __('品牌宣传视频','CS_TEXTDOMAIN'),
-		  'after'  => ' <span class="cs-text-warning">'.__('( 线上视频地址，建议上传到优酷或youtube )','CS_TEXTDOMAIN').'</span>',
+          'title'  => '品牌宣传视频',
+      'after'  => ' <span class="cs-text-warning">( 线上视频地址，建议上传到优酷或youtube )</span>',
           'attributes'    => array(
             'placeholder' => 'http://'
-          ),		  
-        ), 		
-		
+          ),      
+        ),    
+    
         array(
           'id'     => 'company_name',
           'type'   => 'text',
-          'title'  => __('公司名称','CS_TEXTDOMAIN'),
+          'title'  => '公司名称',
         ),  
+        array(
+          'id'     => 'company_site',
+          'type'   => 'text',
+          'title'  => '公司网站',
+        ), 
   
-		array(
-		  'id'       => 'company_email',
-		  'type'     => 'text',
-		  'title'    => __('企业邮箱','CS_TEXTDOMAIN'),
-		  //'validate' => 'email',
-		),
+    array(
+      'id'       => 'company_email',
+      'type'     => 'text',
+      'title'    => '企业邮箱',
+      //'validate' => 'email',
+    ),
 
-		array(
-		  'id'       => 'company_tel',
-		  'type'     => 'text',
-		  'title'    => __('公司电话','CS_TEXTDOMAIN'),
-		  //'validate' => 'numeric',
-		),
+    array(
+      'id'       => 'company_tel',
+      'type'     => 'text',
+      'title'    => '公司电话',
+      //'validate' => 'numeric',
+    ),
 
-		array(
-		  'id'       => 'company_fax',
-		  'type'     => 'text',
-		  'title'    => __('传真号','CS_TEXTDOMAIN'),
-		  //'validate' => 'numeric',
-		),			
-		
+    array(
+      'id'       => 'company_fax',
+      'type'     => 'text',
+      'title'    => '传真号',
+      //'validate' => 'numeric',
+    ),      
+    array(
+      'id'       => 'company_skype',
+      'type'     => 'text',
+      'title'    => 'Skype',
+      //'validate' => 'numeric',
+    ),
         array(
           'id'         => 'company_add',
           'type'       => 'text',
-          'title'      => __('公司地址','CS_TEXTDOMAIN'),
+          'title'      => '公司地址',
           'attributes' => array(
             'style'    => 'width: 100%;'
           ),
-        ),		
-		
+        ),    
+    
         array(
-          'id'         => 'company_adwords',
-          'type'       => 'text',
-          'title'      => __('宣传语','CS_TEXTDOMAIN'),
-		  'after'      => '<p class="cs-text-muted">'.__('说明：一句话广告语，体现公司的核心优势，支持html','CS_TEXTDOMAIN').'</p>',
-		  'sanitize'   => false,	  
-		  'attributes' => array(
-            'style'    => 'width: 100%;'
-          ),
+          'id'     => 'company_adwords',
+          'type'   => 'textarea',
+          'title' => '宣传语',
+      'after'  => '<p class="cs-text-muted">说明：一句话广告语，体现公司的核心优势，支持html</p>',
+          'settings' => array(
+            'textarea_rows' => 2,
+            //'tinymce'       => false,
+            'media_buttons' => false,
+          )     
         ),
-		
+    
         array(
-          'id'       => 'company_profile',
-          'type'     => 'wysiwyg',
-		  'before'   => '<h4>'.__('公司简介','CS_TEXTDOMAIN').'</h4>',		  
+          'id'     => 'company_profile',
+          'type'   => 'wysiwyg',
+          'title' => '公司简介',
+          'settings' => array(
+            'textarea_rows' => 2,
+            //'tinymce'       => false,
+            'media_buttons' => false,
+          )       
         ),
-		
+    
         array(
-          'id'       => 'company_patent_disclaimer',
-          'type'     => 'textarea',
-		  'before'   => '<h4>'.__('专利免责声明','CS_TEXTDOMAIN').'</h4>',	
-		  'sanitize' => false,		  
-        ),		
-				
-      ), // end: fields
+          'id'     => 'company_patent_disclaimer',
+          'type'   => 'textarea',
+          'title' => '专利免责声明',
+          'settings' => array(
+            'textarea_rows' => 2,
+            //'tinymce'       => false,
+            'media_buttons' => false,
+          )       
+        ),    
 
-    ),	
-  
-    // -----------------------------
-    // 其他信息         -
-    // -----------------------------
-    array(
-      'name'      => 'brand_other_options',
-      'title'     => __('其他信息','CS_TEXTDOMAIN'),
-      'icon'      => 'fa fa-code',
-
-      // begin: fields
-      'fields'    => array(		  
         array(
           'id'              => 'company_social',
           'type'            => 'group',
-          'title'           => __('自定义社交链接','CS_TEXTDOMAIN'),
-          'button_title'    => __('添加链接','CS_TEXTDOMAIN'),
-          'accordion_title' => __('链接','CS_TEXTDOMAIN'),
+          'title'           => '自定义社交链接',
+          'button_title'    => '添加链接',
+          'accordion_title' => '链接',
           'fields'          => array(
 
             array(
               'id'          => 'social_title',
               'type'        => 'text',
-              'title'       => __('链接标题','CS_TEXTDOMAIN'),
-			  'attributes'    => array(
-				'placeholder' => __('例如：我的微博','CS_TEXTDOMAIN'),
-			  )
+              'title'       => '链接标题',
+        'attributes'    => array(
+        'placeholder' => '例如：我的微博'
+        )
             ),
-			
+      
             array(
               'id'          => 'social_url',
               'type'        => 'text',
-              'title'       => __('社交链接','CS_TEXTDOMAIN'),
-			  'attributes'    => array(
-				'placeholder' => 'http://'
-			  )
-            ),	
-			
+              'title'       => '社交链接',
+        'attributes'    => array(
+        'placeholder' => 'http://'
+        )
+            ),  
+      
             array(
               'id'          => 'social_class',
               'type'        => 'text',
-              'title'       => __('自定义的class类（方便添加CSS样式）','CS_TEXTDOMAIN'),
-            ),				
+              'title'       => '自定义的class类（方便添加CSS样式）',
+            ),        
 
-			/*array(
-			  'id'      => 'social_iconStyle',
-			  'type'    => 'radio',
-			  'title'   => __('图标类型','CS_TEXTDOMAIN'),
-			  'class'   => 'horizontal',
-			  'options' => array(
-				'icon'  => __('字体图标','CS_TEXTDOMAIN'),
-				'img'   => __('自定义图片','CS_TEXTDOMAIN'),
-			  ),
-			  'default' => 'icon',
-			),	*/
+      /*array(
+        'id'      => 'social_iconStyle',
+        'type'    => 'radio',
+        'title'   => '图标类型',
+        'class'   => 'horizontal',
+        'options' => array(
+        'icon'   => '字体图标',
+        'img'    => '自定义图片',
+        ),
+        'default' => 'icon',
+      ),  */
 
-			array(
-			  'id'      => 'social_icon',
-			  'type'    => 'icon',
-			  'title'   => __('字体图标','CS_TEXTDOMAIN'),
-			  'button_title' => __('添加图标','CS_TEXTDOMAIN'),
-			  //'dependency'   => array( 'social_iconStyle_icon', '==', 'true' ),
-			  'attributes'    => array(
-				'button_title' => __('添加图标','CS_TEXTDOMAIN'),
-			  )
-			),
-			
-			/*array(
-			  'id'            => 'social_image',
-			  'type'          => 'upload',
-			  'title'         => __('自定义图片','CS_TEXTDOMAIN'),
-			  'dependency'    => array( 'social_iconStyle_img', '==', 'true' ),
-			  'attributes'    => array(
-				'placeholder' => 'http://'
-			  ),
-			  'settings'      => array(
-				'upload_type' => 'image',
-				'button_title'=> __('上传','CS_TEXTDOMAIN'),
-				'frame_title' => __('选择图像','CS_TEXTDOMAIN'),
-				'insert_title'=> __('使用图像','CS_TEXTDOMAIN'),
-			  ),
-			),*/					
+      array(
+        'id'      => 'social_icon',
+        'type'    => 'icon',
+        'title'   => '字体图标',
+        'button_title' => '添加图标',
+        //'dependency'   => array( 'social_iconStyle_icon', '==', 'true' ),
+        'attributes'    => array(
+        'button_title' => '添加图标'
+        )
+      ),
+      
+      /*array(
+        'id'            => 'social_image',
+        'type'          => 'upload',
+        'title'         => '自定义图片',
+        'dependency'   => array( 'social_iconStyle_img', '==', 'true' ),
+        'attributes'    => array(
+        'placeholder' => 'http://'
+        ),
+        'settings'      => array(
+        'upload_type'  => 'image',
+        'button_title' => '上传',
+        'frame_title'  => '选择图像',
+        'insert_title' => '使用图像',
+        ),
+      ),*/          
 
           ),
         ),
@@ -236,656 +231,636 @@ $options[]   = array(
         array(
           'id'              => 'company_advantage',
           'type'            => 'group',
-          'title'           => __('品牌核心优势','CS_TEXTDOMAIN'),
-          'button_title'    => __('添加优势','CS_TEXTDOMAIN'),
-          'accordion_title' => __('优势','CS_TEXTDOMAIN'),
+          'title'           => '品牌核心优势',
+          'button_title'    => '添加优势',
+          'accordion_title' => '优势',
           'fields'          => array(
 
             array(
               'id'          => 'advantage_title',
               'type'        => 'text',
-              'title'       => __('标题','CS_TEXTDOMAIN'),
+              'title'       => '标题',
             ),
-			
+      
             array(
-              'id'           => 'advantage_url',
-              'type'         => 'text',
-              'title'        => __('链接','CS_TEXTDOMAIN'),
-			  'attributes'   => array(
-				'placeholder'=> 'http://'
-			  )
+              'id'          => 'advantage_url',
+              'type'        => 'text',
+              'title'       => '链接',
+        'attributes'    => array(
+        'placeholder' => 'http://'
+        )
             ),
 
             array(
               'id'          => 'advantage_description',
               'type'        => 'textarea',
-              'title'       => __('描述','CS_TEXTDOMAIN'),
-            ),			
+              'title'       => '描述',
+            ),      
 
-			array(
-			  'id'      => 'advantage_iconStyle',
-			  'type'    => 'radio',
-			  'title'   => __('图标类型','CS_TEXTDOMAIN'),
-			  'class'   => 'horizontal',
-			  'options' => array(
-				'icon'  => __('字体图标','CS_TEXTDOMAIN'),
-				'img'   => __('自定义图片','CS_TEXTDOMAIN'),
-			  ),
-			  'default' => 'icon',
-			),	
+      array(
+        'id'      => 'advantage_iconStyle',
+        'type'    => 'radio',
+        'title'   => '图标类型',
+        'class'   => 'horizontal',
+        'options' => array(
+        'icon'   => '字体图标',
+        'img'    => '自定义图片',
+        ),
+        'default' => 'icon',
+      ),  
 
-			array(
-			  'id'      => 'advantage_icon',
-			  'type'    => 'icon',
-			  'title'   => __('字体图标','CS_TEXTDOMAIN'),
-			  'button_title'   => __('添加图标','CS_TEXTDOMAIN'),
-			  'dependency'     => array( 'advantage_iconStyle_icon', '==', 'true' ),
-			  'attributes'     => array(
-				'button_title' => __('添加图标','CS_TEXTDOMAIN'),
-			  )
-			),
-			
-			array(
-			  'id'            => 'advantage_image',
-			  'type'          => 'upload',
-			  'title'         => __('自定义图片','CS_TEXTDOMAIN'),
-			  'dependency'    => array( 'advantage_iconStyle_img', '==', 'true' ),
-			  'attributes'    => array(
-				'placeholder' => 'http://'
-			  ),
-			  'settings'      => array(
-				'upload_type' => 'image',
-				'button_title'=> __('上传','CS_TEXTDOMAIN'),
-				'frame_title' => __('选择图像','CS_TEXTDOMAIN'),
-				'insert_title'=> __('使用图像','CS_TEXTDOMAIN'),
-			  ),
-			),					
+      array(
+        'id'      => 'advantage_icon',
+        'type'    => 'icon',
+        'title'   => '字体图标',
+        'button_title' => '添加图标',
+        'dependency'   => array( 'advantage_iconStyle_icon', '==', 'true' ),
+        'attributes'    => array(
+        'button_title' => '添加图标'
+        )
+      ),
+      
+      array(
+        'id'            => 'advantage_image',
+        'type'          => 'upload',
+        'title'         => '自定义图片',
+        'dependency'   => array( 'advantage_iconStyle_img', '==', 'true' ),
+        'attributes'    => array(
+        'placeholder' => 'http://'
+        ),
+        'settings'      => array(
+        'upload_type'  => 'image',
+        'button_title' => '上传',
+        'frame_title'  => '选择图像',
+        'insert_title' => '使用图像',
+        ),
+      ),          
 
           ),
-        ),	
+        ),  
 
         array(
           'id'              => 'company_history',
           'type'            => 'group',
-          'title'           => __('发展历程','CS_TEXTDOMAIN'),
-          'button_title'    => __('添加历程','CS_TEXTDOMAIN'),
-          'accordion_title' => __('历程','CS_TEXTDOMAIN'),
+          'title'           => '发展历程',
+          'button_title'    => '添加历程',
+          'accordion_title' => '历程',
           'fields'          => array(
 
             array(
               'id'          => 'history_title',
               'type'        => 'text',
-              'title'       => __('时间','CS_TEXTDOMAIN'),
+              'title'       => '时间',
             ),
-			
+      
             array(
               'id'          => 'history_add',
               'type'        => 'text',
-              'title'       => __('地点','CS_TEXTDOMAIN'),
+              'title'       => '地点',
             ),
 
             array(
               'id'          => 'history_description',
               'type'        => 'textarea',
-              'title'       => __('描述','CS_TEXTDOMAIN'),
-            ),				
-			
-			array(
-			  'id'            => 'history_image',
-			  'type'          => 'upload',
-			  'title'         => __('自定义图片','CS_TEXTDOMAIN'),
-			  'attributes'    => array(
-				'placeholder' => 'http://'
-			  ),
-			  'settings'      => array(
-				'upload_type'  => 'image',
-				'button_title' => __('上传','CS_TEXTDOMAIN'),
-				'frame_title'  => __('选择图像','CS_TEXTDOMAIN'),
-				'insert_title' => __('使用图像','CS_TEXTDOMAIN'),
-			  ),
-			),					
+              'title'       => '描述',
+            ),        
+      
+      array(
+        'id'            => 'history_image',
+        'type'          => 'upload',
+        'title'         => '自定义图片',
+        'attributes'    => array(
+        'placeholder' => 'http://'
+        ),
+        'settings'      => array(
+        'upload_type'  => 'image',
+        'button_title' => '上传',
+        'frame_title'  => '选择图像',
+        'insert_title' => '使用图像',
+        ),
+      ),          
 
           ),
-        ),	
+        ),  
 
         array(
           'id'              => 'company_facts',
           'type'            => 'group',
-          'title'           => __('数据事实（SOME FUN FACTS）','CS_TEXTDOMAIN'),
-          'button_title'    => __('添加数据','CS_TEXTDOMAIN'),
-          'accordion_title' => __('数据','CS_TEXTDOMAIN'),
+          'title'           => '数据事实（SOME FUN FACTS）',
+          'button_title'    => '添加数据',
+          'accordion_title' => '数据',
           'fields'          => array(
 
             array(
               'id'          => 'facts_number',
               'type'        => 'text',
-              'title'       => __('事实数字','CS_TEXTDOMAIN'),
+              'title'       => '事实数字',
+            ),
+
+            array(
+              'id'      => 'facts_after',
+              'type'    => 'text',
+              'title'   => __('后缀','CS_TEXTDOMAIN'),
+              //'default' => false,
             ),
 
             array(
               'id'          => 'facts_description',
               'type'        => 'text',
-              'title'       => __('数字说明','CS_TEXTDOMAIN'),
-            ),			
-			
+              'title'       => '数字说明',
+            ),      
+      
             array(
               'id'          => 'facts_url',
               'type'        => 'text',
-              'title'       => __('链接','CS_TEXTDOMAIN'),
-			  'attributes'    => array(
-				'placeholder' => 'http://'
-			  )
-            ),	
-			
+              'title'       => '链接',
+        'attributes'    => array(
+        'placeholder' => 'http://'
+        )
+            ),  
+      
             array(
               'id'          => 'facts_class',
               'type'        => 'text',
-              'title'       => __('自定义的class类（方便添加CSS样式）','CS_TEXTDOMAIN'),
-            ),				
+              'title'       => '自定义的class类（方便添加CSS样式）',
+            ),        
 
-			array(
-			  'id'      => 'facts_icon',
-			  'type'    => 'icon',
-			  'title'   => __('字体图标','CS_TEXTDOMAIN'),
-			  'button_title' => __('添加图标','CS_TEXTDOMAIN'),
-			  //'dependency'   => array( 'social_iconStyle_icon', '==', 'true' ),
-			  'attributes'    => array(
-				'button_title' => __('添加图标','CS_TEXTDOMAIN'),
-			  )
-			),						
+      array(
+        'id'      => 'facts_icon',
+        'type'    => 'icon',
+        'title'   => '字体图标',
+        'button_title' => '添加图标',
+        //'dependency'   => array( 'social_iconStyle_icon', '==', 'true' ),
+        'attributes'    => array(
+        'button_title' => '添加图标'
+        )
+      ),            
 
           ),
-        ),		       
+        ),    
 
-      ), // end: fields
-
-    ), 
-	
-  ),
+  )
 );
+
 
 // ------------------------------
 // 在线客服                      -
 // ------------------------------
 $options[]   = array(
   'name'     => 'onlineService_section',
-  'title'    => __('客服','CS_TEXTDOMAIN'),
+  'title'    => '客服',
   'icon'     => 'fa fa-users',
   'fields'   => array(
 
         array(
           'id'    => 'enable_onlineService',
           'type'  => 'switcher',
-          'title' => __('是否启用在线客服','CS_TEXTDOMAIN'),
+          'title' => '是否启用在线客服',
         ), 
 
         array(
-          'id'      => 'enable_onlineService_mobile',
-          'type'    => 'switcher',
-          'title'   => __('移动端是否显示客服','CS_TEXTDOMAIN'),
-		  'default' => false,
-        ),	
+          'id'    => 'enable_onlineService_mobile',
+          'type'  => 'switcher',
+          'title' => '移动端是否显示客服',
+      'default' => false,
+        ),  
 
         array(
-          'id'      => 'enable_onlineService_ec',
-          'type'    => 'switcher',
-          'title'   => ''.__('腾讯EC营客通','CS_TEXTDOMAIN').' <a href="http://ec.qq.com/" target="_blank" style="outline:none;border:none" onFocus="this.blur()"><i class="cs-icon fa fa-external-link"></i></a>',
-		  'default' => false,
-		  'label'   => '<span class="cs-text-warning">'.__('需要额外引入JS','CS_TEXTDOMAIN').'</span>',
-        ),		
+          'id'    => 'enable_onlineService_ec',
+          'type'  => 'switcher',
+          'title' => '腾讯EC营客通 <a href="http://ec.qq.com/" target="_blank" style="outline:none;border:none" onFocus="this.blur()" title="打开营客通官网"><i class="cs-icon fa fa-external-link"></i></a>',
+      'default' => false,
+      'label'   => '<span class="cs-text-warning">需要额外引入JS</span>',
+        ),      
+    
+        array(
+          'id'     => 'onlineService_ec_js',
+          'type'   => 'textarea',
+          'title'  => '腾讯EC营客通JS代码',
+      'sanitize' => false,
+      'dependency'   => array( 'enable_onlineService_ec', '==', 'true' ),
+        ), 
+    
+        array(
+          'id'     => 'onlineService_ec_css',
+          'type'   => 'textarea',
+      'title' => '腾讯EC营客通自定义样式',
+      'sanitize' => false,
+      'dependency'   => array( 'enable_onlineService_ec', '==', 'true' ),
+        ),      
+
+        /*array(
+          'id'    => 'enable_onlineService_ec_skin',
+          'type'  => 'switcher',
+          'title' => '隐藏腾讯EC营客通默认样式',
+      'default' => false,
+      'dependency'   => array( 'enable_onlineService_ec', '==', 'true' ),
+        ),      
 
         array(
-          'id'          => 'onlineService_ec_js',
-          'type'        => 'textarea',
-          'title'       => __('腾讯EC营客通JS代码','CS_TEXTDOMAIN'),
-		  'dependency'  => array( 'enable_onlineService_ec', '==', 'true' ),
-        ),	
-
-        array(
-          'id'        => 'enable_onlineService_ec_skin',
-          'type'      => 'switcher',
-          'title'     => __('隐藏腾讯EC营客通默认样式','CS_TEXTDOMAIN'),
-		  'default'   => false,
-		  'dependency'=> array( 'enable_onlineService_ec', '==', 'true' ),
-        ),			
-
-        array(
-          'id'      => 'enable_onlineService_name',
-          'type'    => 'switcher',
-          'title'   => __('是否显示客服名称','CS_TEXTDOMAIN'),
-		  'default' => true,
+          'id'    => 'enable_onlineService_name',
+          'type'  => 'switcher',
+          'title' => '是否显示客服名称',
+      'default' => true,
         ),
-		
+    
         array(
           'id'       => 'onlineService_otherInfo',
           'type'     => 'wysiwyg',
-          'title'    => __('其他信息','CS_TEXTDOMAIN'),
-		  'after'    => '<p class="cs-text-warning">'.__('支持HTML语言，可加入第三方代码','CS_TEXTDOMAIN').'</p>',
-        ),
+          'title'    => '其他信息',
+      'after'    => '<p class="cs-text-warning">支持HTML语言，可加入第三方代码</p>',
+        ),*/
 
         array(
           'id'              => 'onlineService',
           'type'            => 'group',
-          'title'           => __('在线客服','CS_TEXTDOMAIN'),
-          'button_title'    => __('添加客服','CS_TEXTDOMAIN'),
-          'accordion_title' => __('客服','CS_TEXTDOMAIN'),
+          'title'           => '在线客服',
+          'button_title'    => '添加客服',
+          'accordion_title' => '客服',
           'fields'          => array(
 
             array(
               'id'          => 'onlineService_name',
               'type'        => 'text',
-              'title'       => __('客服名称','CS_TEXTDOMAIN'),
+              'title'       => '客服名称',
             ),
 
             array(
               'id'          => 'onlineService_description',
               'type'        => 'textarea',
-              'title'       => __('客服简介','CS_TEXTDOMAIN'),
+              'title'       => '客服简介',
             ),
 
-			array(
-			  'id'      => 'onlineService_type',
-			  'type'    => 'radio',
-			  'title'   => __('客服类型','CS_TEXTDOMAIN'),
-			  'class'   => 'horizontal',
-			  'options' => array(
-				'1'     => __('售前客服','CS_TEXTDOMAIN'),
-				'2'     => __('售后客服','CS_TEXTDOMAIN'),
-				'3'     => __('技术支持','CS_TEXTDOMAIN'),
-			  ),
-			  'default' => '1',
-			),			
-			
-			array(
-			  'id'            => 'onlineService_thumb',
-			  'type'          => 'upload',
-			  'title'         => __('客服大头贴（正方形图片）','CS_TEXTDOMAIN'),
-			  'attributes'    => array(
-				'placeholder' => 'http://'
-			  ),
-			  'settings'      => array(
-				'upload_type' => 'image',
-				'button_title'=> __('上传','CS_TEXTDOMAIN'),
-				'frame_title' => __('选择图像','CS_TEXTDOMAIN'),
-				'insert_title'=> __('使用图像','CS_TEXTDOMAIN'),
-			  ),
-			),
-			
-			/**array(
-			  'id'            => 'onlineService_image',
-			  'type'          => 'upload',
-			  'title'         => __('客服生活照（长方形图片）','CS_TEXTDOMAIN'),
-			  'attributes'    => array(
-				'placeholder' => 'http://'
-			  ),
-			  'settings'      => array(
-				'upload_type' => 'image',
-				'button_title'=> __('上传','CS_TEXTDOMAIN'),
-				'frame_title' => __('选择图像','CS_TEXTDOMAIN'),
-				'insert_title'=> __('使用图像','CS_TEXTDOMAIN'),
-			  ),
-			),	*/	
+      array(
+        'id'      => 'onlineService_type',
+        'type'    => 'radio',
+        'title'   => '客服类型',
+        'class'   => 'horizontal',
+        'options' => array(
+        '1'    => '售前客服',
+        '2'    => '售后客服',
+        '3'    => '技术支持',
+        ),
+        'default' => '1',
+      ),  
+
+      array(
+        'id'     => 'enable_onlineService_show',
+        'type'   => 'switcher',
+        'title'  => '是否在前端显示',
+        'default'=> true
+      ),      
+      
+      array(
+        'id'            => 'onlineService_thumb',
+        'type'          => 'upload',
+        'title'         => '客服大头贴（正方形图片）',
+        'attributes'    => array(
+        'placeholder' => 'http://'
+        ),
+        'settings'      => array(
+        'upload_type' => 'image',
+        'button_title'=> '上传',
+        'frame_title' => '选择图像',
+        'insert_title'=> '使用图像',
+        ),        
+        'default'       =>get_template_directory_uri()."/assets/images/avatar/avatar.png",
+      ),
+      
+      /**array(
+        'id'            => 'onlineService_image',
+        'type'          => 'upload',
+        'title'         => '客服生活照（长方形图片）',
+        'attributes'    => array(
+        'placeholder' => 'http://'
+        ),
+        'settings'      => array(
+        'upload_type'  => 'image',
+        'button_title' => '上传',
+        'frame_title'  => '选择图像',
+        'insert_title' => '使用图像',
+        ),
+      ),  */  
 
             array(
               'id'          => 'onlineService_mobileNum',
               'type'        => 'text',
-              'title'       => __('手机号','CS_TEXTDOMAIN'),
+              'title'       => '手机号',
             ),
 
             array(
               'id'          => 'onlineService_telNum',
               'type'        => 'text',
-              'title'       => __('座机号','CS_TEXTDOMAIN'),
+              'title'       => '座机号',
             ),
-			
+      
             array(
               'id'          => 'onlineService_qq',
               'type'        => 'text',
-              'title'       => __('QQ账号','CS_TEXTDOMAIN'),
-            ),	
+              'title'       => 'QQ账号',
+            ),  
 
             array(
               'id'          => 'onlineService_skype',
               'type'        => 'text',
-              'title'       => __('Skype账号','CS_TEXTDOMAIN'),
+              'title'       => 'Skype账号',
             ),
 
             array(
               'id'          => 'onlineService_ec',
               'type'        => 'text',
-              'title'       => __('腾讯EC营客通账号','CS_TEXTDOMAIN'),
-            ),			
+              'title'       => '腾讯EC营客通账号',
+            ),      
 
           ),
-        ),		
+        ),    
 
   )
 );
 
 // ------------------------------
-// 外观                       -
+// 基本设置                      -
 // ------------------------------
 $options[]   = array(
-  'name'     => 'appearance_section',
-  'title'    => __('外观','CS_TEXTDOMAIN'),
-  'icon'     => 'fa fa-paint-brush',
-  'sections' => array(
-
-    // -----------------------------
-    // 基本设置        -
-    // -----------------------------
-    array(
-      'name'      => 'appearance_base_options',
-      'title'     => __('基本设置','CS_TEXTDOMAIN'),
-      'icon'      => 'fa fa-cog',
-
+  'name'     => 'general_section',
+  'title'     => __('基本设置','CS_TEXTDOMAIN'),
+  'icon'     => 'fa fa-cog',
       // begin: fields
       'fields'    => array(
   
-        array(
+        /**array(
           'type'    => 'notice',
           'class'   => 'info',
-          'content' => __('主题设置','CS_TEXTDOMAIN'),
+          'content' => '主题设置',
         ),
-		
-        array(
-          'id'      => 'enable_site_gray',
-          'type'    => 'switcher',
-          'title'   => __('网站整体变灰','CS_TEXTDOMAIN'),
-		  'default' => false,
-		  'label'   => __('哀悼日,网站整体变灰','CS_TEXTDOMAIN'),
-		  'help'    => __('支持IE、Chrome，基本上覆盖了大部分用户，不会降低访问速度','CS_TEXTDOMAIN'),
-        ), 		
-		
+    
         array(
           'id'           => 'theme_switch',
           'type'         => 'image_select',
-          'title'        => __('自定义主题','CS_TEXTDOMAIN'),
+          'title'        => '自定义主题',
           'options'      => array(
-            '1'    => get_template_directory_uri()."/lib/images/theme/color-default.png",
-            '2'    => get_template_directory_uri()."/lib/images/theme/color-blue.png",
-            '3'    => get_template_directory_uri()."/lib/images/theme/color-green.png",
-            '4'    => get_template_directory_uri()."/lib/images/theme/color-orange.png",
-			'5'    => get_template_directory_uri()."/lib/images/theme/color-custom.png",
+            '1'    => get_template_directory_uri()."/lib/theme/colorthemes/default.png",
+            '2'    => get_template_directory_uri()."/lib/theme/colorthemes/blue.png",
+            '3'    => get_template_directory_uri()."/lib/theme/colorthemes/green.png",
+            '4'    => get_template_directory_uri()."/lib/theme/colorthemes/orange.png",
+      '5'    => get_template_directory_uri()."/lib/theme/colorthemes/custom.png",
           ),
           'radio'        => true,
-          'default'      => '1'
-        ),
-		
-        array(
-          'id'      => 'theme_custom_color',
-          'type'    => 'color_picker',
-          'title'   => __('自定义背景色','CS_TEXTDOMAIN'),
-          'default' => '#ffffff',
-		  'dependency'   => array( 'theme_switch_5', '==', 'true' ),
-        ),		
-		
-        array(
-          'id'           => 'theme_pattern',
-          'type'         => 'image_select',
-          'title'        => __('纹理背景填充','CS_TEXTDOMAIN'),
-          'options'      => array(
-            '0'    => get_template_directory_uri()."/lib/images/pattern/no-pattern.jpg",
-            '1'    => get_template_directory_uri()."/lib/images/pattern/pattern1.jpg",
-            '2'    => get_template_directory_uri()."/lib/images/pattern/pattern2.jpg",
-            '3'    => get_template_directory_uri()."/lib/images/pattern/pattern3.jpg",
-			'4'    => get_template_directory_uri()."/lib/images/pattern/pattern4.jpg",
-			'5'    => get_template_directory_uri()."/lib/images/pattern/pattern5.jpg",
-			'6'    => get_template_directory_uri()."/lib/images/pattern/pattern6.jpg",
-			'7'    => get_template_directory_uri()."/lib/images/pattern/pattern7.jpg",
-            '8'    => get_template_directory_uri()."/lib/images/pattern/pattern8.jpg",
-            '9'    => get_template_directory_uri()."/lib/images/pattern/pattern9.jpg",
-			'10'   => get_template_directory_uri()."/lib/images/pattern/pattern10.jpg",
-			'11'   => get_template_directory_uri()."/lib/images/pattern/pattern11.jpg",
-			'12'   => get_template_directory_uri()."/lib/images/pattern/pattern12.jpg",
-            '13'   => get_template_directory_uri()."/lib/images/pattern/pattern13.jpg",
-            '14'   => get_template_directory_uri()."/lib/images/pattern/pattern14.jpg",
-			'15'   => get_template_directory_uri()."/lib/images/pattern/pattern15.jpg",
-          ),
-          'radio'        => true,
-          'default'      => '0'
-        ),			
-	    
+          'default'      => '4'
+        ),    
+      
         array(
           'id'      => 'enable_skinSwitch',
           'type'    => 'switcher',
-          'title'   => __('前台换肤','CS_TEXTDOMAIN'),
-		  'default' => false,
-		  'label'   => __('此项禁用，前台换肤小工具失效；一旦开启，自定义主题将失效','CS_TEXTDOMAIN'),
-        ),			
+          'title'   => '前台换肤',
+      'default' => false,
+      'label' => '此项禁用，前台换肤小工具失效；一旦开启，自定义主题将失效',
+        ),*/
   
         array(
           'type'    => 'notice',
           'class'   => 'info',
-          'content' => __('基本设置','CS_TEXTDOMAIN'),
-        ), 		
-
+      'content' => '网站名称与副标题',
+      //'content' => '网站名称与副标题：进入网站管理后台，在左边栏中找到“外观”一栏，并从子栏目中找到“自定义”栏目，点击进入修改 <a href="'.admin_url().'customize.php" target="_blank" style="outline:none;border:none" onFocus="this.blur()"><i class="cs-icon fa fa-external-link"></i></a>',
+        ),
+    
         array(
+          'id'         => 'blogName',
+          'type'       => 'text',
+          'title'      => '网站名称',
+          'attributes' => array(
+            //'readonly' => 'only-key'
+          ),
+          'default'    => get_bloginfo('name'),
+      'validate' => 'required',
+        ),
+    
+        array(
+          'id'         => 'blogDescription',
+          'type'       => 'text',
+          'title'      => '副标题',
+          'attributes' => array(
+            //'readonly' => 'only-key'
+          ),
+          'default'    => get_bloginfo('description'),
+      'validate' => 'required',
+        ),    
+  
+        array(
+          'type'    => 'notice',
+          'class'   => 'info',
+          'content' => '基本设置',
+        ),    
+
+        /*array(
           'id'      => 'custom_favicon',
           'type'    => 'upload',
-          'title'   => __('Favicon图标','CS_TEXTDOMAIN'),
-		  'default' => get_template_directory_uri()."/assets/images/ico/favicon.ico",
-		  'settings'=> array(
-			'upload_type'  => 'image',
-			'button_title' => __('上传','CS_TEXTDOMAIN'),
-			'frame_title'  => __('选择图像','CS_TEXTDOMAIN'),
-			'insert_title' => __('使用图像','CS_TEXTDOMAIN'),
-		  ),		  
-        ),
-		
+          'title'   => 'Favicon图标',
+      'default' => get_template_directory_uri()."/assets/images/ico/favicon.ico",
+      'settings'=> array(
+      'upload_type'  => 'image',
+      'button_title' => '上传',
+      'frame_title'  => '选择图像',
+      'insert_title' => '使用图像',
+      ),      
+        ),*/
+    
         array(
           'id'      => 'custom_logoStyle',
           'type'    => 'radio',
-          'title'   => __('网站标志','CS_TEXTDOMAIN'),
+          'title'   => '网站标志',
           'class'   => 'horizontal',
           'options' => array(
-            '1'     => __('显示LOGO','CS_TEXTDOMAIN'),
-            '2'     => __('显示网站标题','CS_TEXTDOMAIN'),
-			'3'     => __('显示字体图标','CS_TEXTDOMAIN'),
+            '1'    => '显示LOGO',
+            '2'    => '显示网站标题',
+      '3'    => '显示字体图标',
           ),
-		  'default' => '1',
-        ),			
+      'default' => '1',
+        ),      
 
         array(
           'id'      => 'custom_logo',
           'type'    => 'upload',
-          'title'   => __('网站LOGO','CS_TEXTDOMAIN'),
-		  'dependency'   => array( 'custom_logoStyle_1', '==', 'true' ),
-		  'default' => get_template_directory_uri()."/assets/images/logo.png",
-		  'settings'=> array(
-			'upload_type'  => 'image',
-			'button_title' => __('上传','CS_TEXTDOMAIN'),
-			'frame_title'  => __('选择图像','CS_TEXTDOMAIN'),
-			'insert_title' => __('使用图像','CS_TEXTDOMAIN'),
-		  ),			  
+          'title'   => '网站LOGO',
+      'dependency'   => array( 'custom_logoStyle_1', '==', 'true' ),
+      'default' => get_template_directory_uri()."/assets/images/asta-logo.png",
+      'settings'      => array(
+      'upload_type'  => 'image',
+      'button_title' => '上传',
+      'frame_title'  => '选择图像',
+      'insert_title' => '使用图像',
+      ),        
         ),
-		
+    
         array(
           'id'      => 'enable_logoTextAnimate',
           'type'    => 'switcher',
-          'title'   => __('网站标题动画','CS_TEXTDOMAIN'),
-		  'dependency'   => array( 'custom_logoStyle_2', '==', 'true' ),
-		  'default' => false,
-        ),			
+          'title'   => '网站标题动画',
+      'dependency'   => array( 'custom_logoStyle_2', '==', 'true' ),
+      'default' => false,
+        ),      
 
-		array(
-			'id'      => 'custom_logoIcon',
-			'type'    => 'icon',
-			'title'   => __('字体图标','CS_TEXTDOMAIN'),
-			'button_title' => __('添加图标','CS_TEXTDOMAIN'),
-			'dependency'   => array( 'custom_logoStyle_3', '==', 'true' ),
-			'attributes'   => array(
-				'button_title' => __('添加图标','CS_TEXTDOMAIN'),
-			)
-	    ),	
-	  
+    array(
+      'id'      => 'custom_logoIcon',
+      'type'    => 'icon',
+      'title'   => '字体图标',
+      'button_title' => '添加图标',
+      'dependency'   => array( 'custom_logoStyle_3', '==', 'true' ),
+      'attributes'    => array(
+        'button_title' => '添加图标'
+      )
+      ),  
+    
         array(
           'id'      => 'enable_friendlyLink',
           'type'    => 'switcher',
-          'title'   => __('前台友情链接','CS_TEXTDOMAIN'),
-		  'default' => false,
-		  'label'   => '<span class="cs-text-warning">'.__('前提是要先开启“友情链接”功能','CS_TEXTDOMAIN').'</span>',
+          'title'   => '前台友情链接',
+      'default' => false,
+      'label'   => '<span class="cs-text-warning">前提是要先开启“友情链接”功能</span>',
         ), 
-			  
-        array(
+        
+        /*array(
           'id'      => 'enable_tags_postNum',
           'type'    => 'switcher',
-          'title'   => __('标签tag显示包含文章数量','CS_TEXTDOMAIN'),
-		  'default' => true,
-		  'label'   => __('在标签后显示当前标签下的文章数','CS_TEXTDOMAIN'),
-        ),			
+          'title'   => '标签tag显示包含文章数量',
+      'default' => true,
+      'label'   => '在标签后显示当前标签下的文章数',
+        ),*/
+  
+        /*array(
+          'type'    => 'notice',
+          'class'   => 'info',
+          'content' => '表单设置',
+        ),      
+    
+        array(
+          'id'         => 'contact_form',
+          'type'       => 'text',
+          'title'      => '联系表单',
+      'sanitize'   => false,  
+      //'validate' => 'required',
+        ),
+    
+        array(
+          'id'         => 'agent_form',
+          'type'       => 'text',
+          'title'      => '代理表单', 
+      'sanitize'   => false,  
+      //'validate' => 'required',
+        ),*/  
   
         array(
           'type'    => 'notice',
           'class'   => 'info',
-          'content' => __('页脚（显示在网站前台底部）','CS_TEXTDOMAIN'),
-        ), 	  
-	    
+          'content' => '页脚（显示在网站前台底部）',
+        ),    
+      
         array(
           'id'      => 'enable_gotoTop',
           'type'    => 'switcher',
-          'title'   => __('回到页面顶部按钮','CS_TEXTDOMAIN'),
-		  'default' => true,
+          'title'   => '回到页面顶部按钮',
+      'default' => true,
         ),
-	    
+      
         array(
           'id'      => 'enable_siteQrcode',
           'type'    => 'switcher',
-          'title'   => __('站点二维码','CS_TEXTDOMAIN'),
-		  'default' => false,
-        ),		
+          'title'   => '站点二维码',
+      'default' => false,
+        ),    
 
-		array(
+    array(
           'id'            => 'siteQrcode',
           'type'          => 'upload',
-          'title'         => __('插入二维码','CS_TEXTDOMAIN'),
-		  'default'       => get_template_directory_uri()."/assets/images/siteQrcode.png",
+          'title'         => '插入二维码',
+      'default'       => get_template_directory_uri()."/assets/images/site-qrcode.png",
           'attributes'    => array(
             'placeholder' => 'http://'
           ),
-		  'settings'      => array(
-			'upload_type' => 'image',
-			'button_title'=> __('上传','CS_TEXTDOMAIN'),
-			'frame_title' => __('选择图像','CS_TEXTDOMAIN'),
-			'insert_title'=> __('使用图像','CS_TEXTDOMAIN'),
-		  ),
-		  'dependency'    => array( 'enable_siteQrcode', '==', 'true' ),
-		),		
-		
+      'settings'      => array(
+      'upload_type'  => 'image',
+      'button_title' => '上传',
+      'frame_title'  => '选择图像',
+      'insert_title' => '使用图像',
+      ),
+      'dependency'   => array( 'enable_siteQrcode', '==', 'true' ),
+    ),    
+    
         array(
           'id'     => 'footer_copyright',
           'type'   => 'textarea',
-          'title'  => __('版权信息','CS_TEXTDOMAIN'),
-		  'attributes' => array(
-			'placeholder' => 'All Rights Reserved.',			
+          'title' => '版权信息',
+      'attributes' => array(
+      'placeholder' => 'All Rights Reserved.',      
           ),
-        ), 	
-		
-        array(
+        ),  
+    
+        /*array(
           'id'       => 'footer_otherInfo',
           'type'     => 'wysiwyg',
-          'title'    => __('其他信息','CS_TEXTDOMAIN'),
-        ),			 
-
-      ), // end: fields
-
+          'title'    => '其他信息',
+        ),  */ 
+    array(
+      'type'    => 'notice',
+      'class'   => 'info',
+      'content' => '产品',
     ),
-
-	// ------------------------------
-	// 边栏设置                     -
-	// ------------------------------
     array(
-	  'name'     => 'appearance_sidebar_options',
-      'title'    => __('边栏设置','CS_TEXTDOMAIN'),
-      'icon'     => 'fa fa-sliders',
-      'fields'   => array(
-  
-        array(
-          'type'    => 'notice',
-          'class'   => 'info',
-          'content' => __('侧边栏设置','CS_TEXTDOMAIN'),
-        ),  		
-  
-        array(
-          'id'      => 'enable_sideBar',
-          'type'    => 'switcher',
-          'title'   => __('侧边栏','CS_TEXTDOMAIN'),
-        ),
-		
-        array(
-          'id'      => 'sideBar_style',
-          'type'    => 'image_select',
-          'title'   => __('侧边栏位置','CS_TEXTDOMAIN'),
-          'options' => array(
-            '1'     => get_template_directory_uri()."/lib/images/layout/sidebar-1.png",
-            '2'     => get_template_directory_uri()."/lib/images/layout/sidebar-2.png",
-            '3'     => get_template_directory_uri()."/lib/images/layout/sidebar-3.png",
-            '4'     => get_template_directory_uri()."/lib/images/layout/sidebar-none.png",
-          ),
-          'radio'   => true,
-          'default' => '1'
-        ),	 		
-  
-        array(
-          'type'    => 'notice',
-          'class'   => 'info',
-          'content' => __('底边栏设置','CS_TEXTDOMAIN'),
-        ),  
-  
-        array(
-          'id'      => 'enable_footerBar',
-          'type'    => 'switcher',
-          'title'   => __('底边栏','CS_TEXTDOMAIN'),
-        ), 
-		
-        array(
-          'id'      => 'footerBar_col',
-          'type'    => 'radio',
-          'title'   => __('分栏方式','CS_TEXTDOMAIN'),
-          'class'   => 'horizontal',
-          'options' => array(
-            '1'     => __('一栏','CS_TEXTDOMAIN'),
-            '2'     => __('二栏','CS_TEXTDOMAIN'),
-			'3'     => __('三栏','CS_TEXTDOMAIN'),
-			'4'     => __('四栏','CS_TEXTDOMAIN'),
-          ),
-        ),		
-
-      )
-    ),	
-  
-    // -----------------------------
-    // 自定义代码         -
-    // -----------------------------
+      'id'      => 'product_sum',
+      'type'    => 'text',
+      'title'   => __('总产品数','CS_TEXTDOMAIN'),
+    ),
     array(
-      'name'      => 'appearance_custom_options',
-      'title'     => __('自定义代码','CS_TEXTDOMAIN'),
-      'icon'      => 'fa fa-code',
+      'id'         => 'category_downlink',
+      'type'       => 'upload',
+      'title'      => __('目录下载地址','CS_TEXTDOMAIN'),   
+      'settings'      => array(
+      'upload_type'  => 'image',
+      'button_title' => '上传',
+      'frame_title'  => '选择图像',
+      'insert_title' => '使用图像',
+      ),
+    ),  
+
+  ), // end: fields
+);
+
+// ------------------------------
+// 自定义代码                   -
+// ------------------------------
+$options[]   = array(
+  'name'     => 'custom_code_section',
+  'title'     => __('自定义代码','CS_TEXTDOMAIN'),
+  'icon'     => 'fa fa-code',
 
       // begin: fields
-      'fields'    => array(	    	  
-	    
+      'fields'    => array(
+      
+        array(
+          'id'     => 'custom_meta',
+          'type'   => 'textarea',
+          'before' => '<h4>网站头部添加Meta代码</h4>',
+          'after'  => '<p class="cs-text-muted">说明：可以用于各种Meta验证。</p>',
+      'sanitize' => false,      
+        ),    
+      
         array(
           'id'     => 'custom_header',
           'type'   => 'textarea',
-          'before' => '<h4>'.__('网站头部添加额外代码','CS_TEXTDOMAIN').'</h4>',
-          'after'  => '<p class="cs-text-muted">'.__('说明：代码将添加到&lt;head&gt;标签中，您可以添加一些额外的CSS、JS或各种Meta验证。','CS_TEXTDOMAIN').'</p>',	
-		  'sanitize' => false,		  
+          'before' => '<h4>网站头部添加额外代码</h4>',
+          'after'  => '<p class="cs-text-muted">说明：代码将添加到&lt;head&gt;标签中，您可以添加一些额外的CSS或JS。</p>',
+          'sanitize' => false,      
         ), 
-		
+    
         array(
           'id'     => 'custom_footer',
           'type'   => 'textarea',
-          'before' => '<h4>'.__('网站底部添加额外代码','CS_TEXTDOMAIN').'</h4>',
-          'after'  => '<p class="cs-text-muted">'.__('说明：代码将添加到&lt;footer&gt;标签中，可以添加第三方代码（一般用于放置百度商桥代码、站长统计代码、谷歌翻译代码等）。','CS_TEXTDOMAIN').'</p>',
-		  'sanitize' => false,
+          'before' => '<h4>网站底部添加额外代码</h4>',
+          'after'  => '<p class="cs-text-muted">说明：代码将添加到&lt;footer&gt;标签中，可以添加第三方代码（一般用于放置百度商桥代码、站长统计代码、谷歌翻译代码等）。</p>',
+      'sanitize' => false,
         ),   
 
       ), // end: fields
-
-    ), 
-	
-  ),
 );
 
 // ------------------------------
@@ -897,230 +872,235 @@ $options[]   = array(
   'icon'     => 'fa fa-flag-checkered',
   'fields'   => array(
   
-        array(
+       /** array(
           'type'    => 'notice',
-		  'class'   => 'info',
-		  'content' => ''.__('基本设置，推荐使用WordPress SEO by Yoast插件','CS_TEXTDOMAIN').' <a href="https://wordpress.org/plugins/wordpress-seo/" target="_blank" style="outline:none;border:none" onFocus="this.blur()"><i class="cs-icon fa fa-external-link"></i></a>',
-        ),
-	    
-        array(
-          'id'      => 'enable_custom_seo',
-          'type'    => 'switcher',
-          'title'   => __('启用主题自带SEO','CS_TEXTDOMAIN'),
-		  'default' => false,
-		  'label'   => __('如果启用其他SEO插件，请禁用主题自带SEO避免引起冲突','CS_TEXTDOMAIN'),
-        ),
-		
-        array(
-          'id'         => 'seo_title_divider',
-          'type'       => 'text',
-          'title'      => __('标题间隔符','CS_TEXTDOMAIN'),
-          'default'    => '-',
-		  'after'  => '<span class="cs-text-warning">'.__('（网站标题分隔符:如果针对的是百度，分隔符可以选择_ |，针对谷歌的话，就选择 - , 及空格。）','CS_TEXTDOMAIN').'</span>',
-          'attributes' => array(
-            'style'    => 'width: 50px;'
-          ),		  
-        ),		
+      'class'   => 'info',
+          'content' => '基本设置',
+        ),   
   
         array(
           'type'    => 'notice',
           'class'   => 'info',
-		  'content' => __('网站名称与副标题','CS_TEXTDOMAIN'),
+      'content' => '网站名称与副标题',
+      //'content' => '网站名称与副标题：进入网站管理后台，在左边栏中找到“外观”一栏，并从子栏目中找到“自定义”栏目，点击进入修改 <a href="'.admin_url().'customize.php" target="_blank" style="outline:none;border:none" onFocus="this.blur()"><i class="cs-icon fa fa-external-link"></i></a>',
         ),
-		
+    
         array(
           'id'         => 'blogName',
           'type'       => 'text',
-          'title'      => __('网站名称','CS_TEXTDOMAIN'),
+          'title'      => '网站名称',
           'attributes' => array(
             //'readonly' => 'only-key'
           ),
           'default'    => get_bloginfo('name'),
-		  'validate'   => 'required',
+      'validate' => 'required',
         ),
-		
+    
         array(
           'id'         => 'blogDescription',
           'type'       => 'text',
-          'title'      => __('副标题','CS_TEXTDOMAIN'),
+          'title'      => '副标题',
           'attributes' => array(
             //'readonly' => 'only-key'
           ),
           'default'    => get_bloginfo('description'),
-		  'validate'   => 'required',
-        ),		
+      'validate' => 'required',
+        ),
+    
+    array(
+      'type'    => 'content',
+      'content' => '当前宣传语：<strong class="cs-text-warning" style="margin:auto 20px;">'.cs_get_option( 'company_adwords' ).'</strong>（如需修改请到 “品牌” 设置页面修改）',
+    ),
+    
+        array(
+          'id'         => 'seo_title_divider',
+          'type'       => 'text',
+          'title'      => '标题间隔符',
+          'default'    => '-',
+      'after'  => '<span class="cs-text-warning">（网站标题分隔符:如果针对的是百度，分隔符可以选择_ |，针对谷歌的话，就选择 - , 及空格。）</span>',
+          'attributes' => array(
+            'style'    => 'width: 50px;'
+          ),      
+        ),    
   
         array(
           'type'    => 'notice',
-		  'class'   => 'info',
-          'content' => __('首页设置','CS_TEXTDOMAIN'),
-        ), 	
+      'class'   => 'info',
+          'content' => '首页设置',
+        ),  
 
         array(
           'id'      => 'seo_home_title_mode',
           'type'    => 'radio',
-          'title'   => __('首页标题（title）','CS_TEXTDOMAIN'),
+          'title'   => '首页标题（title）',
           'class'   => 'horizontal',
           'options' => array(
-		    '1'     => __('网站名称+副标题（默认）','CS_TEXTDOMAIN'),
-            '2'     => __('网站名称+宣传语（大公司常用）','CS_TEXTDOMAIN'),
-            '3'     => __('网站关键词+网站名称（推荐）','CS_TEXTDOMAIN'),
-			'4'     => __('自定义','CS_TEXTDOMAIN'),
+        '1'     => '网站名称+副标题（默认）',
+            '2'     => '网站名称+宣传语（大公司常用）',
+            '3'     => '网站关键词+网站名称（推荐）',
+      '4'     => '自定义',
           ),
-		  'default' => '1',
-        ),
-		
-		array(
-		  'type'    => 'content',
-		  'content' => ''.__('当前宣传语：','CS_TEXTDOMAIN').'<strong class="cs-text-warning" style="margin:auto 20px;">'.cs_get_option( 'company_adwords' ).'</strong>'.__('（如需修改请到 “品牌” 设置页面修改）','CS_TEXTDOMAIN').'',
-		  'dependency'   => array( 'seo_home_title_mode_2', '==', 'true' ),
-		),		
-		
+      'default' => '1',
+        ),    
+    
         array(
           'id'         => 'seo_title',
           'type'       => 'text',
-		  'before'     => '<h4>'.__('标题（title）','CS_TEXTDOMAIN').'</h4>',
-		  'after'      => '<p class="cs-text-warning">'.__('说明：页面标题，一般不超过80个字符。','CS_TEXTDOMAIN').'</p>',
+      'before' => '<h4>标题（title）</h4>',
+      'after'  => '<p class="cs-text-warning">说明：页面标题，一般不超过80个字符。</p>',
           'attributes' => array(
-            'style'       => 'width: 100%;',
-			'maxlength'   => 80,
-			'placeholder' => __('网站标题','CS_TEXTDOMAIN'),
+            'style'    => 'width: 100%;',
+      'maxlength'   => 80,
+      'placeholder' => '网站标题',      
           ),
-		  'dependency'   => array( 'seo_home_title_mode_4', '==', 'true' ),
+      'dependency'   => array( 'seo_home_title_mode_4', '==', 'true' ),
         ),
-		
+    
         array(
           'id'     => 'seo_keywords',
           'type'   => 'textarea',
-          'before' => '<h4>'.__('关键词（KeyWords）','CS_TEXTDOMAIN').'</h4>',
-          'after'  => '<p class="cs-text-warning">'.__('说明：页面关键词，一般不超过100个字符。多个关键词请用英文半角逗号","或英文半角竖线"|"隔开。','CS_TEXTDOMAIN').'</p>',
-		  'attributes'    => array(
-			'maxlength'   => 100,
-			'placeholder' => __('网站关键词','CS_TEXTDOMAIN'),
-		  ),
+          'before' => '<h4>关键词（KeyWords）</h4>',
+          'after'  => '<p class="cs-text-warning">说明：页面关键词，一般不超过100个字符。多个关键词请用英文半角逗号","或英文半角竖线"|"隔开。</p>',
+      'attributes'    => array(
+      'maxlength'   => 100,
+      'placeholder' => '网站关键词',
+      ),
         ), 
-		
+    
         array(
           'id'     => 'seo_description',
           'type'   => 'textarea',
-          'before' => '<h4>'.__('描述（Description）','CS_TEXTDOMAIN').'</h4>',
-          'after'  => '<p class="cs-text-warning">'.__('说明：页面简短描述，一般不超过200个字符，可将公司的具体联系方式写入描述中，方便客户直接联系。','CS_TEXTDOMAIN').'</p>',
-		  'attributes'    => array(
-			'maxlength'   => 200,
-			'placeholder' => __('网站描述','CS_TEXTDOMAIN'),
-		  ),
+          'before' => '<h4>描述（Description）</h4>',
+          'after'  => '<p class="cs-text-warning">说明：页面简短描述，一般不超过200个字符，可将公司的具体联系方式写入描述中，方便客户直接联系。</p>',
+      'attributes'    => array(
+      'maxlength'   => 200,
+      'placeholder' => '网站描述',
+      ),
         ), 
   
         array(
           'type'    => 'notice',
-		  'class'   => 'info',
-          'content' => __('内页设置','CS_TEXTDOMAIN'),
+      'class'   => 'info',
+          'content' => '内页设置',
         ), 
 
         array(
           'id'      => 'seo_page_title_mode',
           'type'    => 'radio',
-          'title'   => __('内页标题（title）','CS_TEXTDOMAIN'),
+          'title'   => '内页标题（title）',
           'class'   => 'horizontal',
           'options' => array(
-            '1'     => __('内容标题','CS_TEXTDOMAIN'),
-            '2'     => __('内容标题+关键词','CS_TEXTDOMAIN'),
-			'3'     => __('内容标题+网站名称(推荐)','CS_TEXTDOMAIN'),
-			'4'     => __('内容标题+关键词+网站名称','CS_TEXTDOMAIN'),
+            '1'     => '内容标题',
+            '2'     => '内容标题+关键词',
+      '3'     => '内容标题+网站名称(推荐)',
+      '4'     => '内容标题+关键词+网站名称',
           ),
-		  'default' => '3',
-		  'after'   => '<span class="cs-text-warning">'.__('内页的标题(title)构成方式，您也可以在编辑/添加内容时自定义对应页面的SEO标题(title)，如果SEO标题为空则使用上面设置的title构成方式。','CS_TEXTDOMAIN').'</span>',
-        ),			
+      'default' => '3',
+      'after'   => '<div class="cs-text-warning">内页的标题(title)构成方式，您也可以在编辑/添加内容时自定义对应页面的SEO标题(title)，如果SEO标题为空则使用上面设置的title构成方式。</div>',
+        ),**/     
   
         array(
           'type'    => 'notice',
-		  'class'   => 'info',
-          'content' => ''.__('图片ALT和TITLE属性','CS_TEXTDOMAIN').'，SEO Friendly Images <a href="https://wordpress.org/plugins/seo-image/" target="_blank" style="outline:none;border:none" onFocus="this.blur()"><i class="cs-icon fa fa-external-link"></i></a>',
+      'class'   => 'info',
+          'content' => '图片ALT和TITLE属性，SEO Friendly Images <a href="https://wordpress.org/plugins/seo-image/" target="_blank" style="outline:none;border:none" onFocus="this.blur()"><i class="cs-icon fa fa-external-link"></i></a>',
         ),
-		
-		array(
-		  'type'    => 'content',
-		  'content' => '<p>'.__('自动更新图片的 ALT和TITLE属性，图片的ALT和TITLE属性对于搜索引擎优化来说是非常重要的','CS_TEXTDOMAIN').'</p>
-						<p class="cs-text-warning">'.__('您可以使用以下标签或者任何其他的文字：','CS_TEXTDOMAIN').'</p>
-						<ul>
-						<li>%title    - '.__('替换为文章标题','CS_TEXTDOMAIN').'</li>
-						<li>%name     - '.__('替换为图像的文件名（不带扩展名）','CS_TEXTDOMAIN').'</li>
-						<li>%category - '.__('替换为文章分类目录','CS_TEXTDOMAIN').'</li>
-						<li>%tags     - '.__('替换为文章标签','CS_TEXTDOMAIN').'</li></ul>',
-		),
-		
+    
+    array(
+      'type'    => 'content',
+      'content' => '<p>自动更新图片的 ALT和TITLE属性，图片的ALT和TITLE属性对于搜索引擎优化来说是非常重要的</p>
+            <p class="cs-text-warning">您可以使用以下标签或者任何其他的文字：</p>
+            <ul>
+            <li>%site - 替换网站名称</li>
+            <li>%title - 替换为文章标题</li>
+            <li>%name - 替换为图像的文件名（不带扩展名）</li>
+            <li>%category - 替换为文章分类目录</li>
+            <li>%tag - 替换为文章标签</li></ul>',
+    ),
+    
         array(
-          'id'         => 'seo_image_alt',
+          'id'         => 'image_alt_text',
           'type'       => 'text',
-		  'title'      => __('图片alt属性','CS_TEXTDOMAIN'),
-		  'help'       => __('说明：图像不能正常显示（网速慢、图片链接错误）后显示的替换文本','CS_TEXTDOMAIN'),
-		  'default'    => '%name %title',
-        ),		
-		
+      'title'      => '图片alt属性',
+      'help'       => '说明：图像不能正常显示（网速慢、图片链接错误）后显示的替换文本',
+      'default'    => '%name %title',
+        ),    
+    
         array(
-          'id'         => 'seo_image_title',
+          'id'         => 'image_title_text',
           'type'       => 'text',
-		  'title'      => __('图片title属性','CS_TEXTDOMAIN'),
-		  'help'       => __('说明：鼠标移至图片显示的文字','CS_TEXTDOMAIN'),
-		  'default'    => '%title',
+      'title'      => '图片title属性',
+      'help'       => '说明：鼠标移至图片显示的文字',
+      'default'    => '%title',
         ),
+  
+        array(
+          'id'      => 'enable_image_alt_override',
+          'type'    => 'switcher',
+          'title'   => '替换默认的图片alt属性',
+        ),  
+  
+        array(
+          'id'      => 'enable_image_title_override',
+          'type'    => 'switcher',
+          'title'   => '替换默认的图片title属性',
+        ),    
 
-        array(
+        /*array(
           'id'         => 'enable_seo_image',
           'type'       => 'checkbox',
-          'title'      => __('图片alt和title属性覆盖设置','CS_TEXTDOMAIN'),
+          'title'      => '图片alt和title属性覆盖设置',
           'class'      => 'horizontal',
           'options'    => array(
-            'alt'      => __('替换默认的图片alt属性（推荐）','CS_TEXTDOMAIN'),
-            'title'    => __('替换默认的图片title属性','CS_TEXTDOMAIN'),
+            'alt'      => '替换默认的图片alt属性（推荐）',
+            'title'    => '替换默认的图片title属性',
           ),
           'default'    => array( 'alt'),
-        ),		
+        ),  */  
   
-        array(
+        /**array(
           'type'    => 'notice',
-		  'class'   => 'info',
-          'content' => __('高级设置','CS_TEXTDOMAIN'),
+      'class'   => 'info',
+          'content' => '高级设置',
         ),  
   
         array(
           'id'      => 'enable_post_link_nofollow_external',
           'type'    => 'switcher',
-          'title'   => __('文章站外链接自动添加nofollow属性和新窗口打开页面','CS_TEXTDOMAIN'),
-		  'default' => '1',
+          'title'   => '文章站外链接自动添加nofollow属性和新窗口打开页面',
+      'default' => '1',
         ),
   
         array(
           'id'      => 'enable_comment_link_nofollow_external',
           'type'    => 'switcher',
-          'title'   => __('评论站外链接自动添加nofollow属性和新窗口打开页面','CS_TEXTDOMAIN'),
-		  'default' => '1',
-        ),		
+          'title'   => '评论站外链接自动添加nofollow属性和新窗口打开页面',
+      'default' => '1',
+        ),    
   
         array(
           'id'      => 'enable_post_tag_link',
           'type'    => 'switcher',
-          'title'   => __('自动为文章tag添加链接','CS_TEXTDOMAIN'),
-        ),	
+          'title'   => '自动为文章tag添加链接',
+        ),  
 
-		array(
-		  'id'      => 'post_tag_minNum',
-		  'type'    => 'number',
-		  'title'   => __('一个标签在文章中出现少于多少次不添加链接','CS_TEXTDOMAIN'),
-		  'default' => '1',
-		  'after'   => ' <span class="cs-text-muted">( '.__('次','CS_TEXTDOMAIN').' )</span>',
-		  'dependency'   => array( 'enable_post_tag_link', '==', 'true' ),
-		),
+    array(
+      'id'      => 'post_tag_minNum',
+      'type'    => 'number',
+      'title'   => '一个标签在文章中出现少于多少次不添加链接',
+      'default' => '1',
+      'after'   => ' <span class="cs-text-muted">( 次 )</span>',
+      'dependency'   => array( 'enable_post_tag_link', '==', 'true' ),
+    ),
 
-		array(
-		  'id'      => 'post_tag_linkNum',
-		  'type'    => 'number',
-		  'title'   => __('一篇文章中同一个标签添加几次链接','CS_TEXTDOMAIN'),
-		  'default' => '1',
-		  'after'   => ' <span class="cs-text-muted">( '.__('次','CS_TEXTDOMAIN').' )</span>',
-		  'dependency'   => array( 'enable_post_tag_link', '==', 'true' ),
-		),		
-		
+    array(
+      'id'      => 'post_tag_linkNum',
+      'type'    => 'number',
+      'title'   => '一篇文章中同一个标签添加几次链接',
+      'default' => '1',
+      'after'   => ' <span class="cs-text-muted">( 次 )</span>',
+      'dependency'   => array( 'enable_post_tag_link', '==', 'true' ),
+    ),**/   
+    
   )
 );
 
@@ -1129,86 +1109,86 @@ $options[]   = array(
 // ------------------------------
 $options[]   = array(
   'name'     => 'carousel_section',
-  'title'    => __('轮播','CS_TEXTDOMAIN'),
+  'title'    => '轮播',
   'icon'     => 'fa fa-image',
   'fields'   => array(
   
     array(
         'type'    => 'notice',
         'class'   => 'info',
-        'content' => __('首页幻灯片','CS_TEXTDOMAIN'),
+        'content' => '首页幻灯片',
     ),  
   
     array(
         'id'      => 'enable_home_banner',
         'type'    => 'switcher',
-        'title'   => __('开启首页幻灯片','CS_TEXTDOMAIN'),
-		'default' => false,
+        'title'   => '开启首页幻灯片',
+    'default' => false,
     ),  
   
     /*array(
         'id'      => 'home_banner_autoPlay',
         'type'    => 'switcher',
-        'title'   => __('自动播放','CS_TEXTDOMAIN'),
-		'default' => true,
+        'title'   => '自动播放',
+    'default' => true,
     ), 
   
     array(
         'id'      => 'home_banner_cyclePlay',
         'type'    => 'switcher',
-        'title'   => __('循环播放','CS_TEXTDOMAIN'),
-		'default' => true,
+        'title'   => '循环播放',
+    'default' => true,
     ), 
   
     array(
         'id'      => 'home_banner_autoHeight',
         'type'    => 'switcher',
-        'title'   => __('自动调整高度','CS_TEXTDOMAIN'),
-		'default' => flase,
+        'title'   => '自动调整高度',
+    'default' => false,
     ), */
-		
+    
     array(
         'id'      => 'home_banner_width',
         'type'    => 'number',
-        'title'   => __('幻灯片宽度','CS_TEXTDOMAIN'),
-        'after'   => '<span class="cs-text-muted">(px，'.__('像素','CS_TEXTDOMAIN').')</span>',
-		'default' => '1920',
-		//'validate' => 'numeric',
-    ),	
-		
+        'title'   => '幻灯片宽度',
+        'after'   => '<span class="cs-text-muted">(px，像素)</span>',
+    'default' => '1920',
+    //'validate' => 'numeric',
+    ),  
+    
     array(
         'id'      => 'home_banner_height',
         'type'    => 'number',
-        'title'   => __('幻灯片高度','CS_TEXTDOMAIN'),
-        'after'   => '<span class="cs-text-muted">(px，'.__('像素','CS_TEXTDOMAIN').')</span>',
-		'default' => '650',
-		//'validate' => 'numeric',
+        'title'   => '幻灯片高度',
+        'after'   => '<span class="cs-text-muted">(px，像素)</span>',
+    'default' => '650',
+    //'validate' => 'numeric',
     ),
 
     /*array(
         'id'      => 'home_banner_mode',
         'type'    => 'radio',
-        'title'   => __('幻灯片来源','CS_TEXTDOMAIN'),
+        'title'   => '幻灯片来源',
         'class'   => 'horizontal',
         'options' => array(
-            '1'   => __('文章','CS_TEXTDOMAIN'),
-			'2'   => __('页面','CS_TEXTDOMAIN'),
-            '3'   => __('分类','CS_TEXTDOMAIN'),
-			//'4'   => __('标签','CS_TEXTDOMAIN'),
-			//'5'   => __('内容类型','CS_TEXTDOMAIN'),
-			'4'   => __('自定义','CS_TEXTDOMAIN'),
+            '1'   => '文章',
+      '2'   => '页面',
+            '3'   => '分类',
+      //'4'   => '标签',
+      //'5'   => '内容类型',
+      '4'   => '自定义',
         ),
-    ),	
+    ),  
 
     array(
         'id'                 => 'home_banner_posts',
         'type'               => 'select',
-        'title'              => __('展示文章','CS_TEXTDOMAIN'),
+        'title'              => '展示文章',
         'options'            => 'posts',
         'class'              => 'chosen',
-		'dependency'         => array( 'home_banner_mode_1', '==', 'true' ),
+    'dependency'         => array( 'home_banner_mode_1', '==', 'true' ),
         'attributes'         => array(
-            'data-placeholder' => __('请选择','CS_TEXTDOMAIN'),
+            'data-placeholder' => '请选择',
             'multiple'         => 'only-key',
             'style'            => 'width: 200px;'
         ),
@@ -1217,12 +1197,12 @@ $options[]   = array(
     array(
         'id'                 => 'home_banner_pages',
         'type'               => 'select',
-        'title'              => __('展示页面','CS_TEXTDOMAIN'),
+        'title'              => '展示页面',
         'options'            => 'pages',
         'class'              => 'chosen',
-		'dependency'         => array( 'home_banner_mode_2', '==', 'true' ),
+    'dependency'         => array( 'home_banner_mode_2', '==', 'true' ),
         'attributes'         => array(
-            'data-placeholder' => __('请选择','CS_TEXTDOMAIN'),
+            'data-placeholder' => '请选择',
             'multiple'         => 'only-key',
             'style'            => 'width: 200px;'
         ),
@@ -1231,12 +1211,12 @@ $options[]   = array(
     array(
         'id'                 => 'home_banner_categories',
         'type'               => 'select',
-        'title'              => __('展示分类','CS_TEXTDOMAIN'),
+        'title'              => '展示分类',
         'options'            => 'categories',
         'class'              => 'chosen',
-		'dependency'         => array( 'home_banner_mode_3', '==', 'true' ),
+    'dependency'         => array( 'home_banner_mode_3', '==', 'true' ),
         'attributes'         => array(
-            'data-placeholder' => __('请选择','CS_TEXTDOMAIN'),
+            'data-placeholder' => '请选择',
             'multiple'         => 'only-key',
             'style'            => 'width: 200px;'
         ),
@@ -1245,128 +1225,128 @@ $options[]   = array(
     array(
         'id'              => 'home_banner',
         'type'            => 'group',
-        'title'           => __('自定义幻灯片','CS_TEXTDOMAIN'),
-        'button_title'    => __('添加Banner','CS_TEXTDOMAIN'),
+        'title'           => '自定义幻灯片',
+        'button_title'    => '添加Banner',
         'accordion_title' => 'Banner',
-		//'dependency'      => array( 'home_banner_mode_4', '==', 'true' ),
+    //'dependency'      => array( 'home_banner_mode_4', '==', 'true' ),
         'fields'          => array(
 
             array(
               'id'          => 'home_banner_title',
               'type'        => 'text',
-              'title'       => __('标题','CS_TEXTDOMAIN'),
-            ),		
-		
-			array(
-			  'id'            => 'home_banner_image',
-			  'type'          => 'upload',
-			  'title'         => __('图片','CS_TEXTDOMAIN'),
-			  'attributes'    => array(
-				'placeholder' => 'http://'
-			  ),
-			  'settings'      => array(
-				'upload_type'  => 'image',
-				'button_title' => __('上传','CS_TEXTDOMAIN'),
-				'frame_title'  => __('选择图像','CS_TEXTDOMAIN'),
-				'insert_title' => __('使用图像','CS_TEXTDOMAIN'),
-			  ),
-			),		
-			
+              'title'       => '标题',
+            ),    
+    
+      array(
+        'id'            => 'home_banner_image',
+        'type'          => 'upload',
+        'title'         => '图片',
+        'attributes'    => array(
+        'placeholder' => 'http://'
+        ),
+        'settings'      => array(
+        'upload_type'  => 'image',
+        'button_title' => '上传',
+        'frame_title'  => '选择图像',
+        'insert_title' => '使用图像',
+        ),
+      ),    
+      
             array(
-              'id'            => 'home_banner_url',
-              'type'          => 'text',
-              'title'         => __('链接','CS_TEXTDOMAIN'),
-			  'attributes'    => array(
-				'placeholder' => 'http://'
-			  )
-            ),	
+              'id'          => 'home_banner_url',
+              'type'        => 'text',
+              'title'       => '链接',
+        'attributes'    => array(
+        'placeholder' => 'http://'
+        )
+            ),  
 
             array(
               'id'          => 'home_banner_description',
               'type'        => 'textarea',
-              'title'       => __('描述','CS_TEXTDOMAIN'),
-            ),			
+              'title'       => '描述',
+            ),      
 
         ),
-    ),	
+    ),  
   
     array(
         'type'    => 'notice',
         'class'   => 'info',
-        'content' => __('产品幻灯片','CS_TEXTDOMAIN'),
+        'content' => '产品幻灯片',
     ), 
   
     array(
         'id'      => 'enable_product_banner',
         'type'    => 'switcher',
-        'title'   => __('开启产品幻灯片','CS_TEXTDOMAIN'),
-		'default' => false,
+        'title'   => '开启产品幻灯片',
+    'default' => false,
     ),  
-		
+    
     array(
         'id'      => 'product_banner_width',
         'type'    => 'number',
-        'title'   => __('幻灯片宽度','CS_TEXTDOMAIN'),
-        'after'   => '<span class="cs-text-muted">(px，'.__('像素','CS_TEXTDOMAIN').')</span>',
-		'default' => '1920',
-		//'validate' => 'numeric',
-    ),	
-		
+        'title'   => '幻灯片宽度',
+        'after'   => '<span class="cs-text-muted">(px，像素)</span>',
+    'default' => '1920',
+    //'validate' => 'numeric',
+    ),  
+    
     array(
         'id'      => 'product_banner_height',
         'type'    => 'number',
-        'title'   => __('幻灯片高度','CS_TEXTDOMAIN'),
-        'after'   => '<span class="cs-text-muted">(px，'.__('像素','CS_TEXTDOMAIN').')</span>',
-		'default' => '650',
-		//'validate' => 'numeric',
+        'title'   => '幻灯片高度',
+        'after'   => '<span class="cs-text-muted">(px，像素)</span>',
+    'default' => '650',
+    //'validate' => 'numeric',
     ),
 
     array(
         'id'              => 'product_banner',
         'type'            => 'group',
-        'title'           => __('自定义幻灯片','CS_TEXTDOMAIN'),
-        'button_title'    => __('添加Banner','CS_TEXTDOMAIN'),
+        'title'           => '自定义幻灯片',
+        'button_title'    => '添加Banner',
         'accordion_title' => 'Banner',
         'fields'          => array(
 
             array(
               'id'          => 'product_banner_title',
               'type'        => 'text',
-              'title'       => __('标题','CS_TEXTDOMAIN'),
-            ),		
-		
-			array(
-			  'id'            => 'product_banner_image',
-			  'type'          => 'upload',
-			  'title'         => __('图片','CS_TEXTDOMAIN'),
-			  'attributes'    => array(
-				'placeholder' => 'http://'
-			  ),
-			  'settings'      => array(
-				'upload_type' => 'image',
-				'button_title'=> __('上传','CS_TEXTDOMAIN'),
-				'frame_title' => __('选择图像','CS_TEXTDOMAIN'),
-				'insert_title'=> __('使用图像','CS_TEXTDOMAIN'),
-			  ),
-			),		
-			
+              'title'       => '标题',
+            ),    
+    
+      array(
+        'id'            => 'product_banner_image',
+        'type'          => 'upload',
+        'title'         => '图片',
+        'attributes'    => array(
+        'placeholder' => 'http://'
+        ),
+        'settings'      => array(
+        'upload_type'  => 'image',
+        'button_title' => '上传',
+        'frame_title'  => '选择图像',
+        'insert_title' => '使用图像',
+        ),
+      ),    
+      
             array(
-              'id'            => 'product_banner_url',
-              'type'          => 'text',
-              'title'         => __('链接','CS_TEXTDOMAIN'),
-			  'attributes'    => array(
-				'placeholder' => 'http://'
-			  )
-            ),	
+              'id'          => 'product_banner_url',
+              'type'        => 'text',
+              'title'       => '链接',
+        'attributes'    => array(
+        'placeholder' => 'http://'
+        )
+            ),  
 
             array(
               'id'          => 'product_banner_description',
               'type'        => 'textarea',
-              'title'       => __('描述','CS_TEXTDOMAIN'),
-            ),			
+              'title'       => '描述',
+            ),      
 
         ),
-    ),		
+    ),    
 
   )
 );
@@ -1375,312 +1355,335 @@ $options[]   = array(
 // ------------------------------
 // 公告                       -
 // ------------------------------
-$options[]   = array(
+/*$options[]   = array(
   'name'     => 'notice_section',
-  'title'    => __('公告','CS_TEXTDOMAIN'),
+  'title'    => '公告',
   'icon'     => 'fa fa-bullhorn',
   'fields'   => array(
   
     array(
-		'type'    => 'notice',
+    'type'    => 'notice',
         'class'   => 'info',
-        'content' => __('首页公告栏','CS_TEXTDOMAIN'),
+        'content' => '首页公告栏',
     ),  
   
     array(
         'id'      => 'enable_bulletin',
         'type'    => 'switcher',
-        'title'   => __('首页公告栏','CS_TEXTDOMAIN'),
-		'default' => false,
+        'title'   => '首页公告栏',
+    'default' => false,
     ), 
-	
+  
     array(
         'id'              => 'bulletin',
         'type'            => 'group',
-        'title'           => __('自定义公告','CS_TEXTDOMAIN'),
-        'button_title'    => __('添加公告','CS_TEXTDOMAIN'),
-        'accordion_title' => __('公告','CS_TEXTDOMAIN'),
-        'fields'          => array(			
+        'title'           => '自定义公告',
+        'button_title'    => '添加公告',
+        'accordion_title' => '公告',
+        'fields'          => array(     
 
             array(
               'id'          => 'bulletin_title',
               'type'        => 'text',
-              'title'       => __('标题','CS_TEXTDOMAIN'),
+              'title'       => '标题',
             ),
-			
+      
             array(
-              'id'            => 'bulletin_url',
-              'type'          => 'text',
-              'title'         => __('链接','CS_TEXTDOMAIN'),
-			  'attributes'    => array(
-				'placeholder' => 'http://'
-			  )
-            ),	
+              'id'          => 'bulletin_url',
+              'type'        => 'text',
+              'title'       => '链接',
+        'attributes'    => array(
+        'placeholder' => 'http://'
+        )
+            ),  
 
             array(
               'id'          => 'bulletin_description',
               'type'        => 'textarea',
-              'title'       => __('描述','CS_TEXTDOMAIN'),
-            ),	
+              'title'       => '描述',
+            ),  
 
             array(
-              'id'            => 'bulletin-date',
-              'type'          => 'text',
-              'title'         => __('日期','CS_TEXTDOMAIN'),
-			  'attributes'    => array(
-				'placeholder' => __('例如：2015/06/26','CS_TEXTDOMAIN'),
-			  )
-            ),			
+              'id'          => 'bulletin-date',
+              'type'        => 'text',
+              'title'       => '日期',
+        'attributes'    => array(
+        'placeholder' => '例如：2015/06/26'
+        )
+            ),      
 
         ),
-    ),	
+    ),  
   
     array(
-		'type'    => 'notice',
+    'type'    => 'notice',
         'class'   => 'info',
-        'content' => __('自定义弹窗公告','CS_TEXTDOMAIN'),
+        'content' => '自定义弹窗公告',
     ),
-			
-	array(
-		'id'      => 'enable_lightbox',
-		'type'    => 'switcher',
-		'title'   => __('弹窗公告','CS_TEXTDOMAIN'),
-		'default' => false,
-	), 	
-		
-	array(
-		'id'            => 'lightbox_image',
-		'type'          => 'upload',
-		'title'         => __('图片','CS_TEXTDOMAIN'),
-		'attributes'    => array(
-			'placeholder' => 'http://'
-		),
-		'settings'      => array(
-			'upload_type'  => 'image',
-			'button_title' => __('上传','CS_TEXTDOMAIN'),
-			'frame_title'  => __('选择图像','CS_TEXTDOMAIN'),
-			'insert_title' => __('使用图像','CS_TEXTDOMAIN'),
-		),
-	),		
+      
+  array(
+    'id'      => 'enable_lightbox',
+    'type'    => 'switcher',
+    'title'   => '弹窗公告',
+    'default' => false,
+  ),  
+    
+  array(
+    'id'            => 'lightbox_image',
+    'type'          => 'upload',
+    'title'         => '图片',
+    'attributes'    => array(
+      'placeholder' => 'http://'
+    ),
+    'settings'      => array(
+      'upload_type'  => 'image',
+      'button_title' => '上传',
+      'frame_title'  => '选择图像',
+      'insert_title' => '使用图像',
+    ),
+  ),    
 
     array(
         'id'          => 'lightbox_title',
         'type'        => 'text',
-        'title'       => __('标题','CS_TEXTDOMAIN'),
+        'title'       => '标题',
     ),
-			
+      
     array(
-        'id'             => 'lightbox_url',
-        'type'           => 'text',
-        'title'          => __('链接','CS_TEXTDOMAIN'),
-		'attributes'     => array(
-			'placeholder'=> 'http://'
-		)
-    ),	
+        'id'          => 'lightbox_url',
+        'type'        => 'text',
+        'title'       => '链接',
+    'attributes'    => array(
+      'placeholder' => 'http://'
+    )
+    ),  
 
     array(
         'id'          => 'lightbox_description',
         'type'        => 'textarea',
-        'title'       => __('描述','CS_TEXTDOMAIN'),
+        'title'       => '描述',
     ),
-			
-	array(
-		'id'        => 'lightbox_showPages',
-		'type'      => 'radio',
-		'class'     => 'horizontal',
-		'title'     => __('展示页面','CS_TEXTDOMAIN'),
-		'options'   => array(
-			'1'     => __('首页展示','CS_TEXTDOMAIN'),
-			'2'     => __('全站展示','CS_TEXTDOMAIN'),
-		),
-		'default'   => '1',
-	),
-			
-	array(
-		'id'        => 'lightbox_mode',
-		'type'      => 'radio',
-		'class'     => 'horizontal',
-		'title'     => __('展示方式','CS_TEXTDOMAIN'),
-		'options'   => array(
-			'1'     => __('纯图片','CS_TEXTDOMAIN'),
-			'2'     => __('纯文字','CS_TEXTDOMAIN'),
-			'3'     => __('图文','CS_TEXTDOMAIN'),
-		),
-		'default'   => '3',
-	),	
+      
+  array(
+    'id'        => 'lightbox_showPages',
+    'type'      => 'radio',
+    'class'   => 'horizontal',
+    'title'     => '展示页面',
+    'options'   => array(
+      '1'     => '首页展示',
+      '2'      => '全站展示',
+    ),
+    'default'   => '1',
+  ),
+      
+  array(
+    'id'        => 'lightbox_mode',
+    'type'      => 'radio',
+    'class'   => 'horizontal',
+    'title'     => '展示方式',
+    'options'   => array(
+      '1'     => '纯图片',
+      '2'      => '纯文字',
+      '3'      => '图文',
+    ),
+    'default'   => '3',
+  ),  
 
   )
-);
+);*/
 
 
 // ------------------------------
 // 列表                       -
 // ------------------------------
-$options[]   = array(
+/**$options[]   = array(
   'name'     => 'lists_section',
-  'title'    => __('列表','CS_TEXTDOMAIN'),
+  'title'    => '列表',
   'icon'     => 'fa fa-th-list',
   'fields'   => array(
   
     array(
-		'type'    => 'notice',
+    'type'    => 'notice',
         'class'   => 'info',
-        'content' => __('归档设置','CS_TEXTDOMAIN'),
+        'content' => '归档设置',
     ),  
 
     array(
         'id'      => 'author_link_rewrite',
         'type'    => 'radio',
-        'title'   => __('作者存档页面URL重写','CS_TEXTDOMAIN'),
+        'title'   => '作者存档页面URL重写',
         'class'   => 'horizontal',
         'options' => array(
-            '1'   => __('作者存档链接中的用户名改为用户ID','CS_TEXTDOMAIN'),
-            '2'   => __('作者存档链接中的用户名改为昵称','CS_TEXTDOMAIN'),
+            '1'   => '作者存档链接中的用户名改为用户ID',
+            '2'   => '作者存档链接中的用户名改为昵称',
         ),
-		'default' => '1',
-		'desc'    => __('注：需要主机支持伪静态Rewrite','CS_TEXTDOMAIN'),
-        'after'   => '<span class="cs-text-warning">'.__('避免直接使用用户名，提高安全性，推荐使用用户ID，使用昵称可能会存在昵称相同的情况，这时候只会显示ID较早的用户（解决思路是修改个人资料时，如果使用了相同昵称，进行提示。）注意：昵称不要包含空格，同时不建议使用中文，此外，使用昵称方式记得将“公开显示为”设置为非用户名，这样就OK啦！','CS_TEXTDOMAIN').'</span>',
-    ),	
-	
+    'default' => '1',
+    'desc'    => '注：需要主机支持伪静态（即支持 rewrite）',
+        'after'   => '<div class="cs-text-warning">避免直接使用用户名，提高安全性，推荐使用用户ID，使用昵称可能会存在昵称相同的情况，这时候只会显示ID较早的用户（解决思路是修改个人资料时，如果使用了相同昵称，进行提示。）注意：昵称不要包含空格，同时不建议使用中文，此外，使用昵称方式记得将“公开显示为”设置为非用户名，这样就OK啦！</div>',
+    ),  
+  
     array(
         'type'    => 'notice',
         'class'   => 'info',
-        'content' => __('置顶文章','CS_TEXTDOMAIN'),
+        'content' => '置顶文章',
     ),
   
     array(
         'id'      => 'enable_stickPost',
         'type'    => 'switcher',
-        'title'   => __('推荐置顶文章','CS_TEXTDOMAIN'),
-		'default' => false,
-    ), 	
-		
+        'title'   => '推荐置顶文章',
+    'default' => false,
+    ),  
+    
     array(
         'id'      => 'stickPost_num',
         'type'    => 'number',
-        'title'   => __('置顶文章展示','CS_TEXTDOMAIN'),
-        'after'   => '<span class="cs-text-muted">('.__('篇','CS_TEXTDOMAIN').')</span>',
-		'default' => '4',
-		//'validate' => 'numeric',
-		'dependency'   => array( 'enable_stickPost', '==', 'true' ),
-    ),	
-	
-    /**array(
+        'title'   => '置顶文章展示',
+        'after'   => '<span class="cs-text-muted">(条)</span>',
+    'default' => '4',
+    //'validate' => 'numeric',
+    'dependency'   => array( 'enable_stickPost', '==', 'true' ),
+    ),  
+  
+    array(
         'id'            => 'stickPost_thumb',
         'type'          => 'upload',
-        'title'         => __('置顶文章默认缩略图','CS_TEXTDOMAIN'),
-		'default'       => get_template_directory_uri()."/assets/images/stickPost_thumb.png",
+        'title'         => '置顶文章默认缩略图',
+    'default'       => get_template_directory_uri()."/assets/images/stickPost_thumb.png",
         'attributes'    => array(
             'placeholder' => 'http://'
         ),
-		'settings'      => array(
-			'upload_type'  => 'image',
-			'button_title' => __('上传','CS_TEXTDOMAIN'),
-			'frame_title'  => __('选择图像','CS_TEXTDOMAIN'),
-			'insert_title' => __('使用图像','CS_TEXTDOMAIN'),
-		),
-		'dependency'   => array( 'enable_stickPost', '==', 'true' ),
-    ),*/	
+    'settings'      => array(
+      'upload_type'  => 'image',
+      'button_title' => '上传',
+      'frame_title'  => '选择图像',
+      'insert_title' => '使用图像',
+    ),
+    'dependency'   => array( 'enable_stickPost', '==', 'true' ),
+    ),  
   
     array(
-		'type'    => 'notice',
+    'type'    => 'notice',
         'class'   => 'info',
-        'content' => __('阅读更多设置','CS_TEXTDOMAIN'),
-    ),	
+        'content' => '阅读更多设置',
+    ),  
   
     array(
         'id'      => 'enable_post_readMore',
         'type'    => 'switcher',
-        'title'   => __('自定义阅读更多','CS_TEXTDOMAIN'),
-		'default' => true,
+        'title'   => '自定义阅读更多',
+    'default' => true,
     ), 
   
     array(
         'id'      => 'enable_post_filterHtml',
         'type'    => 'switcher',
-        'title'   => __('不过滤html标签','CS_TEXTDOMAIN'),
-		'default' => false,
-		'help'    => __('支持中英文并且不过滤html标签，但对html标签支持不好，截取时会把标签截断而导致显示不全，所以建议配合文章的more标签一起使用','CS_TEXTDOMAIN'),
-    ), 	
-		
+        'title'   => '不过滤html标签',
+    'default' => false,
+    'help'    => '支持中英文并且不过滤html标签，但对html标签支持不好，截取时会把标签截断而导致显示不全，所以建议配合文章的more标签一起使用',
+    ),  
+    
     array(
         'id'      => 'post_excerptLength',
         'type'    => 'number',
-        'title'   => __('自定义文章摘要长度','CS_TEXTDOMAIN'),
-        'after'   => '<span class="cs-text-muted">('.__('字符','CS_TEXTDOMAIN').')</span>',
-		'default' => '80',
-		//'validate' => 'numeric',
+        'title'   => '自定义文章摘要长度',
+        'after'   => '<span class="cs-text-muted">(字符)</span>',
+    'default' => '80',
+    //'validate' => 'numeric',
     ),
   
     array(
-		'type'    => 'notice',
+        'id'          => 'post_readMoreLabel',
+        'type'        => 'text',
+        'title'       => '自定义阅读更多的标签文字',
+    'default'     => '阅读更多',
+    ),
+  
+    array(
+    'type'    => 'notice',
         'class'   => 'info',
-        'content' => __('时间格式','CS_TEXTDOMAIN'),
-    ),	
+        'content' => '时间格式',
+    ),  
 
     array(
         'id'      => 'list_date_format',
         'type'    => 'radio',
-        'title'   => __('时间显示格式','CS_TEXTDOMAIN'),
+        'title'   => '时间显示格式',
         'class'   => 'horizontal',
         'options' => array(
-            '1'   => __('传统格式','CS_TEXTDOMAIN'),
-            '2'   => __('“多久前”格式','CS_TEXTDOMAIN'),
-			'3'   => __('不显示','CS_TEXTDOMAIN'),
+            '1'   => '传统格式',
+            '2'   => '“多久前”格式',
+      '3'   => '不显示',     
         ),
-		'default' => '1',
+    'default' => '1',
     ),
   
     array(
-		'type'    => 'notice',
+    'type'    => 'notice',
         'class'   => 'info',
-        'content' => __('分页设置','CS_TEXTDOMAIN'),
+        'content' => '分页设置',
     ),
-		
+    
     array(
         'id'      => 'custom_paginationStyle',
         'type'    => 'radio',
-        'title'   => __('分页方式','CS_TEXTDOMAIN'),
+        'title'   => '分页方式',
         'class'   => 'horizontal',
         'options' => array(
-			'1'   => __('Ajax无限加载','CS_TEXTDOMAIN'),
-			'2'   => __('下一页/前一页按钮','CS_TEXTDOMAIN'),
-			'3'   => __('页码','CS_TEXTDOMAIN'),
+      '1'    => 'Ajax无限加载',
+      '2'    => '下一页/前一页按钮',
+      '3'    => '页码',
         ),
-		'default' => '3',
-    ),	
-		
+    'default' => '3',
+    ),  
+    
     array(
         'id'      => 'ajax_loadPages',
         'type'    => 'number',
-        'title'   => __('ajax无限加载页数','CS_TEXTDOMAIN'),
-        'after'   => '<span class="cs-text-muted">('.__('页','CS_TEXTDOMAIN').')</span>',
-		'default' => '2',
-		//'validate' => 'numeric',
-		'dependency'   => array( 'custom_paginationStyle_1', '==', 'true' ),
-    ),	
+        'title'   => 'ajax无限加载页数',
+        'after'   => '<span class="cs-text-muted">(页)</span>',
+    'default' => '2',
+    //'validate' => 'numeric',
+    'dependency'   => array( 'custom_paginationStyle_1', '==', 'true' ),
+    ),  
   
     array(
-		'type'    => 'notice',
+        'id'          => 'ajax_moreLabel',
+        'type'        => 'text',
+        'title'       => 'ajax无限加载中下一页的标签文字',
+    'default'     => '加载更多',
+    'dependency'   => array( 'custom_paginationStyle_1', '==', 'true' ),
+    ),  
+  
+    array(
+        'id'          => 'ajax_nomoreLabel',
+        'type'        => 'text',
+        'title'       => 'ajax无限加载完结的标签文字',
+    'default'     => '没有更多文章了',
+    'dependency'   => array( 'custom_paginationStyle_1', '==', 'true' ),
+    ),
+  
+    array(
+    'type'    => 'notice',
         'class'   => 'info',
-        'content' => __('列表样式','CS_TEXTDOMAIN'),
-    ),	
+        'content' => '列表样式',
+    ),  
 
     array(
         'id'      => 'list_showStyle',
         'type'    => 'radio',
-        'title'   => __('列表展示方式','CS_TEXTDOMAIN'),
+        'title'   => '列表展示方式',
         'class'   => 'horizontal',
         'options' => array(
-            '1'   => __('小缩略图+标题+摘要','CS_TEXTDOMAIN'),
-            '2'   => __('大缩略图+标题+摘要','CS_TEXTDOMAIN'),
-			'3'   => __('简单标题列表','CS_TEXTDOMAIN'),
+            '1'   => '小缩略图+标题+摘要',
+            '2'   => '大缩略图+标题+摘要',
+      '3'   => '简单标题列表',      
         ),
-		'default' => '1',
-    ),	
-	
+    'default' => '1',
+    ),  
+  
   )
-);
+);**/
 
 
 // ------------------------------
@@ -1688,7 +1691,7 @@ $options[]   = array(
 // ------------------------------
 /**$options[]   = array(
   'name'     => 'archive_section',
-  'title'    => __('归档','CS_TEXTDOMAIN'),
+  'title'    => '归档',
   'icon'     => 'fa fa-bookmark',
   'fields'   => array(  
 
@@ -1698,287 +1701,296 @@ $options[]   = array(
 // ------------------------------
 // 文章                       -
 // ------------------------------
-$options[]   = array(
+/**$options[]   = array(
   'name'     => 'post_section',
-  'title'    => __('文章','CS_TEXTDOMAIN'),
+  'title'    => '文章',
   'icon'     => 'fa fa-newspaper-o',
   'fields'   => array(
   
     array(
-		'type'    => 'notice',
+    'type'    => 'notice',
         'class'   => 'info',
-        'content' => __('文章形式设置','CS_TEXTDOMAIN'),
-    ),	
+        'content' => '文章形式设置',
+    ),  
   
     array(
         'id'      => 'enable_post_formats',
         'type'    => 'switcher',
-        'title'   => __('文章形式','CS_TEXTDOMAIN'),
-		'default' => false,
-    ),		
+        'title'   => '文章形式',
+    'default' => false,
+    ),    
 
     array(
         'id'                 => 'post_formats',
         'type'               => 'select',
-        'title'              => __('选择要启用的文章形式','CS_TEXTDOMAIN'),
-        'class'              => 'chosen',
-        'help'               => __('可多选，文章形式(Post Formats),是文章的一种属性,决定文章的显示方式。','CS_TEXTDOMAIN'),
-		'dependency'         => array( 'enable_post_formats', '==', 'true' ),
-		'options'            => array(
-            'standard'       => __('标准','CS_TEXTDOMAIN'),
-			'aside'          => __('日志','CS_TEXTDOMAIN'),
-            'gallery'        => __('相册','CS_TEXTDOMAIN'),
-            'link'           => __('链接','CS_TEXTDOMAIN'),
-            'image'          => __('图像','CS_TEXTDOMAIN'),
-            'quote'          => __('引用','CS_TEXTDOMAIN'),
-            'status'         => __('状态','CS_TEXTDOMAIN'),
-            'video'          => __('视频','CS_TEXTDOMAIN'),
-            'audio'          => __('音频','CS_TEXTDOMAIN'),
-			'chat'           => __('聊天','CS_TEXTDOMAIN'),
+        'title'              => '选择要启用的文章形式',
+        'options'            => array(
+            'standard'       => '标准',
+      'aside'          => '日志',
+            'gallery'        => '相册',
+            'link'           => '链接',
+            'image'          => '图像',
+            'quote'          => '引用',
+            'status'         => '状态',
+            'video'          => '视频',
+            'audio'          => '音频',
+      'chat'           => '聊天',
         ),
-		'attributes'         => array(
-            'data-placeholder' => __('请选择','CS_TEXTDOMAIN'),
+        'class'              => 'chosen',
+        'attributes'         => array(
+            'data-placeholder' => '请选择',
             'multiple'         => 'only-key',
             'style'            => 'width: 80%;'
         ),
+        'help'               => '可多选，文章形式(Post Formats),是文章的一种属性,决定文章的显示方式。',
     ),   
   
     array(
-		'type'    => 'notice',
+    'type'    => 'notice',
         'class'   => 'info',
-        'content' => __('文章常规设置','CS_TEXTDOMAIN'),
+        'content' => '文章常规设置',
     ),
   
     array(
         'id'      => 'enable_post_views',
         'type'    => 'switcher',
-        'title'   => __('浏览次数统计','CS_TEXTDOMAIN'),
-		'default' => true,
-    ), 	
+        'title'   => '浏览次数统计',
+    'default' => true,
+    ),  
   
     array(
         'id'      => 'enable_post_like',
         'type'    => 'switcher',
-        'title'   => __('访客点赞','CS_TEXTDOMAIN'),
-		'default' => false,
-    ),	
+        'title'   => '访客点赞',
+    'default' => false,
+    ),  
   
     array(
         'id'      => 'enable_post_thumbnail',
         'type'    => 'switcher',
-        'title'   => __('特色图像','CS_TEXTDOMAIN'),
-		'default' => true,
+        'title'   => '特色图像',
+    'default' => true,
     ), 
   
     array(
         'id'      => 'enable_post_copyright',
         'type'    => 'switcher',
-        'title'   => __('转载声明','CS_TEXTDOMAIN'),
-		'default' => true,
+        'title'   => '转载声明',
+    'default' => true,
     ),
   
     array(
         'id'      => 'enable_post_authorInfo',
         'type'    => 'switcher',
-        'title'   => __('作者信息','CS_TEXTDOMAIN'),
-		'default' => false,
-    ),	
+        'title'   => '作者信息',
+    'default' => false,
+    ),  
   
     array(
         'id'      => 'enable_post_shareButton',
         'type'    => 'switcher',
-        'title'   => __('分享按钮','CS_TEXTDOMAIN'),
-		'default' => true,
-    ),		
+        'title'   => '分享按钮',
+    'default' => true,
+    ),    
   
     array(
-		'type'    => 'notice',
+    'type'    => 'notice',
         'class'   => 'info',
-        'content' => __('文章相关链接设置','CS_TEXTDOMAIN'),
+        'content' => '文章相关链接设置',
     ), 
   
     array(
         'id'      => 'enable_post_pager',
         'type'    => 'switcher',
-        'title'   => __('文章的上一篇和下一篇链接','CS_TEXTDOMAIN'),
-		'default' => true,
+        'title'   => '文章的上一篇和下一篇链接',
+    'default' => true,
     ),
+  
+    array(
+        'id'      => 'post_previousLabel',
+        'type'    => 'text',
+        'title'   => '上一篇标签文字',
+    'default' => '上一篇',
+    'dependency'   => array( 'enable_post_pager', '==', 'true' ),
+    ),  
+  
+    array(
+        'id'      => 'post_nextLabel',
+        'type'    => 'text',
+        'title'   => '下一篇标签文字',
+    'default' => '下一篇',
+    'dependency'   => array( 'enable_post_pager', '==', 'true' ),
+    ),  
   
     array(
         'id'      => 'enable_postRelated',
         'type'    => 'switcher',
-        'title'   => __('相关文章','CS_TEXTDOMAIN'),
-		'default' => true,
+        'title'   => '相关文章',
+    'default' => true,
     ),
 
-    /**array(
+    array(
         'id'            => 'postRelated_thumb',
         'type'          => 'upload',
-        'title'         => __('相关文章默认缩略图','CS_TEXTDOMAIN'),
-		'default'       => get_template_directory_uri()."/assets/images/postRelated_thumb.png",
+        'title'         => '相关文章默认缩略图',
+    'default'       => get_template_directory_uri()."/assets/images/postRelated_thumb.png",
         'attributes'    => array(
             'placeholder' => 'http://'
         ),
-		'settings'      => array(
-			'upload_type'  => 'image',
-			'button_title' => __('上传','CS_TEXTDOMAIN'),
-			'frame_title'  => __('选择图像','CS_TEXTDOMAIN'),
-			'insert_title' => __('使用图像','CS_TEXTDOMAIN'),
-		),
-		'dependency'   => array( 'enable_postRelated', '==', 'true' ),
-    ),*/	
-		
+    'settings'      => array(
+      'upload_type'  => 'image',
+      'button_title' => '上传',
+      'frame_title'  => '选择图像',
+      'insert_title' => '使用图像',
+    ),
+    'dependency'   => array( 'enable_postRelated', '==', 'true' ),
+    ),  
+    
     array(
         'id'      => 'postRelated_num',
         'type'    => 'number',
-        'title'   => __('相关文章展示','CS_TEXTDOMAIN'),
-        'after'   => '<span class="cs-text-muted">('.__('篇','CS_TEXTDOMAIN').')</span>',
-		'default' => '8',
-		//'validate' => 'numeric',
-		'dependency'   => array( 'enable_postRelated', '==', 'true' ),
-    ),	
+        'title'   => '相关文章展示',
+        'after'   => '<span class="cs-text-muted">(条)</span>',
+    'default' => '8',
+    //'validate' => 'numeric',
+    'dependency'   => array( 'enable_postRelated', '==', 'true' ),
+    ),  
 
     array(
         'id'      => 'postRelated_style',
         'type'    => 'radio',
-        'title'   => __('相关文章展示方式','CS_TEXTDOMAIN'),
+        'title'   => '相关文章展示方式',
         'class'   => 'horizontal',
         'options' => array(
-            '1'   => __('无序列表','CS_TEXTDOMAIN'),
-            '2'   => __('图文列表','CS_TEXTDOMAIN'),
+            '1'   => '无序列表',
+            '2'   => '图文列表',
         ),
-		'default' => '1',
-		'dependency'   => array( 'enable_postRelated', '==', 'true' ),
-    ),	
+    'default' => '1',
+    'dependency'   => array( 'enable_postRelated', '==', 'true' ),
+    ),
   
     array(
-		'type'    => 'notice',
+        'id'      => 'postRelated_label',
+        'type'    => 'text',
+        'title'   => '相关文章标签文字',
+    'default' => '相关文章',
+    'dependency'   => array( 'enable_postRelated', '==', 'true' ),
+    ),    
+  
+    array(
+    'type'    => 'notice',
         'class'   => 'info',
-        'content' => __('文章时间格式','CS_TEXTDOMAIN'),
-    ),	
+        'content' => '文章时间格式',
+    ),  
 
     array(
         'id'      => 'post_date_format',
         'type'    => 'radio',
-        'title'   => __('文章时间显示格式','CS_TEXTDOMAIN'),
+        'title'   => '文章时间显示格式',
         'class'   => 'horizontal',
         'options' => array(
-            '1'   => __('传统格式','CS_TEXTDOMAIN'),
-            '2'   => __('“多久前”格式','CS_TEXTDOMAIN'),
-			'3'   => __('不显示','CS_TEXTDOMAIN'),
+            '1'   => '传统格式',
+            '2'   => '“多久前”格式',
+      '3'   => '不显示',     
         ),
-		'default' => '1',
-    ),	
+    'default' => '1',
+    ),  
 
   )
-);
+);*/
 
 // ------------------------------
 // 搜索设置               -
 // ------------------------------
 $options[]   = array(
   'name'     => 'search_section',
-  'title'    => __('搜索','CS_TEXTDOMAIN'),
+  'title'    => '搜索',
   'icon'     => 'fa fa-search',
-  'fields'   => array(	
-
+  'fields'   => array(
+  
         /*array(
-          'id'             => 'unique_select_8',
-          'type'           => 'select',
-          'title'          => 'Select with post_types',
-          'options'        => 'post_types',
-          'default_option' => 'Select a post_type'
-        ), 
-
+          'type'    => 'notice',
+          'class'   => 'info',
+          'content' => '搜索地址栏优化',
+        ),  
+    array(
+      'type'    => 'content',
+      'content' => 'WordPress搜索结果页面的默认链接是这样的：domain/?s=keywordk，你可以将它修改为domain/search/keyword',
+    ),    
+  
         array(
-          'id'             => 'unique_select_9',
-          'type'           => 'select',
-          'title'          => 'Select with menus',
-          'options'        => 'menus',
-          'default_option' => 'Select a menu'
-        ),	
-
-        array(
-          'id'             => 'unique_select_10',
-          'type'           => 'select',
-          'title'          => 'Select with sidebars',
-          'options'        => 'sidebars',
-          'default_option' => 'Select a sidebar'
-        ),
-
-        array(
-          'id'             => 'unique_select_11',
-          'type'           => 'select',
-          'title'          => 'Select with roles',
-          'options'        => 'roles',
-          'default_option' => 'Select a role'
-        ),	*/		
+          'id'      => 'enable_search_link_redirect',
+          'type'    => 'switcher',
+          'title'   => '搜索页面URL重写',
+      'default' => '1',
+      'label'   => '<span class="cs-text-warning">注：需要主机支持伪静态（即支持 rewrite）</span>',
+        ),*/
 
         array(
           'id'      => 'search_mode',
           'type'    => 'radio',
-          'title'   => __('搜索方式','CS_TEXTDOMAIN'),
+          'title'   => '搜索方式',
           'class'   => 'horizontal',
           'options' => array(
-            '1'     => __('仅标题','CS_TEXTDOMAIN'),
-            '2'     => __('标题+内容','CS_TEXTDOMAIN'),
-			'3'     => __('标题+内容+标签tag','CS_TEXTDOMAIN'),
+            '1'    => '仅标题',
+            '2'    => '标题+内容',
+      '3'    => '标题+内容+标签tag',
           ),
-		  'default' => '1',
+      'default' => '1',
           //'after'   => '<div class="cs-text-muted">Reference site about Lorem Ipsum, a random Lipsum generator.</div>',
-        ),		
+        ),    
   
         array(
           'id'      => 'enable_search_all_type',
           'type'    => 'switcher',
-          'title'   => __('搜索结果包含自定义文章类型','CS_TEXTDOMAIN'),
-		  'default' => '1',
-		  'label'   => '<span class="cs-text-warning">'.__('注：默认搜索结果不包含自定义文章类型的内容，开启则包含关键词的自定义文章类型的内容也将出现在搜索结果中','CS_TEXTDOMAIN').'</span>',
+          'title'   => '搜索结果包含自定义文章类型',
+      'default' => '1',
+      'label'   => '<span class="cs-text-warning">注：默认搜索结果不包含自定义文章类型的内容，开启则包含关键词的自定义文章类型的内容也将出现在搜索结果中</span>',
         ), 
   
         array(
           'id'      => 'enable_search_keywords_highlight',
           'type'    => 'switcher',
-		  'default' => '1',
-          'title'   => __('搜索结果关键字高亮显示','CS_TEXTDOMAIN'),
+      'default' => '1',
+          'title'   => '搜索结果关键字高亮显示',
         ),
   
         array(
           'id'      => 'enable_search_result_one_rewrite',
           'type'    => 'switcher',
-          'title'   => __('搜索结果只有一条记录时，自动跳转到该页','CS_TEXTDOMAIN'),
-		  'default' => '1',
-		  'label'   => '<span class="cs-text-warning">'.__('注：如果返回的结果只有一篇文章，我们可以直接让它跳转到这篇文章，提高用户体验。','CS_TEXTDOMAIN').'</span>',
-        ),	
+          'title'   => '搜索结果只有一条记录时，自动跳转到该页',
+      'default' => '1',
+      'label'   => '<span class="cs-text-warning">注：如果返回的结果只有一篇文章，我们可以直接让它跳转到这篇文章，提高用户体验。</span>',
+        ),  
   
         array(
           'id'      => 'enable_search_result_match',
           'type'    => 'switcher',
-          'title'   => __('提高搜索结果的相关性(准确度)','CS_TEXTDOMAIN'),
-		  'default' => '1',
-		  'label'   => '<span class="cs-text-warning">'.__('注：默认搜索结果是按照发布时间排序的，这样的搜索结果相关性并不强，应该让搜索结果按照内容相关性排序','CS_TEXTDOMAIN').'</span>',
+          'title'   => '提高搜索结果的相关性(准确度)',
+      'default' => '1',
+      'label'   => '<span class="cs-text-warning">注：默认搜索结果是按照发布时间排序的，这样的搜索结果相关性并不强，应该让搜索结果按照内容相关性排序</span>',
         ),
   
         array(
           'id'      => 'enable_search_exclude_allpage',
           'type'    => 'switcher',
-          'title'   => __('搜索结果排除所有页面','CS_TEXTDOMAIN'),
-        ),		
-		
+          'title'   => '搜索结果排除所有页面',
+        ),  
+    
         array(
           'id'    => 'search_exclude_id',
           'type'  => 'text',
-          'title' => __('搜索结果中排除指定ID的页面或者文章','CS_TEXTDOMAIN'),
-          'desc'  => __('输入页面或文章ID，多个用英文逗号隔开','CS_TEXTDOMAIN'),
-        ),	
-		
+          'title' => '搜索结果中排除指定ID的页面或者文章',
+          'desc'  => '输入页面或文章ID，多个用英文逗号隔开',
+        ),  
+    
         array(
           'id'    => 'search_filter_cat',
           'type'  => 'text',
-          'title' => __('搜索过滤','CS_TEXTDOMAIN'),
-          'desc'  => __('输入分类ID，多个用英文逗号隔开','CS_TEXTDOMAIN'),
-		  'after' => '<p class="cs-text-info">'.__('分类ID，前面加负号表示排除；如果直接写ID，则表示只在该ID中搜索','CS_TEXTDOMAIN').'</p> ',
-        ),		
+          'title' => '搜索过滤',
+          'desc'  => '输入分类ID，多个用英文逗号隔开',
+      'after' => '<p class="cs-text-info">分类ID，前面加负号表示排除；如果直接写ID，则表示只在该ID中搜索</p> ',
+        ),    
 
   )
 );
@@ -1986,231 +1998,429 @@ $options[]   = array(
 // ------------------------------
 // 评论设置                       -
 // ------------------------------
-$options[]   = array(
+/*$options[]   = array(
   'name'     => 'comment_section',
-  'title'    => __('评论','CS_TEXTDOMAIN'),
+  'title'    => '评论',
   'icon'     => 'fa fa-comments',
   'fields'   => array( 
   
         array(
           'type'    => 'notice',
           'class'   => 'info',
-          'content' => __('温馨提示：网站启用第三方评论以下设置有可能会失效！','CS_TEXTDOMAIN'),
+          'content' => '温馨提示：网站启用第三方评论以下设置有可能会失效！',
         ),  
   
         array(
           'id'      => 'enable_comment_autoSave',
           'type'    => 'switcher',
-          'title'   => __('评论自动保存','CS_TEXTDOMAIN'),
-        ), 		
+          'title'   => '评论自动保存',
+        ),    
   
         array(
           'id'      => 'enable_loginToComment',
           'type'    => 'switcher',
-          'title'   => __('用户必须注册并登录才可以发表评论','CS_TEXTDOMAIN'),
+          'title'   => '用户必须注册并登录才可以发表评论',
         ), 
   
         array(
           'id'      => 'enable_loginToComment',
           'type'    => 'switcher',
-          'title'   => __('评论者必须填写姓名和电子邮件','CS_TEXTDOMAIN'),
-		  'default' => '1',
+          'title'   => '评论者必须填写姓名和电子邮件',
+      'default' => '1',
         ),
   
         array(
           'id'      => 'enable_comment_url',
           'type'    => 'switcher',
-          'title'   => __('评论网址URL表单','CS_TEXTDOMAIN'),
+          'title'   => '评论网址URL表单',
         ), 
   
         array(
           'id'      => 'enable_comments_author_link',
           'type'    => 'switcher',
-          'title'   => __('评论人名字的链接','CS_TEXTDOMAIN'),
-		  'label'   => __('此方法只对使用 WordPress 默认评论表单的主题才有效','CS_TEXTDOMAIN'),
-        ), 			
+          'title'   => '评论人名字的链接',
+      'label'   => '此方法只对使用 WordPress 默认评论表单的主题才有效',
+        ),      
   
         array(
           'id'      => 'enable_commentMail',
           'type'    => 'switcher',
-          'title'   => __('评论邮箱提醒功能','CS_TEXTDOMAIN'),
-		  'label'   => __('需要主机空间支持mail()函数，或者通过安装WP-Mail-SMTP插件实现','CS_TEXTDOMAIN'),
+          'title'   => '评论邮箱提醒功能',
+      'label' => '需要主机空间支持mail()函数，或者通过安装WP-Mail-SMTP插件实现',
         ), 
   
         array(
           'id'      => 'enable_avatarLazyload',
           'type'    => 'switcher',
-          'title'   => __('头像Lazyload功能','CS_TEXTDOMAIN'),
-		  'default' => true,
-        ), 	
+          'title'   => '头像Lazyload功能',
+      'default' => true,
+        ),  
   
         array(
           'id'      => 'enable_commentAjax',
           'type'    => 'switcher',
-          'title'   => __('AJAX无刷新评论','CS_TEXTDOMAIN'),
-		  'default' => true,
+          'title'   => 'AJAX无刷新评论',
+      'default' => true,
         ),
   
         array(
           'id'      => 'enable_commentEmoji',
           'type'    => 'switcher',
-          'title'   => __('启用表情','CS_TEXTDOMAIN'),
-		  'default' => false,
-        ),		
+          'title'   => '启用表情',
+      'default' => false,
+        ),    
   
         array(
           'id'      => 'enable_commentFilter',
           'type'    => 'switcher',
-          'title'   => __('过滤垃圾评论','CS_TEXTDOMAIN'),
-		  'default' => true,
+          'title'   => '过滤垃圾评论',
+      'default' => true,
         ),
   
         array(
           'id'      => 'enable_commentMinLimit',
           'type'    => 'switcher',
-          'title'   => __('限制评论内容最小字数','CS_TEXTDOMAIN'),
-		  'default' => false,
-        ),	
+          'title'   => '限制评论内容最小字数',
+      'default' => false,
+        ),  
   
         array(
           'id'      => 'commentMinLimit',
           'type'    => 'number',
-          'title'   => __('评论内容最小字数','CS_TEXTDOMAIN'),
-		  'default' => '10',
-		  //'validate' => 'numeric',
-		  'dependency'    => array( 'enable_commentMinLimit', '==', 'true' ),
-		  'after'   => '<span class="cs-text-muted">('.__('字符','CS_TEXTDOMAIN').')</span>',
-        ),		
+          'title'   => '评论内容最小字数',
+      'default' => '10',
+      //'validate' => 'numeric',
+      'dependency'    => array( 'enable_commentMinLimit', '==', 'true' ),
+      'after'   => '<span class="cs-text-muted">(字符)</span>',
+        ),    
 
   )
-);
+);*/
 
 
 // ------------------------------
 // 广告                       -
 // ------------------------------
-$options[]   = array(
+/*$options[]   = array(
   'name'     => 'advert_section',
-  'title'    => __('广告','CS_TEXTDOMAIN'),
+  'title'    => '广告',
   'icon'     => 'fa fa-gift',
   'fields'   => array(
-  	  
-        array(
-          'type'    => 'notice',
-          'class'   => 'info',
-          'content' => __('Promo Bar宣传栏设置','CS_TEXTDOMAIN'),
-        ),
-		
-		array(
-          'id'      => 'enable_footer_promo_bar',
-          'type'    => 'switcher',
-          'title'   => __('启用宣传栏','CS_TEXTDOMAIN'),
-          'default' => false,
-        ),	
-		
-		array(
-          'id'      => 'footer_promo_bar_mode',
-          'type'    => 'radio',
-          'title'   => __('宣传栏展示形式','CS_TEXTDOMAIN'),
-		  'class'   => 'horizontal',
-          'options' => array(
-			'1'   => __('文字+按钮','CS_TEXTDOMAIN'),
-			'2'   => __('文字+箭头(Full Bar Link)',	'CS_TEXTDOMAIN'),
-			'3'   => __('纯文字(Full Bar Link)','CS_TEXTDOMAIN'),
-          ),
-		  'default' => '1',
-		  'dependency' => array( 'enable_footer_promo_bar', '==', 'true' ),
-        ),		
-  	  
-        array(
-          'type'    => 'notice',
-          'class'   => 'info',
-          'content' => __('弹窗广告','CS_TEXTDOMAIN'),
-        ),		
-  	  
-        array(
-          'type'    => 'notice',
-          'class'   => 'info',
-          'content' => __('列表页广告','CS_TEXTDOMAIN'),
-        ),
-  	  
-        array(
-          'type'    => 'notice',
-          'class'   => 'info',
-          'content' => __('详情页广告','CS_TEXTDOMAIN'),
-        ),		
 
   )
-);
-  
+);*/
+
 // ------------------------------
-// 翻译                       -
+// 拓展功能               -
 // ------------------------------
-$options[]   = array(
-  'name'     => 'label_section',
-  'title'    => __('标签','CS_TEXTDOMAIN'),
-  //'icon'     => 'fa fa-buysellads',
-  'icon'     => 'fa fa-language',
-  'fields'   => array(
-	
+/**$options[]   = array(
+  'name'     => 'extend_section',
+  'title'    => '拓展',
+  'icon'     => 'fa fa-plug',
+    // begin: fields
+      'fields'    => array(
+    
+        array(
+          'type'    => 'notice',
+          'class'   => 'danger',
+          'content' => '温馨提示：按需开启各种扩展功能，每个扩展都会额外加载一些js或css',
+        ),
+    
+        array(
+          'type'    => 'notice',
+          'class'   => 'info',
+          'content' => '代码高亮',
+        ), 
+    
     array(
-        'id'          => 'post_readMoreLabel',
-        'type'        => 'text',
-        'title'       => __('自定义阅读更多的标签文字','CS_TEXTDOMAIN'),
-		'default'     => __('阅读更多','CS_TEXTDOMAIN'),
+          'id'      => 'enable_codeHighlight',
+          'type'    => 'switcher',
+          'title'   => '代码高亮',
+          'default' => false,
+      'label' => '使用pre标签把你的高亮代码包括起来',
+        ),  
+    
+        array(
+          'type'    => 'notice',
+          'class'   => 'info',
+          'content' => '引用Github资源，WP Reposidget <a href="https://wordpress.org/plugins/wp-reposidget/" target="_blank" style="outline:none;border:none" onFocus="this.blur()"><i class="cs-icon fa fa-external-link"></i></a>',
+        ),  
+    
+    array(
+          'id'      => 'enable_githubRepoWidget',
+          'type'    => 'switcher',
+          'title'   => '引用Github项目',
+          'default' => false,
+      'label' => '在文章/页面中嵌入 GitHub 仓库挂件',
+        ), 
+    
+        array(
+          'type'    => 'notice',
+          'class'   => 'info',
+          'content' => '引用Coding资源，Reposidget For Coding <a href="https://wordpress.org/plugins/reposidget-for-coding/" target="_blank" style="outline:none;border:none" onFocus="this.blur()"><i class="cs-icon fa fa-external-link"></i></a>',
+        ),  
+    
+    array(
+          'id'      => 'enable_codingRepoWidget',
+          'type'    => 'switcher',
+          'title'   => '引用Github项目',
+          'default' => false,
+      'label' => '在文章/页面中嵌入 Coding 仓库挂件',
+        ),        
+    
+        array(
+          'type'    => 'notice',
+          'class'   => 'info',
+      'content' => '文章二维码，jQuery.qrcode <a href="https://larsjung.de/jquery-qrcode/" target="_blank" style="outline:none;border:none" onFocus="this.blur()"><i class="cs-icon fa fa-external-link"></i></a>',
+        ),
+    
+    array(
+          'id'      => 'enable_post_qrcode',
+          'type'    => 'switcher',
+          'title'   => '动态生成文章二维码',
+          'default' => false,
+      'label' => '使用jQuery.qrcode为文章动态生成二维码',
+        ), 
+    
+        array(
+          'id'      => 'post_qrcodeColor',
+          'type'    => 'color_picker',
+          'title'   => '二维码颜色',
+          'default' => '#333333',
+      'dependency'   => array( 'enable_post_qrcode', '==', 'true' ),
+        ),
+
+        array(
+          'id'      => 'post_qrcodeLogo',
+          'type'    => 'upload',
+          'title'   => '嵌入图像',
+      'default' => get_template_directory_uri()."/assets/images/logo.png",
+      'dependency'   => array( 'enable_post_qrcode', '==', 'true' ),
+      'settings'      => array(
+      'upload_type'  => 'image',
+      'button_title' => '上传',
+      'frame_title'  => '选择图像',
+      'insert_title' => '使用图像',
+      ),        
+        ),    
+    
+        array(
+          'type'    => 'notice',
+          'class'   => 'info',
+      'content' => '音乐播放器，Cue <a href="https://wordpress.org/plugins/cue/" target="_blank" style="outline:none;border:none" onFocus="this.blur()"><i class="cs-icon fa fa-external-link"></i></a>',
+        ),  
+    
+    array(
+          'id'      => 'enable_player',
+          'type'    => 'switcher',
+          'title'   => '音乐播放器',
+          'default' => false,
+      'label' => '使用wordpress cue 音乐播放器插件',
+        ), 
+    
+        array(
+          'id'      => 'player_bgColor',
+          'type'    => 'color_picker',
+          'title'   => '播放器背景颜色',
+          'default' => '#333333',
+      'dependency'   => array( 'enable_player', '==', 'true' ),
+        ),
+    
+        array(
+          'id'      => 'player_buttonColor',
+          'type'    => 'color_picker',
+          'title'   => '播放器按钮颜色',
+          'default' => '#ffffff',
+      'dependency'   => array( 'enable_player', '==', 'true' ),
+        ),
+    
+    array(
+          'id'      => 'player_id',
+          'type'    => 'number',
+          'title'   => '歌单ID',
+          //'after'   => '<span class="cs-text-muted">(px，像素)</span>',
+      //'default' => '8',
+      //'validate' => 'numeric',
+      'dependency'   => array( 'enable_player', '==', 'true' ),
+    ),      
+    
+    array(
+          'id'      => 'enable_player_mobile',
+          'type'    => 'switcher',
+          'title'   => '移动端',
+          'default' => false,
+        ), 
+    
+        array(
+          'type'    => 'notice',
+          'class'   => 'info',
+      'content' => '导航菜单，Menu Icons <a href="https://wordpress.org/plugins/menu-icons/" target="_blank" style="outline:none;border:none" onFocus="this.blur()"><i class="cs-icon fa fa-external-link"></i></a>',
+        ),  
+    
+    array(
+          'id'      => 'enable_menu_icon',
+          'type'    => 'switcher',
+          'title'   => '为菜单添加字体图标',
+          'default' => false,
+        ),    
+    
+    ), // end: fields 
+); **/
+
+// ------------------------------
+// 多媒体设置               -
+// ------------------------------
+/**$options[]   = array(
+  'name'     => 'media_section',
+  'title'    => '多媒体',
+  'icon'     => 'fa fa-crop',
+    // begin: fields
+      'fields'    => array( 
+  
+        array(
+          'type'    => 'notice',
+          'class'   => 'info',
+          'content' => '<h3>图片缩略图</h3><p>该主题使用 <a href="http://www.cmhello.com/timthumb.html" target="_blank" style="outline:none;border:none" onFocus="this.blur()">TimThumb</a> 来生成缩略图，请确保当前主题的根目录可写（755权限）。如果你使用的是外链图库，请在当前主题根目录下的 timthumb-config.php 添加图库的域名。使用timthumb.php程序进行裁剪，不需要通过wordpress自带的缩略图功能来裁剪，所以在后台——设置——多媒休中把图像的大小全部设置为0。</p>',
+        ),  
+    
+        array(
+          'id'      => 'enable_timthumb',
+          'type'    => 'switcher',
+          'title'   => 'TimThumb 截图',
+      'default' => true,
+      'label'   => '（建议开启）',
+        ),
+
+        array(
+          'id'      => 'thumb_mode',
+          'type'    => 'radio',
+          'title'   => '生成方式',
+          //'class'   => 'horizontal',
+          'options' => array(
+        '1'   => '缩放，缩放到固定高度和宽度（不裁剪，会变形）',
+            '2'   => '裁剪，等比例缩小（适应最小边，裁剪大边，不变形）',
+            '3'   => '留白，等比例缩小（适应最大边，小边补白，不变形）',
+          ),
+      'default' => '3',
+        ),
+    
+        array(
+          'id'      => 'thumb_quality',
+          'type'    => 'number',
+          'title'   => '缩略图质量',
+          'after'   => '<span class="cs-text-muted"> %，会影响图片清晰度</span>',
+      'default' => '80',
+        ),    
+  
+        array(
+          'type'    => 'notice',
+          'class'   => 'info',
+          'content' => '<h3>缩略图显示原理：</h3><ul><li>1、文章设置了缩略图则显示设置的缩略图</li><li>2、若没有设置缩略图，则获取文章第一张图片作为缩略图；</li><li>3、文章无缩略图则显示文章默认缩略图</li><li>4、以上都不满足，则显示主题内置的随机缩略图</li></ul>',
+        ), 
+    
+        array(
+          'id'      => 'enable_post_matchThumb',
+          'type'    => 'switcher',
+          'title'   => '文章自动匹配缩略图',
+      'default' => true,
+      'label'   => '为每篇文章自动匹配缩略图。',
+        ),    
+
+    array(
+          'id'            => 'post_defaultThumb',
+          'type'          => 'upload',
+          'title'         => '文章默认缩略图',
+      //'default'       => get_template_directory_uri()."/assets/images/thumb/post_defaultThumb.jpg",
+          'attributes'    => array(
+            'placeholder' => 'http://'
+          ),
+      'settings'      => array(
+      'upload_type'  => 'image',
+      'button_title' => '上传',
+      'frame_title'  => '选择图像',
+      'insert_title' => '使用图像',
+      ),
+    ),
+  
+    array(
+      'type'    => 'notice',
+          'class'   => 'info',
+          'content' => '<h3>Lightbox设置</h3>
+            <p>图片弹窗：编辑文章插入图片时，从URL插入（外链）必须选择链接到：图像URL；本地上传，必须选择链接到：媒体文件，在a标签中需要添加“title=图片名称”，不然在前台图片弹窗中不会显示名称。</p>
+            <p>视频弹窗：视频地址需要绝对地址（例如http://player.youku.com/player.php/sid/XMzMxNjY5MzI0/v.swf），需要在a标签中手动添加：class="lightbox"</p>
+            <p>内容（网址）弹窗：可以为文本、图片等添加链接，链接地址为需要显示的网址（例如https://www.baidu.com/），需要在a标签中手动添加：class="lightbox"</p>',
     ),  
   
     array(
-        'id'      => 'post_previousLabel',
-        'type'    => 'text',
-        'title'   => __('上一篇标签文字','CS_TEXTDOMAIN'),
-		'default' => __('上一篇','CS_TEXTDOMAIN'),
-    ),	
+          'id'      => 'enable_media_lightbox',
+          'type'    => 'switcher',
+          'title'   => '图片、视频、内容（网址）弹窗Lightbox效果',
+      'default' => true,
+    ),    
   
     array(
-        'id'      => 'post_nextLabel',
-        'type'    => 'text',
-        'title'   => __('下一篇标签文字','CS_TEXTDOMAIN'),
-		'default' => __('下一篇','CS_TEXTDOMAIN'),
-    ),
-	
+      'type'    => 'notice',
+          'class'   => 'info',
+          'content' => '图片延迟加载',
+    ),  
+  
     array(
-        'id'      => 'postRelated_label',
-        'type'    => 'text',
-        'title'   => __('相关文章标签文字','CS_TEXTDOMAIN'),
-		'default' => __('相关文章','CS_TEXTDOMAIN'),
-    ),	
-	
-    array(
-        'id'          => 'ajax_moreLabel',
-        'type'        => 'text',
-        'title'       => __('ajax无限加载中下一页的标签文字','CS_TEXTDOMAIN'),
-		'default'     => __('加载更多','CS_TEXTDOMAIN'),
-    ),	
-	
-    array(
-        'id'          => 'ajax_nomoreLabel',
-        'type'        => 'text',
-        'title'       => __('ajax无限加载完结的标签文字','CS_TEXTDOMAIN'),
-		'default'     => __('没有更多文章了','CS_TEXTDOMAIN'),
-    ),	
+          'id'      => 'enable_imageLazyload',
+          'type'    => 'switcher',
+          'title'   => '图片延迟加载Lazyload',
+      'default' => true,
+    ), 
 
-  )
-);
+    array(
+          'id'            => 'post_thumb_preLoad',
+          'type'          => 'upload',
+          'title'         => '缩略图预加载图片',
+      'default'       => get_template_directory_uri()."/assets/images/thumb/post_thumb_preLoad.png",
+          'attributes'    => array(
+            'placeholder' => 'http://'
+          ),
+      'settings'      => array(
+      'upload_type'  => 'image',
+      'button_title' => '上传',
+      'frame_title'  => '选择图像',
+      'insert_title' => '使用图像',
+      ),
+      'dependency'   => array( 'enable_imageLazyload', '==', 'true' ),
+    ),  
+
+    array(
+          'id'            => 'post_image_preLoad',
+          'type'          => 'upload',
+          'title'         => '文章图片预加载图片',
+      'default'       => get_template_directory_uri()."/assets/images/thumb/post_image_preLoad.png",
+          'attributes'    => array(
+            'placeholder' => 'http://'
+          ),
+      'settings'      => array(
+      'upload_type'  => 'image',
+      'button_title' => '上传',
+      'frame_title'  => '选择图像',
+      'insert_title' => '使用图像',
+      ),
+      'dependency'   => array( 'enable_imageLazyload', '==', 'true' ),
+    ),    
+    
+    ), // end: fields
+); **/
   
 // ------------------------------
 // 备份                       -
 // ------------------------------
 $options[]   = array(
-  'name'     => 'backup_framework_section',
-  'title'    => __('备份','CS_TEXTDOMAIN'),
+  'name'     => 'backup_section',
+  'title'    => '备份',
   'icon'     => 'fa fa-database',
   'fields'   => array(
 
     array(
       'type'    => 'notice',
       'class'   => 'info',
-      'content' => __('您可以保存当前设置。下载备份和导入设置。','CS_TEXTDOMAIN'),
+      'content' => '您可以保存当前设置。下载备份和导入设置。',
     ),
 
     array(
@@ -2223,24 +2433,23 @@ $options[]   = array(
 // ------------------------------
 // license                      -
 // ------------------------------
-$options[]   = array(
+/*$options[]   = array(
   'name'     => 'license_section',
-  'title'    => __('关于','CS_TEXTDOMAIN'),
+  'title'    => '关于',
   'icon'     => 'fa fa-info-circle',
   'fields'   => array(
 
     array(
       'type'    => 'heading',
-      'content' => __('关于易唯','CS_TEXTDOMAIN'),
+      'content' => '100% GPL License, Yes it is free!'
     ),
-	
     array(
       'type'    => 'content',
-      'content' => __('易唯设计','CS_TEXTDOMAIN'),
+      'content' => 'Codestar Framework is <strong>free</strong> to use both personal and commercial. If you used commercial, <strong>please credit</strong>. Read more about <a href="http://www.gnu.org/licenses/gpl-2.0.txt" target="_blank">GNU License</a>',
     ),
 
   )
-);
+);*/
 
 CSFramework::instance( $settings, $options );
 

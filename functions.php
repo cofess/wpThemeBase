@@ -61,6 +61,22 @@ require_once dirname( __FILE__ ) . '/inc/classes/breadcrumb.class.php';//面包�
 require_once dirname( __FILE__ ) . '/inc/classes/tgm-plugin-activation.class.php';//安装插件
 
 /**
+ * 加载网站核心文件
+ */
+require_once dirname( __FILE__ ) . '/inc/core/adminextend.core.php'; 
+require_once dirname( __FILE__ ) . '/inc/core/wp_nav_menu_filter.core.php';//获取指定菜单的子菜单
+require_once dirname( __FILE__ ) . '/inc/core/currentMenu.core.php';//获取当前菜单名称
+//require_once dirname( __FILE__ ) . '/inc/core/function.core.php';//基础功能拓展
+//require_once dirname( __FILE__ ) . '/inc/core/seo-category.core.php';//基础功能拓
+
+/**
+ * 自定义文章类型
+ */
+//require_once dirname( __FILE__ ) . '/inc/post-type/bulletin/init.php';//公告
+//require_once dirname( __FILE__ ) . '/inc/post-type/portfolio/init.php';//作品 
+require_once dirname( __FILE__ ) . '/inc/post-type/faq/init.php';//常见问题
+
+/**
  * Codestar Framework v1.0.0初始化
  * github：https://github.com/Codestar/codestar-framework
  * site：http://codestarframework.com/
@@ -82,7 +98,7 @@ require_once SETTING_DIR . '/init/admin.init.php';//后台初始化
 require_once SETTING_DIR . '/init/theme.init.php';//主题初始化
 require_once SETTING_DIR . '/init/plugin.init.php';//插件初始化
 require_once SETTING_DIR . '/init/script.init.php';//加载Style和JS
-require_once SETTING_DIR . '/init/installplugin.init.php';//加载Style和JS
+//require_once SETTING_DIR . '/init/installplugin.init.php';//加载安装插件列表
 //load_classes(SETTING_DIR . '/init/','*.init.php');
 
 /**
@@ -116,13 +132,15 @@ require_once SETTING_DIR . '/manager/browser.set.php';//浏览器升级提示
  * 插件设置
  */ 
 require_once SETTING_DIR . '/plug/wpjam-qiniu/wpjam-qiniutek.php';//七牛云存储
+require_once SETTING_DIR . '/plug/cf7.set.php';//Contact Form 7
+require_once SETTING_DIR . '/plug/woocommerce.set.php';//Woocommerce
 
 /**
  * 小工具
  */
-//require_once dirname( __FILE__ ) . '/inc/widgets/widget-icon/widget-icon.php';//小工具图标
-//require_once dirname( __FILE__ ) . '/inc/widgets/simple-widget-classes/simple-widget-classes.php';//小工具class类
-//require_once dirname( __FILE__ ) . '/inc/widgets/widgets-thisCategory.php';	
+require_once dirname( __FILE__ ) . '/inc/widgets/widget-icon/widget-icon.php';//小工具图标
+require_once dirname( __FILE__ ) . '/inc/widgets/simple-widget-classes/simple-widget-classes.php';//小工具class类
+require_once dirname( __FILE__ ) . '/inc/widgets/widgets-thisCategory.php';	
  
 /**
  * 拓展模块
@@ -142,3 +160,9 @@ function ludou_add_categories_tags_to_attachments() {
 
 }
 add_action( 'init' , 'ludou_add_categories_tags_to_attachments' );
+
+/**
+ * 禁用 WordPress 4.4+ 的响应式图片功能
+ * https://www.wpdaxue.com/disable-responsive-images.html
+ */
+add_filter( 'max_srcset_image_width', create_function( '', 'return 1;' ) );

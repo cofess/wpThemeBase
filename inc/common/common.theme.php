@@ -105,6 +105,12 @@ function post_views($before = '(点击 ', $after = ' 次)', $echo = 1){
   if ($echo) echo $before, number_format($views), $after;
   else return $views;
 }
+function get_post_views(){
+  global $post;
+  $post_ID = $post->ID;
+  $views = (int)get_post_meta($post_ID, 'views', true);
+  return $views;
+}
 
 /**
  * Archives 文章存档 
@@ -112,31 +118,38 @@ function post_views($before = '(点击 ', $after = ' 次)', $echo = 1){
  */
 function zww_archives_list() {
     if( !$output = get_option('zww_archives_list') ){
-        $output = '<div id="archives"><p>[<a id="all_expand_collapse">全部展开/收缩</a>] <em>(注: 点击月份可以展开或者收缩)</em></p>';
         $the_query = new WP_Query( 'posts_per_page=-1&ignore_sticky_posts=1' ); //update: 加上忽略置顶文章
         $year=0; $mon=0; $i=0; $j=0;
         while ( $the_query->have_posts() ) : $the_query->the_post();
             $year_tmp = get_the_time('Y');
             $mon_tmp = get_the_time('m');
             $y=$year; $m=$mon;
-            if ($mon != $mon_tmp && $mon > 0) $output .= '</ul></li>';
-            if ($year != $year_tmp && $year > 0) $output .= '</ul>';
+            if ($mon != $mon_tmp && $mon > 0) $output .= '</ul></article></section>';
+            if ($year != $year_tmp && $year > 0) $output .= '</div></div></div>';
             if ($year != $year_tmp) {
                 $year = $year_tmp;
-                $output .= '<h3 class="archives_year">'. $year .' 年</h3><ul class="foldList clearfix">'; //输出年份
-            }
+                $output .= '<div class="chapter">';
+                $output .= '<div class="container"><div class="chapter-header clearfix">';
+                $output .= '<h3 class="archives_year m-no">'. $year .'</h3></div>'; //输出年份
+                $output .= '<button type="button" class="chapterTogger"></button></div>';
+                $output .= '<div class="container"><div class="chapter-body">';
+
+                //不同年份相同月份
+                if ($mon == $mon_tmp) {
+                    $mon = $mon_tmp;                
+                    $output .= '<section><header><h4>'. $year .'/'. $mon .'</h4></header>';
+                    $output .= '<article><ul class="list-unstyled">';
+                }
+            } 
+            //不同年份不同月份        
             if ($mon != $mon_tmp) {
-                $mon = $mon_tmp;
-                $output .= '<li><h5 class="hint--left hint--always" data-hint="'. $year .' 年'. $mon .' 月">'. $year .' 年'. $mon .' 月</h5><div class="foldContent clearfix">';
-				$output .= '<div class="poptip poptip-danger"> <span class="poptip-arrow poptip-arrow-left"><em>◆</em><i>◆</i></span>';
-				$output .= '<h3>'. $year .' 年'. $mon .' 月</h3>';
-				$output .= '<ul class="all_post_list">'; //输出月份
+                $mon = $mon_tmp;                
+                $output .= '<section><header><h4>'. $year .'/'. $mon .'</h4></header>';
+                $output .= '<article><ul class="list-unstyled">';
             }
-            $output .= '<li><i class="fa fa-angle-double-right"></i>'. get_the_time('d日: ') .'<a href="'. get_permalink() .'">'. get_the_title() .'</a> <em>('. get_comments_number('0', '1', '%') .')</em></li>'; //输出文章日期和标题
+            $output .= '<li><h3 class="fs-xs text-nowrap-2x"><a href="'. get_permalink() .'" title="'. get_the_title() .'">▪ '. get_the_title() .'</a></h3><p class="text-muted"><span class="meta-date"><i class="fa fa-calendar-check-o fa-fw"></i> '. get_the_time('y/m/d') .' </span><span class="meta-comment mh-1x"><i class="fa fa-comment-o fa-fw"></i> '. get_comments_number('0', '1', '%') .' </span><span class="meta-view"><i class="fa fa-eye fa-fw"></i> '. get_post_views() .' </span></p></li>';
         endwhile;
         wp_reset_postdata();
-        $output .= '</ul></div></div></li></ul>';
-		$output .= '<div class="time-line-last">......</div>';
 		$output .= '</div>';
         update_option('zww_archives_list', $output);
     }
@@ -145,8 +158,8 @@ function zww_archives_list() {
 function clear_zal_cache() {
     update_option('zww_archives_list', ''); // 清空 zww_archives_list
 }
+//add_action('init', 'clear_zal_cache');
 add_action('save_post', 'clear_zal_cache'); // 新发表文章/修改文章时 
-
 /**
  * WordPress 修改时间的显示格式为几天前
  * http://www.wpdaxue.com/time-ago.html
@@ -185,4 +198,4 @@ function Bing_filter_time(){
     }
     return $time;
 }
-add_filter('the_time','Bing_filter_time');
+//add_filter('the_time','Bing_filter_time');

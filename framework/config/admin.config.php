@@ -1,6 +1,6 @@
 <?php if ( ! defined( 'ABSPATH' ) ) { die; } // Cannot access pages directly.
-$login_privateUrl=site_url().'/wp-login.php?q='.cs_get_manager_option( 'login_privateKey' );//加密后台登录地址
-$current_loginUrl=(cs_get_manager_option( 'enable_loginPrivate' )==true && cs_get_manager_option( 'login_privateKey' ))? $login_privateUrl : site_url().'/wp-login.php';//当前后台登录地址
+$login_privateUrl=site_url().'/wp-login.php?q='.cs_get_admin_option( 'login_privateKey' );//加密后台登录地址
+$current_loginUrl=(cs_get_admin_option( 'enable_loginPrivate' )==true && cs_get_admin_option( 'login_privateKey' ))? $login_privateUrl : site_url().'/wp-login.php';//当前后台登录地址
 // ===============================================================================================
 // -----------------------------------------------------------------------------------------------
 // FRAMEWORK SETTINGS
@@ -12,7 +12,7 @@ $settings           = array(
   'menu_parent'     => 'theme-setting',
   'menu_slug'       => 'admin-setting',
   //'menu_icon'  => 'dashicons-sos',
-  'ajax_save'       => true,
+  //'ajax_save'       => true,
   'show_reset_all'  => true,
   'framework_title' => 'ThemeBase <small>by <a href="http://www.yiwell.com" target="_blank" style="outline:none;border:none;text-decoration:none" onfocus="this.blur()">Yiwell</a></small>',
 );
@@ -125,6 +125,14 @@ $options[]   = array(
     'default' => false,
     'label'   => __('JSON REST API 采用 GET 请求方式来获取数据,为 DDOS 攻击提供了一个新的攻击途径，如果有开发APP请开启','CS_TEXTDOMAIN'),
     ), 
+
+    array(
+        'id'      => 'enable_wp_embed',
+        'type'    => 'switcher',
+        'title'   => __('embeds功能（建议禁用）','CS_TEXTDOMAIN'),
+        'default' => false,
+        'label'   => __('wordpress 4.4的embeds功能可以允许更方便的引用第三方资源,一般用不到，关闭后前端移除移除wp-embed.min.js文件','CS_TEXTDOMAIN'),
+    ),
 
   ), // end: fields
 
@@ -758,33 +766,6 @@ $options[]   = array(
     array(
       'type'    => 'backup',
     ),
-
-  )
-);
-
-// ------------------------------
-// license                      -
-// ------------------------------
-$options[]   = array(
-  'name'     => 'admin_license_section',
-  'title'    => __('关于插件','CS_TEXTDOMAIN'),
-  'icon'     => 'fa fa-info-circle',
-  'fields'   => array(
-
-    array(
-      'type'    => 'heading',
-      'content' => __('超级优化（super manager）','CS_TEXTDOMAIN'),
-    ),
-    array(
-      'type'    => 'content',
-      'content' => __('超级优化（super manager）旨在通过优化使网站加载速度更快、更安全！提升用户体验！','CS_TEXTDOMAIN'),
-    ),
-
-    /* array(
-        'type'    => 'notice',
-        'class'   => 'info',
-        'content' => '<iframe src="'.get_template_directory_uri().'/inc/super-manager/content/jquery.cdn.html" width="100%"></iframe>',
-    ),*/	
 
   )
 );

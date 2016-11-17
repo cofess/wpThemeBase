@@ -10,7 +10,7 @@ $settings           = array(
   'menu_parent'     => 'theme-setting',
   'menu_slug'       => 'manager-setting',
   //'menu_icon'  => 'dashicons-sos',
-  'ajax_save'       => true,
+  //'ajax_save'       => true,
   'show_reset_all'  => true,
   'framework_title' => 'ThemeBase <small>by <a href="http://www.yiwell.com" target="_blank" style="outline:none;border:none;text-decoration:none" onfocus="this.blur()">Yiwell</a></small>',
 );
@@ -223,7 +223,7 @@ $options[]   = array(
           'title'  => __('Jquery 引用地址','CS_TEXTDOMAIN'),
           'after'  => '<p class="cs-text-muted">'.__('说明：百度、新浪、谷歌提供常用的JS库CDN加速服务，引用这些资源获取更快的访问速度','CS_TEXTDOMAIN').'</p>',
 		  'dependency'    => array( 'enable_jquery_cdn', '==', 'true' ),
-		  'default' => get_template_directory_uri()."/lib/js/jquery-1.9.1.min.js",
+		  'default' => get_template_directory_uri()."/lib/base/js/jquery-1.9.1.min.js",
 		  'attributes'    => array(
             'placeholder' => __('输入Jquery引用地址','CS_TEXTDOMAIN'),
           )
@@ -1037,33 +1037,6 @@ $options[]   = array(
     array(
       'type'    => 'backup',
     ),
-
-  )
-);
-
-// ------------------------------
-// license                      -
-// ------------------------------
-$options[]   = array(
-  'name'     => 'manager_license_section',
-  'title'    => __('关于插件','CS_TEXTDOMAIN'),
-  'icon'     => 'fa fa-info-circle',
-  'fields'   => array(
-
-    array(
-      'type'    => 'heading',
-      'content' => __('超级优化（super manager）','CS_TEXTDOMAIN'),
-    ),
-    array(
-      'type'    => 'content',
-      'content' => __('超级优化（super manager）旨在通过优化使网站加载速度更快、更安全！提升用户体验！','CS_TEXTDOMAIN'),
-    ),
-
-    /* array(
-        'type'    => 'notice',
-        'class'   => 'info',
-        'content' => '<iframe src="'.get_template_directory_uri().'/inc/super-manager/content/jquery.cdn.html" width="100%"></iframe>',
-    ),*/	
 
   )
 );

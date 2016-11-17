@@ -1,45 +1,52 @@
 <?php
 /**
- * The template for displaying all single posts
  *
- * @package WordPress
- * @subpackage Twenty_Thirteen
- * @since Twenty Thirteen 1.0
- */
+ * @package   Yiwell
+ * @version   1.0.0
+ * @author    Lony <841995980@qq.com>
+ * @copyright Copyright (c) 2014-2016, yiwell
+ * @license   http://opensource.org/licenses/gpl-2.0.php GPL v2 or later
+ * @link      http://www.yiwell.com
+**/
 
 get_header(); ?>
 <!-- main -->
-<main class="main" id="content" role="main">
-  <div class="page-content">
-    <div class="container">
-      <div class="row prelative">
-        <div class="col-md-12 col-lg-3 sidebarbg br b-light hidden-xs hidden-sm hidden-md"></div>
-        <?php get_sidebar(); ?>
-        <div class="col-md-12 col-lg-9">
-          <div class="p-md"> 
-            <!--entity-->
+<main class="main" id="main" role="main">
+  <section class="page-content">   
+    <div class="container-fluid">
+      <div class="row relative">
+        <!-- content -->
+        <div class="col-md-12 col-lg-8 col-xl-9 pv-3x">
+          <div id="content">
+            <!-- article -->
             <?php if ( have_posts() ) :  while ( have_posts() ) : the_post(); ?>
-            <section id="detail">
-              <article id="page-<?php the_ID(); ?>" <?php post_class(); ?>>
-                <div class="entity-content">
-                  <?php the_content(); ?>
-                  <p class="meta-tags text-muted mv-lg">
-                    <?php the_tags('<i class="fa fa-tags"></i> Tags：', ', ', ''); ?>
-                  </p>
-                </div>
-              </article>
-            </section>
-            <?php endwhile;endif; ?>
-            <!--/entity-->
-            <section id="comments">
-              <?php if (comments_open()) comments_template( '', true ); ?>
-            </section>
+            <article class="entity">
+              <!-- entity-header -->
+              <div class="entity-header">
+                <h2 class="page-header fs-sm mheight-ss mt-2x"><?php the_title(); ?></h2>
+              </div>
+              <!-- /entity-header -->
+              <!-- entity-body -->
+              <div class="entity-body mv-4x lh">
+                <?php the_content(); ?>
+              </div>
+              <!-- /entity-body -->
+            </article>
+            <?php endwhile; endif; ?>
+            <!-- /article -->
+          </div>
+          <!--<div class="social-share" data-sites="facebook,twitter,google,linkedin"></div>-->
+          <div id="comments">
+            <?php if (comments_open()) comments_template( '', true ); ?>
           </div>
         </div>
-        <div class="clear"></div>
+        <!-- /content -->
+        <!-- side -->
+        <?php get_sidebar(); ?>
+       <!-- /side -->                                                                               
       </div>
-    </div>
-  </div>
+      <!-- /row -->
+    </div>   
+  </section>
 </main>
-<!-- /main -->
 <?php get_footer(); ?>

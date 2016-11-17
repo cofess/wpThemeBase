@@ -24,7 +24,8 @@ function wpjam_get_post_thumbnail($post=null, $size='thumbnail', $crop=1, $class
 
 		$hwstring = image_hwstring($width, $height);
 
-		return '<img src="'.$post_thumbnail_src.'" alt="'.the_title_attribute(array('echo'=>false)).'" class="'.$class.'"'.$hwstring.' />';
+		//return '<img src="'.$post_thumbnail_src.'" alt="'.the_title_attribute(array('echo'=>false)).'" class="'.$class.'"'.$hwstring.' />';
+		return '<img data-original="'.$post_thumbnail_src.'" alt="'.the_title_attribute(array('echo'=>false)).'" class="lazy '.$class.'"'.$hwstring.' /><noscript><img src="'.$post_thumbnail_src.'" alt="'.the_title_attribute(array('echo'=>false)).'" class="'.$class.'"'.$hwstring.' /></noscript>';
 	}else{
 		return false;
 	}	
