@@ -32,7 +32,7 @@ get_header(); ?>
         <!-- /item -->                                                                                     
       </div>
       <!-- /row -->
-      <nav class="text-xs-center text-sm-center">
+      <!--<nav class="text-xs-center text-sm-center">
         <?php if(function_exists('bootstrap_pagination')) { bootstrap_pagination($loop->max_num_pages); } ?>
         <form class="form-inline navbar-right mr-no mv-2x hidden-xs hidden-sm" action="<?php echo $_SERVER['REQUEST_URI'];?>" method="get">
           <div class="form-group"> 
@@ -45,7 +45,7 @@ get_header(); ?>
             </div>
           </div>
         </form> 
-      </nav>
+      </nav>-->
     </div>
     <?php else : ?>
       <?php get_template_part( "content/public/not-found" ) ?>
